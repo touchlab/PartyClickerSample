@@ -1,4 +1,7 @@
 package com.kgalligan.partyclicker.data;
+import com.google.auto.value.AutoValue;
+import com.squareup.sqldelight.RowMapper;
+
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -10,23 +13,18 @@ import co.touchlab.squeaky.table.DatabaseTable;
 /**
  * Created by kgalligan on 1/5/17.
  */
-@DatabaseTable
-public class Party
+@AutoValue
+public abstract class Party implements PartyModel
 {
     private static final SimpleDateFormat timeFormat = new SimpleDateFormat("MM/dd/yyyy hh:MM a");
     private static final DateFormat       standardDateFormat = DateFormat.getDateInstance(DateFormat.MEDIUM);
     private static final DateFormat       standardTimeFormat = DateFormat.getTimeInstance(DateFormat.SHORT);
 
-    @DatabaseField(generatedId = true)
-    public int id;
+    public static final PartyModel.Factory<Party> FACTORY = new PartyModel.Factory<Party>(AutoValue_Party::new);
 
-    @DatabaseField
-    public String name;
+    public static final RowMapper<Party> SELECT_ALL_MAPPER = FACTORY.selectAllMapper();
 
-    @DatabaseField(dataType = DataType.DATE_LONG)
-    public Date created;
-
-    public String dateString()
+    /*public String dateString()
     {
         return standardDateFormat.format(created) + " - " + standardTimeFormat.format(created);
     }
@@ -50,5 +48,5 @@ public class Party
     public Date getCreated()
     {
         return created;
-    }
+    }*/
 }

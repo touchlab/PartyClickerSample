@@ -1,0 +1,14 @@
+CREATE TABLE party (
+    _id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    name TEXT NOT NULL,
+    created INTEGER NOT NULL
+);
+
+selectAll:
+SELECT * FROM party;
+
+createParty:
+INSERT INTO party(name, created)VALUES(?, ?);
+
+deleteParty:
+DELETE FROM party where _id = ?;
