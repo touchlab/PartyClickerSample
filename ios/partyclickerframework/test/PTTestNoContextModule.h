@@ -25,6 +25,9 @@
 
 - (instancetype)init;
 
+- (instancetype)initWithPDDataProvider:(id<PDDataProvider>)dataProvider
+                   withPPCrashReporter:(id<PPCrashReporter>)crashReporter;
+
 #pragma mark Package-Private
 
 - (id<PPCrashReporter>)providesCrashReporter;
@@ -36,6 +39,12 @@
 @end
 
 J2OBJC_EMPTY_STATIC_INIT(PTTestNoContextModule)
+
+FOUNDATION_EXPORT void PTTestNoContextModule_initWithPDDataProvider_withPPCrashReporter_(PTTestNoContextModule *self, id<PDDataProvider> dataProvider, id<PPCrashReporter> crashReporter);
+
+FOUNDATION_EXPORT PTTestNoContextModule *new_PTTestNoContextModule_initWithPDDataProvider_withPPCrashReporter_(id<PDDataProvider> dataProvider, id<PPCrashReporter> crashReporter) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT PTTestNoContextModule *create_PTTestNoContextModule_initWithPDDataProvider_withPPCrashReporter_(id<PDDataProvider> dataProvider, id<PPCrashReporter> crashReporter);
 
 FOUNDATION_EXPORT void PTTestNoContextModule_init(PTTestNoContextModule *self);
 

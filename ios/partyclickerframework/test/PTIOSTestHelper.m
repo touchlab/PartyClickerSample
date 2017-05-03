@@ -6,8 +6,9 @@
 #include "IOSClass.h"
 #include "IOSObjectArray.h"
 #include "J2ObjC_source.h"
-#include "PDDatabaseHelperTest.h"
 #include "PDModPersonTaskTest.h"
+#include "PDSqldelightOpenHelperTest.h"
+#include "PPCrashReporterTest.h"
 #include "PPPartyListPresenterTest.h"
 #include "PPPartyPresenterTest.h"
 #include "PTIOSTestHelper.h"
@@ -55,7 +56,7 @@ PTIOSTestHelper *create_PTIOSTestHelper_init() {
 
 jint PTIOSTestHelper_runTests() {
   PTIOSTestHelper_initialize();
-  return CoTouchlabDopplTestingDopplJunitTestHelper_runWithIOSClassArray_([IOSObjectArray arrayWithObjects:(id[]){ PDDatabaseHelperTest_class_(), PDModPersonTaskTest_class_(), PPPartyListPresenterTest_class_(), PPPartyPresenterTest_class_() } count:4 type:IOSClass_class_()]);
+  return CoTouchlabDopplTestingDopplJunitTestHelper_runWithIOSClassArray_([IOSObjectArray arrayWithObjects:(id[]){ PDSqldelightOpenHelperTest_class_(), PDModPersonTaskTest_class_(), PPPartyListPresenterTest_class_(), PPPartyPresenterTest_class_(), PPCrashReporterTest_class_() } count:5 type:IOSClass_class_()]);
 }
 
 J2OBJC_CLASS_TYPE_LITERAL_SOURCE(PTIOSTestHelper)

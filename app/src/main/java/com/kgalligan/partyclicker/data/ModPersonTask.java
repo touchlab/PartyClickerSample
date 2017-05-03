@@ -10,8 +10,8 @@ package com.kgalligan.partyclicker.data;
 
 public class ModPersonTask implements Runnable
 {
-    private final Party party;
-    private final boolean coming;
+    private final Party        party;
+    private final boolean      coming;
     private final DataProvider databaseHelper;
 
     public ModPersonTask(Party party, boolean coming, DataProvider databaseHelper)

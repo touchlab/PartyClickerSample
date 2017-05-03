@@ -15,11 +15,11 @@
 #if !defined (PTTestComponent_) && (INCLUDE_ALL_PTTestComponent || defined(INCLUDE_PTTestComponent))
 #define PTTestComponent_
 
-@class PDDatabaseHelperTest;
+@class PDSqldelightOpenHelperTest;
 
 @protocol PTTestComponent < JavaObject >
 
-- (void)injectWithPDDatabaseHelperTest:(PDDatabaseHelperTest *)helperTest;
+- (void)injectWithPDSqldelightOpenHelperTest:(PDSqldelightOpenHelperTest *)helperTest;
 
 @end
 

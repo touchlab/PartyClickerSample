@@ -15,35 +15,41 @@
 #if !defined (PDPerson_) && (INCLUDE_ALL_PDPerson || defined(INCLUDE_PDPerson))
 #define PDPerson_
 
-@class JavaUtilDate;
-@class PDParty;
+#define RESTRICT_PDPersonModel 1
+#define INCLUDE_PDPersonModel 1
+#include "PDPersonModel.h"
 
-@interface PDPerson : NSObject {
- @public
-  jint id__;
-  JavaUtilDate *recorded_;
-  jshort val_;
-  PDParty *party_;
-}
+@class PDPersonModel_Factory;
+@protocol ComSquareupSqldelightRowMapper;
+
+@interface PDPerson : NSObject < PDPersonModel >
 
 #pragma mark Public
 
 - (instancetype)init;
 
-- (NSString *)recordedString;
++ (PDPerson *)createWithLong:(jlong)id_
+                    withLong:(jlong)recorded
+                    withLong:(jlong)val
+                    withLong:(jlong)party;
 
 @end
 
 J2OBJC_STATIC_INIT(PDPerson)
 
-J2OBJC_FIELD_SETTER(PDPerson, recorded_, JavaUtilDate *)
-J2OBJC_FIELD_SETTER(PDPerson, party_, PDParty *)
+inline PDPersonModel_Factory *PDPerson_get_FACTORY();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT PDPersonModel_Factory *PDPerson_FACTORY;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(PDPerson, FACTORY, PDPersonModel_Factory *)
+
+inline id<ComSquareupSqldelightRowMapper> PDPerson_get_SELECT_ALL_MAPPER();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT id<ComSquareupSqldelightRowMapper> PDPerson_SELECT_ALL_MAPPER;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(PDPerson, SELECT_ALL_MAPPER, id<ComSquareupSqldelightRowMapper>)
 
 FOUNDATION_EXPORT void PDPerson_init(PDPerson *self);
 
-FOUNDATION_EXPORT PDPerson *new_PDPerson_init() NS_RETURNS_RETAINED;
-
-FOUNDATION_EXPORT PDPerson *create_PDPerson_init();
+FOUNDATION_EXPORT PDPerson *PDPerson_createWithLong_withLong_withLong_withLong_(jlong id_, jlong recorded, jlong val, jlong party);
 
 J2OBJC_TYPE_LITERAL_HEADER(PDPerson)
 

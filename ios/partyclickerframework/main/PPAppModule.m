@@ -9,7 +9,7 @@
 #include "IOSObjectArray.h"
 #include "J2ObjC_source.h"
 #include "PDDataProvider.h"
-#include "PDDatabaseHelper.h"
+#include "PDSqldelightOpenHelper.h"
 #include "PPAppModule.h"
 #include "PPCrashReporter.h"
 #include "RxAndroidSchedulersAndroidSchedulers.h"
@@ -77,7 +77,7 @@ __attribute__((unused)) static PPAppModule_$Lambda$1 *create_PPAppModule_$Lambda
 }
 
 - (id<PDDataProvider>)providesDataProviderWithAndroidAppApplication:(AndroidAppApplication *)application {
-  return create_PDDatabaseHelper_initWithAndroidContentContext_(application);
+  return create_PDSqldelightOpenHelper_initWithAndroidContentContext_(application);
 }
 
 - (id<RxObservable_Transformer>)providesSchedulerTransformer {

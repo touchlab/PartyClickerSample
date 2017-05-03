@@ -1,6 +1,9 @@
 package com.kgalligan.partyclicker.data;
 import android.app.Application;
 
+import com.kgalligan.partyclicker.data.Party;
+import com.kgalligan.partyclicker.data.Person;
+import com.kgalligan.partyclicker.data.SqldelightOpenHelper;
 import com.kgalligan.partyclicker.test.DaggerTestComponent;
 import com.kgalligan.partyclicker.test.TestAppModule;
 import com.kgalligan.partyclicker.test.TestComponent;
@@ -8,7 +11,6 @@ import com.kgalligan.partyclicker.test.TestComponent;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-
 
 import java.util.HashSet;
 import java.util.List;
@@ -19,18 +21,19 @@ import javax.inject.Inject;
 import co.touchlab.doppl.testing.DopplRobolectricTestRunner;
 
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 /**
  * Created by kgalligan on 4/27/17.
  */
 @RunWith(DopplRobolectricTestRunner.class)
-public class DatabaseHelperTest
+public class SqldelightOpenHelperTest
 {
     @Inject
     Application application;
 
-    DatabaseHelper databaseHelper;
+    SqldelightOpenHelper databaseHelper;
     private Party party;
 
     @Before
@@ -41,28 +44,28 @@ public class DatabaseHelperTest
                 .build();
 
         testComponent.inject(this);
-        databaseHelper = new DatabaseHelper(application);
+        databaseHelper = new SqldelightOpenHelper(application);
         party = databaseHelper.createParty("Hello test");
     }
 
     @Test
     public void countCurrentParty() throws Exception
     {
-        assertEquals(0, databaseHelper.countCurrentParty(party.id));
+        assertEquals(0, databaseHelper.countCurrentParty((int)party.id()));
 
         databaseHelper.addPerson(party, true);
         databaseHelper.addPerson(party, true);
         databaseHelper.addPerson(party, true);
 
-        assertEquals(3, databaseHelper.countCurrentParty(party.id));
+        assertEquals(3, databaseHelper.countCurrentParty((int)party.id()));
 
         databaseHelper.addPerson(party, false);
 
-        assertEquals(2, databaseHelper.countCurrentParty(party.id));
+        assertEquals(2, databaseHelper.countCurrentParty((int)party.id()));
 
         databaseHelper.addPerson(party, true);
 
-        assertEquals(3, databaseHelper.countCurrentParty(party.id));
+        assertEquals(3, databaseHelper.countCurrentParty((int)party.id()));
     }
 
     @Test
@@ -80,7 +83,7 @@ public class DatabaseHelperTest
         Set<Integer> allIds = new HashSet<>();
         for(Person person : people)
         {
-            allIds.add(person.id);
+            allIds.add((int)person.id());
         }
 
         assertEquals(5, allIds.size());
@@ -96,7 +99,7 @@ public class DatabaseHelperTest
         databaseHelper.addPerson(party, true);
 
         assertEquals(5, databaseHelper.allPeopleForParty(party).size());
-        assertEquals(3, databaseHelper.countCurrentParty(party.id));
+        assertEquals(3, databaseHelper.countCurrentParty((int)party.id()));
     }
 
     @Test
@@ -116,7 +119,7 @@ public class DatabaseHelperTest
         assertEquals(2, parties.size());
         for(Party p : parties)
         {
-            assertTrue(p.name.equals("asdf") || p.name.equals("Hello test"));
+            assertTrue(p.name().equals("asdf") || p.name().equals("Hello test"));
         }
     }
 
@@ -130,7 +133,7 @@ public class DatabaseHelperTest
         int deleteCount = 0;
         for(Party p : parties)
         {
-            if(!p.name.equals("asdf"))
+            if(!p.name().equals("asdf"))
             {
                 databaseHelper.deleteParty(p);
                 deleteCount++;
@@ -141,16 +144,16 @@ public class DatabaseHelperTest
 
         List<Party> laterParties = databaseHelper.allParties();
         assertEquals(1, laterParties.size());
-        assertEquals("asdf", laterParties.get(0).name);
+        assertEquals("asdf", laterParties.get(0).name());
     }
 
     @Test
     public void loadParty() throws Exception
     {
         Party jjjjjjj = databaseHelper.createParty("jjjjjjj");
-        Party party = databaseHelper.loadParty(jjjjjjj.id);
-        assertEquals(party.name, "jjjjjjj");
-        assertEquals(party.name, jjjjjjj.name);
+        Party party = databaseHelper.loadParty((int)jjjjjjj.id());
+        assertEquals(party.name(), "jjjjjjj");
+        assertEquals(party.name(), jjjjjjj.name());
     }
 
 }

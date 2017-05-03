@@ -1,5 +1,5 @@
 package com.kgalligan.partyclicker.test;
-import com.kgalligan.partyclicker.data.DatabaseHelperTest;
+import com.kgalligan.partyclicker.data.SqldelightOpenHelperTest;
 
 import javax.inject.Singleton;
 
@@ -12,5 +12,5 @@ import dagger.Component;
 @Component(modules = {TestAppModule.class})
 public interface TestComponent
 {
-    void inject(DatabaseHelperTest helperTest);
+    void inject(SqldelightOpenHelperTest helperTest);
 }

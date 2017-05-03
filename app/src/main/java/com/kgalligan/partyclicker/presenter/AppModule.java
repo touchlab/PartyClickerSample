@@ -2,7 +2,7 @@ package com.kgalligan.partyclicker.presenter;
 import android.app.Application;
 
 import com.kgalligan.partyclicker.data.DataProvider;
-import com.kgalligan.partyclicker.data.DatabaseHelper;
+import com.kgalligan.partyclicker.data.SqldelightOpenHelper;
 
 import javax.inject.Singleton;
 
@@ -45,7 +45,7 @@ public class AppModule
     @Singleton
     DataProvider providesDataProvider(Application application)
     {
-        return new DatabaseHelper(application);
+        return new SqldelightOpenHelper(application);
     }
 
     @Provides

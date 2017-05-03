@@ -1,4 +1,5 @@
 package com.kgalligan.partyclicker.presenter;
+
 import com.kgalligan.partyclicker.data.Party;
 import com.kgalligan.partyclicker.test.DaggerTestNoContextComponent;
 import com.kgalligan.partyclicker.test.MemoryDataProvider;
@@ -8,8 +9,6 @@ import com.kgalligan.partyclicker.test.TestNoContextModule;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;
-
-import dagger.Module;
 
 /**
  * Created by kgalligan on 5/2/17.

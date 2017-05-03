@@ -6,47 +6,35 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import co.touchlab.squeaky.field.DataType;
-import co.touchlab.squeaky.field.DatabaseField;
-import co.touchlab.squeaky.table.DatabaseTable;
-
 /**
- * Created by kgalligan on 1/5/17.
+ * Created by kgalligan on 5/2/17.
  */
+
 @AutoValue
 public abstract class Party implements PartyModel
 {
-    private static final SimpleDateFormat timeFormat = new SimpleDateFormat("MM/dd/yyyy hh:MM a");
-    private static final DateFormat       standardDateFormat = DateFormat.getDateInstance(DateFormat.MEDIUM);
-    private static final DateFormat       standardTimeFormat = DateFormat.getTimeInstance(DateFormat.SHORT);
-
-    public static final PartyModel.Factory<Party> FACTORY = new PartyModel.Factory<Party>(AutoValue_Party::new);
-
-    public static final RowMapper<Party> SELECT_ALL_MAPPER = FACTORY.selectAllMapper();
-
-    /*public String dateString()
+    public static Party create(long id,
+            String name,
+            long created)
     {
-        return standardDateFormat.format(created) + " - " + standardTimeFormat.format(created);
+        return new AutoValue_Party(id, name, created);
+    }
+
+    public String dateString()
+    {
+        Date date = new Date(created());
+        return standardDateFormat.format(date) + " - " + standardTimeFormat.format(date);
     }
 
     @Override
     public String toString()
     {
-        return name + " - " + timeFormat.format(created);
+        return name() + " - " + timeFormat.format(new Date(created()));
     }
 
-    public int getId()
-    {
-        return id;
-    }
+    private static final SimpleDateFormat timeFormat         = new SimpleDateFormat("MM/dd/yyyy hh:MM a");
+    private static final DateFormat       standardDateFormat = DateFormat.getDateInstance(DateFormat.MEDIUM);
+    private static final DateFormat       standardTimeFormat = DateFormat.getTimeInstance(DateFormat.SHORT);
 
-    public String getName()
-    {
-        return name;
-    }
-
-    public Date getCreated()
-    {
-        return created;
-    }*/
+    public static final PartyModel.Factory<Party> FACTORY = new PartyModel.Factory<>(AutoValue_Party::new);
 }

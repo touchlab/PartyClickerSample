@@ -1,9 +1,9 @@
 package com.kgalligan.partyclicker.test;
 import com.kgalligan.partyclicker.data.ModPersonTaskTest;
-import com.kgalligan.partyclicker.presenter.PartyPresenter;
-import com.kgalligan.partyclicker.presenter.PartyPresenterTest;
 import com.kgalligan.partyclicker.presenter.PartyListPresenter;
 import com.kgalligan.partyclicker.presenter.PartyListPresenterTest;
+import com.kgalligan.partyclicker.presenter.PartyPresenter;
+import com.kgalligan.partyclicker.presenter.PartyPresenterTest;
 
 import javax.inject.Singleton;
 

@@ -270,6 +270,7 @@ J2OBJC_IGNORE_DESIGNATED_END
 }
 
 - (void)createPartyWithNSString:(NSString *)name {
+  [((id<PPCrashReporter>) nil_chk(crashReporter_)) logWithNSString:JreStrcat("$$", @"Creating: ", name)];
   [((RxObservable *) nil_chk([((RxObservable *) nil_chk(RxObservable_createWithRxObservable_OnSubscribe_(create_PPPartyListPresenter_$Lambda$7_initWithPPPartyListPresenter_withNSString_(self, name)))) composeWithRxObservable_Transformer:schedulerTransformer_])) subscribeWithRxFunctionsAction1:create_PPPartyListPresenter_$Lambda$8_initWithPPPartyListPresenter_(self) withRxFunctionsAction1:create_PPPartyListPresenter_$Lambda$9_initWithPPPartyListPresenter_(self)];
 }
 
@@ -278,7 +279,7 @@ J2OBJC_IGNORE_DESIGNATED_END
 }
 
 - (jint)countPeopleWithPDParty:(PDParty *)party {
-  return [((id<PDDataProvider>) nil_chk(databaseHelper_)) countCurrentPartyWithInt:((PDParty *) nil_chk(party))->id__];
+  return [((id<PDDataProvider>) nil_chk(databaseHelper_)) countCurrentPartyWithInt:(jint) [((PDParty *) nil_chk(party)) id__]];
 }
 
 - (id<JavaUtilList>)allPeopleWithPDParty:(PDParty *)party {

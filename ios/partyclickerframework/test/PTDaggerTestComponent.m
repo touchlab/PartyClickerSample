@@ -7,8 +7,8 @@
 #include "DaggerInternalPreconditions.h"
 #include "DaggerMembersInjector.h"
 #include "J2ObjC_source.h"
-#include "PDDatabaseHelperTest.h"
-#include "PDDatabaseHelperTest_MembersInjector.h"
+#include "PDSqldelightOpenHelperTest.h"
+#include "PDSqldelightOpenHelperTest_MembersInjector.h"
 #include "PTDaggerTestComponent.h"
 #include "PTTestAppModule.h"
 #include "PTTestAppModule_ProvidesApplicationFactory.h"
@@ -18,7 +18,7 @@
 @interface PTDaggerTestComponent () {
  @public
   id<JavaxInjectProvider> providesApplicationProvider_;
-  id<DaggerMembersInjector> databaseHelperTestMembersInjector_;
+  id<DaggerMembersInjector> sqldelightOpenHelperTestMembersInjector_;
 }
 
 - (instancetype)initWithPTDaggerTestComponent_Builder:(PTDaggerTestComponent_Builder *)builder;
@@ -28,7 +28,7 @@
 @end
 
 J2OBJC_FIELD_SETTER(PTDaggerTestComponent, providesApplicationProvider_, id<JavaxInjectProvider>)
-J2OBJC_FIELD_SETTER(PTDaggerTestComponent, databaseHelperTestMembersInjector_, id<DaggerMembersInjector>)
+J2OBJC_FIELD_SETTER(PTDaggerTestComponent, sqldelightOpenHelperTestMembersInjector_, id<DaggerMembersInjector>)
 
 __attribute__((unused)) static void PTDaggerTestComponent_initWithPTDaggerTestComponent_Builder_(PTDaggerTestComponent *self, PTDaggerTestComponent_Builder *builder);
 
@@ -74,13 +74,13 @@ __attribute__((unused)) static PTDaggerTestComponent_Builder *create_PTDaggerTes
   PTDaggerTestComponent_initialize__WithPTDaggerTestComponent_Builder_(self, builder);
 }
 
-- (void)injectWithPDDatabaseHelperTest:(PDDatabaseHelperTest *)helperTest {
-  [((id<DaggerMembersInjector>) nil_chk(databaseHelperTestMembersInjector_)) injectMembersWithId:helperTest];
+- (void)injectWithPDSqldelightOpenHelperTest:(PDSqldelightOpenHelperTest *)helperTest {
+  [((id<DaggerMembersInjector>) nil_chk(sqldelightOpenHelperTestMembersInjector_)) injectMembersWithId:helperTest];
 }
 
 - (void)dealloc {
   RELEASE_(providesApplicationProvider_);
-  RELEASE_(databaseHelperTestMembersInjector_);
+  RELEASE_(sqldelightOpenHelperTestMembersInjector_);
   [super dealloc];
 }
 
@@ -98,13 +98,13 @@ __attribute__((unused)) static PTDaggerTestComponent_Builder *create_PTDaggerTes
   methods[1].selector = @selector(builder);
   methods[2].selector = @selector(create);
   methods[3].selector = @selector(initialize__WithPTDaggerTestComponent_Builder:);
-  methods[4].selector = @selector(injectWithPDDatabaseHelperTest:);
+  methods[4].selector = @selector(injectWithPDSqldelightOpenHelperTest:);
   #pragma clang diagnostic pop
   static const J2ObjcFieldInfo fields[] = {
     { "providesApplicationProvider_", "LJavaxInjectProvider;", .constantValue.asLong = 0, 0x2, -1, -1, 4, -1 },
-    { "databaseHelperTestMembersInjector_", "LDaggerMembersInjector;", .constantValue.asLong = 0, 0x2, -1, -1, 5, -1 },
+    { "sqldelightOpenHelperTestMembersInjector_", "LDaggerMembersInjector;", .constantValue.asLong = 0, 0x2, -1, -1, 5, -1 },
   };
-  static const void *ptrTable[] = { "LPTDaggerTestComponent_Builder;", "initialize", "inject", "LPDDatabaseHelperTest;", "Ljavax/inject/Provider<Landroid/app/Application;>;", "Ldagger/MembersInjector<Lcom/kgalligan/partyclicker/data/DatabaseHelperTest;>;" };
+  static const void *ptrTable[] = { "LPTDaggerTestComponent_Builder;", "initialize", "inject", "LPDSqldelightOpenHelperTest;", "Ljavax/inject/Provider<Landroid/app/Application;>;", "Ldagger/MembersInjector<Lcom/kgalligan/partyclicker/data/SqldelightOpenHelperTest;>;" };
   static const J2ObjcClassInfo _PTDaggerTestComponent = { "DaggerTestComponent", "com.kgalligan.partyclicker.test", ptrTable, methods, fields, 7, 0x11, 5, 2, -1, 0, -1, -1, -1 };
   return &_PTDaggerTestComponent;
 }
@@ -137,7 +137,7 @@ id<PTTestComponent> PTDaggerTestComponent_create() {
 
 void PTDaggerTestComponent_initialize__WithPTDaggerTestComponent_Builder_(PTDaggerTestComponent *self, PTDaggerTestComponent_Builder *builder) {
   JreStrongAssign(&self->providesApplicationProvider_, DaggerInternalDoubleCheck_providerWithJavaxInjectProvider_(PTTestAppModule_ProvidesApplicationFactory_createWithPTTestAppModule_(((PTDaggerTestComponent_Builder *) nil_chk(builder))->testAppModule_)));
-  JreStrongAssign(&self->databaseHelperTestMembersInjector_, PDDatabaseHelperTest_MembersInjector_createWithJavaxInjectProvider_(self->providesApplicationProvider_));
+  JreStrongAssign(&self->sqldelightOpenHelperTestMembersInjector_, PDSqldelightOpenHelperTest_MembersInjector_createWithJavaxInjectProvider_(self->providesApplicationProvider_));
 }
 
 J2OBJC_CLASS_TYPE_LITERAL_SOURCE(PTDaggerTestComponent)

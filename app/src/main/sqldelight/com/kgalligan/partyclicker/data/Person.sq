@@ -1,0 +1,19 @@
+CREATE TABLE person (
+    id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    recorded INTEGER NOT NULL,
+    val INTEGER NOT NULL,
+    party INTEGER NOT NULL,
+    FOREIGN KEY (party) REFERENCES party(id)
+);
+
+selectAll:
+SELECT * FROM person;
+
+selectAllForParty:
+SELECT * FROM person where party = ?;
+
+countParty:
+SELECT SUM(val) FROM person WHERE party = ?;
+
+createPerson:
+INSERT INTO person(recorded, val, party)VALUES (?, ?, ?);

@@ -1,6 +1,4 @@
 package com.kgalligan.partyclicker.presenter;
-import android.util.Log;
-
 import com.google.j2objc.annotations.Weak;
 import com.kgalligan.partyclicker.data.DataProvider;
 import com.kgalligan.partyclicker.data.Party;
@@ -108,7 +106,7 @@ public class PartyListPresenter
 
     public int countPeople(Party party)
     {
-        return databaseHelper.countCurrentParty(party.id);
+        return databaseHelper.countCurrentParty((int)party.id());
     }
 
     public List<Person> allPeople(Party party)

@@ -1,33 +1,24 @@
 package com.kgalligan.partyclicker.data;
-import java.text.DateFormat;
-import java.util.Date;
-
-import co.touchlab.squeaky.field.DataType;
-import co.touchlab.squeaky.field.DatabaseField;
-import co.touchlab.squeaky.table.DatabaseTable;
+import com.google.auto.value.AutoValue;
+import com.squareup.sqldelight.RowMapper;
 
 /**
- * Created by kgalligan on 1/5/17.
+ * Created by kgalligan on 5/2/17.
  */
-@DatabaseTable
-public class Person
+@AutoValue
+public abstract class Person implements PersonModel
 {
-    private static final DateFormat standardTimeFormat = DateFormat.getTimeInstance(DateFormat.MEDIUM);
-
-    @DatabaseField(generatedId = true)
-    public int id;
-
-    @DatabaseField(dataType = DataType.DATE_LONG)
-    public Date recorded;
-
-    @DatabaseField
-    public short val;
-
-    @DatabaseField(foreign = true, foreignAutoRefresh = true)
-    public Party party;
-
-    public String recordedString()
-    {
-        return standardTimeFormat.format(recorded);
+    public static Person create(long id,
+            long recorded,
+            long val,
+            long party){
+        return new AutoValue_Person(id, recorded, val, party);
     }
+
+
+
+    public static final PersonModel.Factory<Person> FACTORY = new PersonModel.Factory<Person>(
+            AutoValue_Person::new);
+
+    public static final RowMapper<Person> SELECT_ALL_MAPPER = FACTORY.selectAllMapper();
 }

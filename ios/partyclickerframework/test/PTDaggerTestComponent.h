@@ -19,7 +19,7 @@
 #define INCLUDE_PTTestComponent 1
 #include "PTTestComponent.h"
 
-@class PDDatabaseHelperTest;
+@class PDSqldelightOpenHelperTest;
 @class PTDaggerTestComponent_Builder;
 
 @interface PTDaggerTestComponent : NSObject < PTTestComponent >
@@ -30,7 +30,7 @@
 
 + (id<PTTestComponent>)create;
 
-- (void)injectWithPDDatabaseHelperTest:(PDDatabaseHelperTest *)helperTest;
+- (void)injectWithPDSqldelightOpenHelperTest:(PDSqldelightOpenHelperTest *)helperTest;
 
 @end
 

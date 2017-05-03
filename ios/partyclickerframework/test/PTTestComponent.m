@@ -25,9 +25,9 @@ __attribute__((unused)) static IOSObjectArray *PTTestComponent__Annotations$0();
   };
   #pragma clang diagnostic push
   #pragma clang diagnostic ignored "-Wobjc-multiple-method-names"
-  methods[0].selector = @selector(injectWithPDDatabaseHelperTest:);
+  methods[0].selector = @selector(injectWithPDSqldelightOpenHelperTest:);
   #pragma clang diagnostic pop
-  static const void *ptrTable[] = { "inject", "LPDDatabaseHelperTest;", (void *)&PTTestComponent__Annotations$0 };
+  static const void *ptrTable[] = { "inject", "LPDSqldelightOpenHelperTest;", (void *)&PTTestComponent__Annotations$0 };
   static const J2ObjcClassInfo _PTTestComponent = { "TestComponent", "com.kgalligan.partyclicker.test", ptrTable, methods, NULL, 7, 0x609, 1, 0, -1, -1, -1, -1, 2 };
   return &_PTTestComponent;
 }

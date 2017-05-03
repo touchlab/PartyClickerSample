@@ -1,6 +1,5 @@
 package com.kgalligan.partyclicker;
 
-import android.location.LocationListener;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -18,7 +17,7 @@ public class MainActivity extends AppCompatActivity implements PartyListPresente
 {
     private PartyListPresenter presenter;
 
-    private EditText partyNameString;
+    private EditText            partyNameString;
     private ArrayAdapter<Party> partyArrayAdapter;
 
     @Override
@@ -45,7 +44,7 @@ public class MainActivity extends AppCompatActivity implements PartyListPresente
         partyListView.setOnItemClickListener((parent, view, position, id) ->
         {
             Party party = (Party) partyListView.getAdapter().getItem(position);
-            presenter.callParty(party.id);
+            presenter.callParty((int)party.id());
         });
     }
 
@@ -86,6 +85,6 @@ public class MainActivity extends AppCompatActivity implements PartyListPresente
     @Override
     public void showParty(Party party)
     {
-        PartyActivity.callMe(MainActivity.this, party.id);
+        PartyActivity.callMe(MainActivity.this, (int)party.id());
     }
 }

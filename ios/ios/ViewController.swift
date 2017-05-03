@@ -76,7 +76,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        presenter.callParty(with: jint((parties.getWith(jint(indexPath.row)) as! PDParty).getId()))
+        presenter.callParty(with: jint((parties.getWith(jint(indexPath.row)) as! PDParty).id__()))
         tableView.deselectRow(at: indexPath, animated: false)
     }
     
@@ -98,7 +98,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         if (editingStyle == UITableViewCellEditingStyle.delete) {
             //[self.objects removeObjectAtIndex:indexPath.row];
             //[tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-            presenter.deleteParty(with: (parties.getWith(jint(indexPath.row)) as! PDParty).getId())
+            presenter.deleteParty(with: jint((parties.getWith(jint(indexPath.row)) as! PDParty).id__()))
             tableView.isEditing = false
         }
         

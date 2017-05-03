@@ -6,11 +6,10 @@ import com.kgalligan.partyclicker.test.TestNoContextModule;
 import org.junit.Before;
 import org.junit.Test;
 
-
 import javax.inject.Inject;
 
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 /**
  * Created by kgalligan on 4/27/17.
@@ -40,6 +39,6 @@ public class ModPersonTaskTest
         new ModPersonTask(party, false, dataProvider).run();
         new ModPersonTask(party, true, dataProvider).run();
 
-        assertEquals(dataProvider.countCurrentParty(party.id), 3);
+        assertEquals(dataProvider.countCurrentParty((int)party.id()), 3);
     }
 }

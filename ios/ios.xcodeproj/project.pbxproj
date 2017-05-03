@@ -13,6 +13,34 @@
 		633D9AD71EB81CDF00CF6686 /* PPCrashReporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 633D9AD11EB81CDF00CF6686 /* PPCrashReporter.m */; };
 		633D9AD81EB81CDF00CF6686 /* PPLogCrashReporter.h in Headers */ = {isa = PBXBuildFile; fileRef = 633D9AD21EB81CDF00CF6686 /* PPLogCrashReporter.h */; };
 		633D9AD91EB81CDF00CF6686 /* PPLogCrashReporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 633D9AD31EB81CDF00CF6686 /* PPLogCrashReporter.m */; };
+		633D9B251EBA02F500CF6686 /* ComSquareupSqldelightColumnAdapter.h in Headers */ = {isa = PBXBuildFile; fileRef = 633D9B091EBA02F500CF6686 /* ComSquareupSqldelightColumnAdapter.h */; };
+		633D9B261EBA02F500CF6686 /* ComSquareupSqldelightColumnAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 633D9B0A1EBA02F500CF6686 /* ComSquareupSqldelightColumnAdapter.m */; };
+		633D9B271EBA02F500CF6686 /* ComSquareupSqldelightEnumColumnAdapter.h in Headers */ = {isa = PBXBuildFile; fileRef = 633D9B0B1EBA02F500CF6686 /* ComSquareupSqldelightEnumColumnAdapter.h */; };
+		633D9B281EBA02F500CF6686 /* ComSquareupSqldelightEnumColumnAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 633D9B0C1EBA02F500CF6686 /* ComSquareupSqldelightEnumColumnAdapter.m */; };
+		633D9B291EBA02F500CF6686 /* ComSquareupSqldelightInternalSqliteLiterals.h in Headers */ = {isa = PBXBuildFile; fileRef = 633D9B0D1EBA02F500CF6686 /* ComSquareupSqldelightInternalSqliteLiterals.h */; };
+		633D9B2A1EBA02F500CF6686 /* ComSquareupSqldelightInternalSqliteLiterals.m in Sources */ = {isa = PBXBuildFile; fileRef = 633D9B0E1EBA02F500CF6686 /* ComSquareupSqldelightInternalSqliteLiterals.m */; };
+		633D9B2B1EBA02F500CF6686 /* ComSquareupSqldelightRowMapper.h in Headers */ = {isa = PBXBuildFile; fileRef = 633D9B0F1EBA02F500CF6686 /* ComSquareupSqldelightRowMapper.h */; };
+		633D9B2C1EBA02F500CF6686 /* ComSquareupSqldelightRowMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 633D9B101EBA02F500CF6686 /* ComSquareupSqldelightRowMapper.m */; };
+		633D9B2D1EBA02F500CF6686 /* ComSquareupSqldelightSqlDelightCompiledStatement.h in Headers */ = {isa = PBXBuildFile; fileRef = 633D9B111EBA02F500CF6686 /* ComSquareupSqldelightSqlDelightCompiledStatement.h */; };
+		633D9B2E1EBA02F500CF6686 /* ComSquareupSqldelightSqlDelightCompiledStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = 633D9B121EBA02F500CF6686 /* ComSquareupSqldelightSqlDelightCompiledStatement.m */; };
+		633D9B2F1EBA02F500CF6686 /* ComSquareupSqldelightSqlDelightStatement.h in Headers */ = {isa = PBXBuildFile; fileRef = 633D9B131EBA02F500CF6686 /* ComSquareupSqldelightSqlDelightStatement.h */; };
+		633D9B301EBA02F500CF6686 /* ComSquareupSqldelightSqlDelightStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = 633D9B141EBA02F500CF6686 /* ComSquareupSqldelightSqlDelightStatement.m */; };
+		633D9B411EBA146A00CF6686 /* PDAutoValue_Party.h in Headers */ = {isa = PBXBuildFile; fileRef = 633D9B311EBA146A00CF6686 /* PDAutoValue_Party.h */; };
+		633D9B421EBA146A00CF6686 /* PDAutoValue_Party.m in Sources */ = {isa = PBXBuildFile; fileRef = 633D9B321EBA146A00CF6686 /* PDAutoValue_Party.m */; };
+		633D9B431EBA146A00CF6686 /* PDAutoValue_Person.h in Headers */ = {isa = PBXBuildFile; fileRef = 633D9B331EBA146A00CF6686 /* PDAutoValue_Person.h */; };
+		633D9B441EBA146A00CF6686 /* PDAutoValue_Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 633D9B341EBA146A00CF6686 /* PDAutoValue_Person.m */; };
+		633D9B451EBA146A00CF6686 /* PDDataProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = 633D9B351EBA146A00CF6686 /* PDDataProvider.h */; };
+		633D9B461EBA146A00CF6686 /* PDDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 633D9B361EBA146A00CF6686 /* PDDataProvider.m */; };
+		633D9B471EBA146A00CF6686 /* PDParty.h in Headers */ = {isa = PBXBuildFile; fileRef = 633D9B371EBA146A00CF6686 /* PDParty.h */; };
+		633D9B481EBA146A00CF6686 /* PDParty.m in Sources */ = {isa = PBXBuildFile; fileRef = 633D9B381EBA146A00CF6686 /* PDParty.m */; };
+		633D9B491EBA146A00CF6686 /* PDPartyModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 633D9B391EBA146A00CF6686 /* PDPartyModel.h */; };
+		633D9B4A1EBA146A00CF6686 /* PDPartyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 633D9B3A1EBA146A00CF6686 /* PDPartyModel.m */; };
+		633D9B4B1EBA146A00CF6686 /* PDPerson.h in Headers */ = {isa = PBXBuildFile; fileRef = 633D9B3B1EBA146A00CF6686 /* PDPerson.h */; };
+		633D9B4C1EBA146A00CF6686 /* PDPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 633D9B3C1EBA146A00CF6686 /* PDPerson.m */; };
+		633D9B4D1EBA146A00CF6686 /* PDPersonModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 633D9B3D1EBA146A00CF6686 /* PDPersonModel.h */; };
+		633D9B4E1EBA146A00CF6686 /* PDPersonModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 633D9B3E1EBA146A00CF6686 /* PDPersonModel.m */; };
+		633D9B4F1EBA146A00CF6686 /* PDSqldelightOpenHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 633D9B3F1EBA146A00CF6686 /* PDSqldelightOpenHelper.h */; };
+		633D9B501EBA146A00CF6686 /* PDSqldelightOpenHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 633D9B401EBA146A00CF6686 /* PDSqldelightOpenHelper.m */; };
 		638BAE0E1EB645B5007A671B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638BAE0D1EB645B5007A671B /* AppDelegate.swift */; };
 		638BAE101EB645B5007A671B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638BAE0F1EB645B5007A671B /* ViewController.swift */; };
 		638BAE131EB645B5007A671B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 638BAE111EB645B5007A671B /* Main.storyboard */; };
@@ -331,20 +359,8 @@
 		63CAB4FC1EB684BA0082A725 /* DaggerSubcomponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 63CAB0351EB684B70082A725 /* DaggerSubcomponent.m */; };
 		63CAB4FD1EB684BA0082A725 /* PAppManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 63CAB0361EB684B70082A725 /* PAppManager.h */; };
 		63CAB4FE1EB684BA0082A725 /* PAppManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 63CAB0371EB684B70082A725 /* PAppManager.m */; };
-		63CAB4FF1EB684BA0082A725 /* PDDatabaseHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 63CAB0381EB684B70082A725 /* PDDatabaseHelper.h */; };
-		63CAB5001EB684BA0082A725 /* PDDatabaseHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 63CAB0391EB684B70082A725 /* PDDatabaseHelper.m */; };
-		63CAB5011EB684BA0082A725 /* PDDataProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = 63CAB03A1EB684B70082A725 /* PDDataProvider.h */; };
-		63CAB5021EB684BA0082A725 /* PDDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 63CAB03B1EB684B70082A725 /* PDDataProvider.m */; };
 		63CAB5031EB684BA0082A725 /* PDModPersonTask.h in Headers */ = {isa = PBXBuildFile; fileRef = 63CAB03C1EB684B70082A725 /* PDModPersonTask.h */; };
 		63CAB5041EB684BA0082A725 /* PDModPersonTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 63CAB03D1EB684B70082A725 /* PDModPersonTask.m */; };
-		63CAB5051EB684BA0082A725 /* PDParty$Configuration.h in Headers */ = {isa = PBXBuildFile; fileRef = 63CAB03E1EB684B70082A725 /* PDParty$Configuration.h */; };
-		63CAB5061EB684BA0082A725 /* PDParty$Configuration.m in Sources */ = {isa = PBXBuildFile; fileRef = 63CAB03F1EB684B70082A725 /* PDParty$Configuration.m */; };
-		63CAB5071EB684BA0082A725 /* PDParty.h in Headers */ = {isa = PBXBuildFile; fileRef = 63CAB0401EB684B70082A725 /* PDParty.h */; };
-		63CAB5081EB684BA0082A725 /* PDParty.m in Sources */ = {isa = PBXBuildFile; fileRef = 63CAB0411EB684B70082A725 /* PDParty.m */; };
-		63CAB5091EB684BA0082A725 /* PDPerson$Configuration.h in Headers */ = {isa = PBXBuildFile; fileRef = 63CAB0421EB684B70082A725 /* PDPerson$Configuration.h */; };
-		63CAB50A1EB684BA0082A725 /* PDPerson$Configuration.m in Sources */ = {isa = PBXBuildFile; fileRef = 63CAB0431EB684B70082A725 /* PDPerson$Configuration.m */; };
-		63CAB50B1EB684BA0082A725 /* PDPerson.h in Headers */ = {isa = PBXBuildFile; fileRef = 63CAB0441EB684B70082A725 /* PDPerson.h */; };
-		63CAB50C1EB684BA0082A725 /* PDPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 63CAB0451EB684B70082A725 /* PDPerson.m */; };
 		63CAB50D1EB684BA0082A725 /* PPAppModule.h in Headers */ = {isa = PBXBuildFile; fileRef = 63CAB0461EB684B70082A725 /* PPAppModule.h */; };
 		63CAB50E1EB684BA0082A725 /* PPAppModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 63CAB0471EB684B70082A725 /* PPAppModule.m */; };
 		63CAB50F1EB684BA0082A725 /* PPAppModule_ProvidesApplicationFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 63CAB0481EB684B70082A725 /* PPAppModule_ProvidesApplicationFactory.h */; };
@@ -1306,6 +1322,34 @@
 		633D9AD21EB81CDF00CF6686 /* PPLogCrashReporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPLogCrashReporter.h; sourceTree = "<group>"; };
 		633D9AD31EB81CDF00CF6686 /* PPLogCrashReporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPLogCrashReporter.m; sourceTree = "<group>"; };
 		633D9AE91EB823C300CF6686 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		633D9B091EBA02F500CF6686 /* ComSquareupSqldelightColumnAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComSquareupSqldelightColumnAdapter.h; sourceTree = "<group>"; };
+		633D9B0A1EBA02F500CF6686 /* ComSquareupSqldelightColumnAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComSquareupSqldelightColumnAdapter.m; sourceTree = "<group>"; };
+		633D9B0B1EBA02F500CF6686 /* ComSquareupSqldelightEnumColumnAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComSquareupSqldelightEnumColumnAdapter.h; sourceTree = "<group>"; };
+		633D9B0C1EBA02F500CF6686 /* ComSquareupSqldelightEnumColumnAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComSquareupSqldelightEnumColumnAdapter.m; sourceTree = "<group>"; };
+		633D9B0D1EBA02F500CF6686 /* ComSquareupSqldelightInternalSqliteLiterals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComSquareupSqldelightInternalSqliteLiterals.h; sourceTree = "<group>"; };
+		633D9B0E1EBA02F500CF6686 /* ComSquareupSqldelightInternalSqliteLiterals.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComSquareupSqldelightInternalSqliteLiterals.m; sourceTree = "<group>"; };
+		633D9B0F1EBA02F500CF6686 /* ComSquareupSqldelightRowMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComSquareupSqldelightRowMapper.h; sourceTree = "<group>"; };
+		633D9B101EBA02F500CF6686 /* ComSquareupSqldelightRowMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComSquareupSqldelightRowMapper.m; sourceTree = "<group>"; };
+		633D9B111EBA02F500CF6686 /* ComSquareupSqldelightSqlDelightCompiledStatement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComSquareupSqldelightSqlDelightCompiledStatement.h; sourceTree = "<group>"; };
+		633D9B121EBA02F500CF6686 /* ComSquareupSqldelightSqlDelightCompiledStatement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComSquareupSqldelightSqlDelightCompiledStatement.m; sourceTree = "<group>"; };
+		633D9B131EBA02F500CF6686 /* ComSquareupSqldelightSqlDelightStatement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComSquareupSqldelightSqlDelightStatement.h; sourceTree = "<group>"; };
+		633D9B141EBA02F500CF6686 /* ComSquareupSqldelightSqlDelightStatement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComSquareupSqldelightSqlDelightStatement.m; sourceTree = "<group>"; };
+		633D9B311EBA146A00CF6686 /* PDAutoValue_Party.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDAutoValue_Party.h; sourceTree = "<group>"; };
+		633D9B321EBA146A00CF6686 /* PDAutoValue_Party.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDAutoValue_Party.m; sourceTree = "<group>"; };
+		633D9B331EBA146A00CF6686 /* PDAutoValue_Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDAutoValue_Person.h; sourceTree = "<group>"; };
+		633D9B341EBA146A00CF6686 /* PDAutoValue_Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDAutoValue_Person.m; sourceTree = "<group>"; };
+		633D9B351EBA146A00CF6686 /* PDDataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDDataProvider.h; sourceTree = "<group>"; };
+		633D9B361EBA146A00CF6686 /* PDDataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDDataProvider.m; sourceTree = "<group>"; };
+		633D9B371EBA146A00CF6686 /* PDParty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDParty.h; sourceTree = "<group>"; };
+		633D9B381EBA146A00CF6686 /* PDParty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDParty.m; sourceTree = "<group>"; };
+		633D9B391EBA146A00CF6686 /* PDPartyModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDPartyModel.h; sourceTree = "<group>"; };
+		633D9B3A1EBA146A00CF6686 /* PDPartyModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDPartyModel.m; sourceTree = "<group>"; };
+		633D9B3B1EBA146A00CF6686 /* PDPerson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDPerson.h; sourceTree = "<group>"; };
+		633D9B3C1EBA146A00CF6686 /* PDPerson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDPerson.m; sourceTree = "<group>"; };
+		633D9B3D1EBA146A00CF6686 /* PDPersonModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDPersonModel.h; sourceTree = "<group>"; };
+		633D9B3E1EBA146A00CF6686 /* PDPersonModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDPersonModel.m; sourceTree = "<group>"; };
+		633D9B3F1EBA146A00CF6686 /* PDSqldelightOpenHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDSqldelightOpenHelper.h; sourceTree = "<group>"; };
+		633D9B401EBA146A00CF6686 /* PDSqldelightOpenHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDSqldelightOpenHelper.m; sourceTree = "<group>"; };
 		638BAE0A1EB645B5007A671B /* ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		638BAE0D1EB645B5007A671B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		638BAE0F1EB645B5007A671B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -1629,20 +1673,8 @@
 		63CAB0351EB684B70082A725 /* DaggerSubcomponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DaggerSubcomponent.m; sourceTree = "<group>"; };
 		63CAB0361EB684B70082A725 /* PAppManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PAppManager.h; sourceTree = "<group>"; };
 		63CAB0371EB684B70082A725 /* PAppManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PAppManager.m; sourceTree = "<group>"; };
-		63CAB0381EB684B70082A725 /* PDDatabaseHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDDatabaseHelper.h; sourceTree = "<group>"; };
-		63CAB0391EB684B70082A725 /* PDDatabaseHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDDatabaseHelper.m; sourceTree = "<group>"; };
-		63CAB03A1EB684B70082A725 /* PDDataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDDataProvider.h; sourceTree = "<group>"; };
-		63CAB03B1EB684B70082A725 /* PDDataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDDataProvider.m; sourceTree = "<group>"; };
 		63CAB03C1EB684B70082A725 /* PDModPersonTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDModPersonTask.h; sourceTree = "<group>"; };
 		63CAB03D1EB684B70082A725 /* PDModPersonTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDModPersonTask.m; sourceTree = "<group>"; };
-		63CAB03E1EB684B70082A725 /* PDParty$Configuration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDParty$Configuration.h; sourceTree = "<group>"; };
-		63CAB03F1EB684B70082A725 /* PDParty$Configuration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDParty$Configuration.m; sourceTree = "<group>"; };
-		63CAB0401EB684B70082A725 /* PDParty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDParty.h; sourceTree = "<group>"; };
-		63CAB0411EB684B70082A725 /* PDParty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDParty.m; sourceTree = "<group>"; };
-		63CAB0421EB684B70082A725 /* PDPerson$Configuration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDPerson$Configuration.h; sourceTree = "<group>"; };
-		63CAB0431EB684B70082A725 /* PDPerson$Configuration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDPerson$Configuration.m; sourceTree = "<group>"; };
-		63CAB0441EB684B70082A725 /* PDPerson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDPerson.h; sourceTree = "<group>"; };
-		63CAB0451EB684B70082A725 /* PDPerson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDPerson.m; sourceTree = "<group>"; };
 		63CAB0461EB684B70082A725 /* PPAppModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPAppModule.h; sourceTree = "<group>"; };
 		63CAB0471EB684B70082A725 /* PPAppModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPAppModule.m; sourceTree = "<group>"; };
 		63CAB0481EB684B70082A725 /* PPAppModule_ProvidesApplicationFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPAppModule_ProvidesApplicationFactory.h; sourceTree = "<group>"; };
@@ -2593,6 +2625,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		633D9B081EBA02F500CF6686 /* runtime */ = {
+			isa = PBXGroup;
+			children = (
+				633D9B091EBA02F500CF6686 /* ComSquareupSqldelightColumnAdapter.h */,
+				633D9B0A1EBA02F500CF6686 /* ComSquareupSqldelightColumnAdapter.m */,
+				633D9B0B1EBA02F500CF6686 /* ComSquareupSqldelightEnumColumnAdapter.h */,
+				633D9B0C1EBA02F500CF6686 /* ComSquareupSqldelightEnumColumnAdapter.m */,
+				633D9B0D1EBA02F500CF6686 /* ComSquareupSqldelightInternalSqliteLiterals.h */,
+				633D9B0E1EBA02F500CF6686 /* ComSquareupSqldelightInternalSqliteLiterals.m */,
+				633D9B0F1EBA02F500CF6686 /* ComSquareupSqldelightRowMapper.h */,
+				633D9B101EBA02F500CF6686 /* ComSquareupSqldelightRowMapper.m */,
+				633D9B111EBA02F500CF6686 /* ComSquareupSqldelightSqlDelightCompiledStatement.h */,
+				633D9B121EBA02F500CF6686 /* ComSquareupSqldelightSqlDelightCompiledStatement.m */,
+				633D9B131EBA02F500CF6686 /* ComSquareupSqldelightSqlDelightStatement.h */,
+				633D9B141EBA02F500CF6686 /* ComSquareupSqldelightSqlDelightStatement.m */,
+			);
+			path = runtime;
+			sourceTree = "<group>";
+		};
 		638BAE011EB645B5007A671B = {
 			isa = PBXGroup;
 			children = (
@@ -2664,6 +2715,23 @@
 		63CAAF031EB684B70082A725 /* main */ = {
 			isa = PBXGroup;
 			children = (
+				633D9B311EBA146A00CF6686 /* PDAutoValue_Party.h */,
+				633D9B321EBA146A00CF6686 /* PDAutoValue_Party.m */,
+				633D9B331EBA146A00CF6686 /* PDAutoValue_Person.h */,
+				633D9B341EBA146A00CF6686 /* PDAutoValue_Person.m */,
+				633D9B351EBA146A00CF6686 /* PDDataProvider.h */,
+				633D9B361EBA146A00CF6686 /* PDDataProvider.m */,
+				633D9B371EBA146A00CF6686 /* PDParty.h */,
+				633D9B381EBA146A00CF6686 /* PDParty.m */,
+				633D9B391EBA146A00CF6686 /* PDPartyModel.h */,
+				633D9B3A1EBA146A00CF6686 /* PDPartyModel.m */,
+				633D9B3B1EBA146A00CF6686 /* PDPerson.h */,
+				633D9B3C1EBA146A00CF6686 /* PDPerson.m */,
+				633D9B3D1EBA146A00CF6686 /* PDPersonModel.h */,
+				633D9B3E1EBA146A00CF6686 /* PDPersonModel.m */,
+				633D9B3F1EBA146A00CF6686 /* PDSqldelightOpenHelper.h */,
+				633D9B401EBA146A00CF6686 /* PDSqldelightOpenHelper.m */,
+				633D9B081EBA02F500CF6686 /* runtime */,
 				633D9ACE1EB81CDF00CF6686 /* PPAppModule_ProvidesCrashReporterFactory.h */,
 				633D9ACF1EB81CDF00CF6686 /* PPAppModule_ProvidesCrashReporterFactory.m */,
 				633D9AD01EB81CDF00CF6686 /* PPCrashReporter.h */,
@@ -2674,20 +2742,8 @@
 				63CAAFF31EB684B70082A725 /* dagger */,
 				63CAB0361EB684B70082A725 /* PAppManager.h */,
 				63CAB0371EB684B70082A725 /* PAppManager.m */,
-				63CAB0381EB684B70082A725 /* PDDatabaseHelper.h */,
-				63CAB0391EB684B70082A725 /* PDDatabaseHelper.m */,
-				63CAB03A1EB684B70082A725 /* PDDataProvider.h */,
-				63CAB03B1EB684B70082A725 /* PDDataProvider.m */,
 				63CAB03C1EB684B70082A725 /* PDModPersonTask.h */,
 				63CAB03D1EB684B70082A725 /* PDModPersonTask.m */,
-				63CAB03E1EB684B70082A725 /* PDParty$Configuration.h */,
-				63CAB03F1EB684B70082A725 /* PDParty$Configuration.m */,
-				63CAB0401EB684B70082A725 /* PDParty.h */,
-				63CAB0411EB684B70082A725 /* PDParty.m */,
-				63CAB0421EB684B70082A725 /* PDPerson$Configuration.h */,
-				63CAB0431EB684B70082A725 /* PDPerson$Configuration.m */,
-				63CAB0441EB684B70082A725 /* PDPerson.h */,
-				63CAB0451EB684B70082A725 /* PDPerson.m */,
 				63CAB0461EB684B70082A725 /* PPAppModule.h */,
 				63CAB0471EB684B70082A725 /* PPAppModule.m */,
 				63CAB0481EB684B70082A725 /* PPAppModule_ProvidesApplicationFactory.h */,
@@ -3991,6 +4047,7 @@
 				63CAB53E1EB684BA0082A725 /* RxDopplJ2objcWeakReference.h in Headers */,
 				63CAB5921EB684BB0082A725 /* RxFunctionspackage-info.h in Headers */,
 				63CAB6D41EB684BB0082A725 /* RxInternalOperatorsSingleToObservable.h in Headers */,
+				633D9B471EBA146A00CF6686 /* PDParty.h in Headers */,
 				63CAB54A1EB684BB0082A725 /* RxExceptionsCompositeException.h in Headers */,
 				63CAB77A1EB684BB0082A725 /* RxObserversSubscribers.h in Headers */,
 				63CAB81A1EB684BC0082A725 /* CoTouchlabSqueakyFieldTypesBooleanObjectType.h in Headers */,
@@ -4005,6 +4062,7 @@
 				63CAB3CF1EB684BA0082A725 /* AndroidAnnotationNullable.h in Headers */,
 				63CAB6D01EB684BB0082A725 /* RxInternalOperatorsSingleTakeUntilSingle.h in Headers */,
 				63CAB74A1EB684BB0082A725 /* RxInternalUtilUnsafePow2.h in Headers */,
+				633D9B2B1EBA02F500CF6686 /* ComSquareupSqldelightRowMapper.h in Headers */,
 				63CAB3D31EB684BA0082A725 /* AndroidAnnotationTargetApi.h in Headers */,
 				63CAB6421EB684BB0082A725 /* RxInternalOperatorsOperatorIgnoreElements.h in Headers */,
 				63CAB57E1EB684BB0082A725 /* RxFunctionsFunc3.h in Headers */,
@@ -4044,9 +4102,11 @@
 				63CAB4951EB684BA0082A725 /* AndroidUtilJsonToken.h in Headers */,
 				63CAB78A1EB684BB0082A725 /* RxPluginsRxJavaObservableExecutionHook.h in Headers */,
 				63CAB4C11EB684BA0082A725 /* DaggerInternalDaggerCollections.h in Headers */,
+				633D9B431EBA146A00CF6686 /* PDAutoValue_Person.h in Headers */,
 				63CAB8101EB684BC0082A725 /* CoTouchlabSqueakyFieldTypesBaseEnumType.h in Headers */,
 				63CAB5241EB684BA0082A725 /* RxAndroidPluginsRxAndroidPlugins.h in Headers */,
 				63CAB4451EB684BA0082A725 /* AndroidDatabaseSqliteSQLiteQueryBuilder.h in Headers */,
+				633D9B411EBA146A00CF6686 /* PDAutoValue_Party.h in Headers */,
 				63CAB6561EB684BB0082A725 /* RxInternalOperatorsOperatorOnErrorResumeNextViaFunction.h in Headers */,
 				63CAB4F51EB684BA0082A725 /* Daggerpackage-info.h in Headers */,
 				63CAB6E01EB684BB0082A725 /* RxInternalProducersSingleProducer.h in Headers */,
@@ -4075,6 +4135,7 @@
 				63CAB6941EB684BB0082A725 /* RxInternalOperatorsOperatorToObservableList.h in Headers */,
 				63CAB71C1EB684BB0082A725 /* RxInternalUtilExceptionsUtils.h in Headers */,
 				63CAB4F91EB684BA0082A725 /* DaggerReusable.h in Headers */,
+				633D9B491EBA146A00CF6686 /* PDPartyModel.h in Headers */,
 				63CAB5E41EB684BB0082A725 /* RxInternalOperatorsOnSubscribeFromEmitter.h in Headers */,
 				63CAB4251EB684BA0082A725 /* AndroidDatabaseSqliteSQLiteDatabaseConfiguration.h in Headers */,
 				63CAB6C41EB684BB0082A725 /* RxInternalOperatorsSingleOnSubscribeMap.h in Headers */,
@@ -4118,6 +4179,7 @@
 				63CAB40B1EB684BA0082A725 /* AndroidDatabaseSqliteSQLiteAbortException.h in Headers */,
 				63CAB3DD1EB684BA0082A725 /* AndroidContentContext.h in Headers */,
 				63CAB43D1EB684BA0082A725 /* AndroidDatabaseSqliteSQLiteOpenHelper.h in Headers */,
+				633D9B4F1EBA146A00CF6686 /* PDSqldelightOpenHelper.h in Headers */,
 				63CAB7041EB684BB0082A725 /* RxInternalUtilActionSubscriber.h in Headers */,
 				63CAB6B01EB684BB0082A725 /* RxInternalOperatorsSingleDoOnEvent.h in Headers */,
 				63CAB4BD1EB684BA0082A725 /* DaggerComponent.h in Headers */,
@@ -4129,7 +4191,6 @@
 				63CAB4711EB684BA0082A725 /* AndroidOsParcelable.h in Headers */,
 				63CAB76C1EB684BB0082A725 /* RxObserversAsyncCompletableSubscriber.h in Headers */,
 				63CAB7121EB684BB0082A725 /* RxInternalUtilAtomicSpscLinkedArrayQueue.h in Headers */,
-				63CAB5071EB684BA0082A725 /* PDParty.h in Headers */,
 				63CAB47D1EB684BA0082A725 /* AndroidSupportAnnotationCheckResult.h in Headers */,
 				63CAB7641EB684BB0082A725 /* RxObservablesGroupedObservable.h in Headers */,
 				63CAB6EA1EB684BB0082A725 /* RxInternalSchedulersGenericScheduledExecutorServiceFactory.h in Headers */,
@@ -4146,10 +4207,12 @@
 				63CAB4211EB684BA0082A725 /* AndroidDatabaseSqliteSQLiteCustomFunction.h in Headers */,
 				63CAB77E1EB684BB0082A725 /* RxObserversTestSubscriber.h in Headers */,
 				63CAB7761EB684BB0082A725 /* RxObserversSerializedObserver.h in Headers */,
+				633D9B271EBA02F500CF6686 /* ComSquareupSqldelightEnumColumnAdapter.h in Headers */,
 				63CAB5801EB684BB0082A725 /* RxFunctionsFunc4.h in Headers */,
 				63CAB7AC1EB684BB0082A725 /* RxSinglesBlockingSingle.h in Headers */,
 				63CAB4051EB684BA0082A725 /* AndroidDatabaseObservable.h in Headers */,
 				63CAB61C1EB684BB0082A725 /* RxInternalOperatorsOperatorBufferWithSingleObservable.h in Headers */,
+				633D9B451EBA146A00CF6686 /* PDDataProvider.h in Headers */,
 				63CAB4B51EB684BA0082A725 /* SQLiteConnectionNative.h in Headers */,
 				63CAB7181EB684BB0082A725 /* RxInternalUtilBackpressureDrainManager.h in Headers */,
 				63CAB7421EB684BB0082A725 /* RxInternalUtilUnsafeConcurrentSequencedCircularArrayQueue.h in Headers */,
@@ -4159,6 +4222,7 @@
 				63CAB7881EB684BB0082A725 /* RxPluginsRxJavaHooks.h in Headers */,
 				63CAB83A1EB684BC0082A725 /* CoTouchlabSqueakyFieldTypesFloatType.h in Headers */,
 				63CAB7941EB684BB0082A725 /* RxPluginsRxJavaSingleExecutionHookDefault.h in Headers */,
+				633D9B2D1EBA02F500CF6686 /* ComSquareupSqldelightSqlDelightCompiledStatement.h in Headers */,
 				63CAB7CE1EB684BB0082A725 /* RxSubscriptionsMultipleAssignmentSubscription.h in Headers */,
 				63CAB66E1EB684BB0082A725 /* RxInternalOperatorsOperatorSkipLastTimed.h in Headers */,
 				63CAB69E1EB684BB0082A725 /* RxInternalOperatorsOperatorWindowWithSize.h in Headers */,
@@ -4172,6 +4236,7 @@
 				63CAB6321EB684BB0082A725 /* RxInternalOperatorsOperatorDistinctUntilChanged.h in Headers */,
 				63CAB7221EB684BB0082A725 /* RxInternalUtilLinkedArrayList.h in Headers */,
 				63CAB5BE1EB684BB0082A725 /* RxInternalOperatorsEmptyObservableHolder.h in Headers */,
+				633D9B4B1EBA146A00CF6686 /* PDPerson.h in Headers */,
 				63CAB4831EB684BA0082A725 /* AndroidSupportAnnotationNullable.h in Headers */,
 				63CAB8501EB684BC0082A725 /* CoTouchlabSqueakyFieldTypesTimeStampStringType.h in Headers */,
 				63CAB7EC1EB684BC0082A725 /* CoTouchlabSqueakyDbSQLiteOpenHelper.h in Headers */,
@@ -4199,7 +4264,6 @@
 				63CAB58A1EB684BB0082A725 /* RxFunctionsFunc9.h in Headers */,
 				63CAB7B61EB684BB0082A725 /* RxSubjectspackage-info.h in Headers */,
 				63CAB52C1EB684BA0082A725 /* RxAndroidSchedulersLooperScheduler.h in Headers */,
-				63CAB5011EB684BA0082A725 /* PDDataProvider.h in Headers */,
 				63CAB8441EB684BC0082A725 /* CoTouchlabSqueakyFieldTypesLongType.h in Headers */,
 				63CAB3F71EB684BA0082A725 /* AndroidDatabaseDatabaseErrorHandler.h in Headers */,
 				63CAB79A1EB684BB0082A725 /* RxSchedulersImmediateScheduler.h in Headers */,
@@ -4288,6 +4352,7 @@
 				63CAB6BE1EB684BB0082A725 /* RxInternalOperatorsSingleObserveOn.h in Headers */,
 				63CAB7D61EB684BB0082A725 /* RxSubscriptionsSubscriptions.h in Headers */,
 				63CAB65A1EB684BB0082A725 /* RxInternalOperatorsOperatorReplay.h in Headers */,
+				633D9B4D1EBA146A00CF6686 /* PDPersonModel.h in Headers */,
 				63CAB6C61EB684BB0082A725 /* RxInternalOperatorsSingleOnSubscribeUsing.h in Headers */,
 				63CAB5881EB684BB0082A725 /* RxFunctionsFunc8.h in Headers */,
 				63CAB3CD1EB684BA0082A725 /* AndroidAnnotationNonNull.h in Headers */,
@@ -4325,7 +4390,6 @@
 				63CAB69C1EB684BB0082A725 /* RxInternalOperatorsOperatorWindowWithObservableFactory.h in Headers */,
 				63CAB83C1EB684BC0082A725 /* CoTouchlabSqueakyFieldTypesIntegerObjectType.h in Headers */,
 				63CAB5461EB684BB0082A725 /* RxEmitter.h in Headers */,
-				63CAB50B1EB684BA0082A725 /* PDPerson.h in Headers */,
 				63CAB43F1EB684BA0082A725 /* AndroidDatabaseSqliteSQLiteOutOfMemoryException.h in Headers */,
 				63CAB8781EB684BC0082A725 /* CoTouchlabSqueakyStmtQueryComparison.h in Headers */,
 				63CAB4B11EB684BA0082A725 /* RenameComGoogleAndroidCollectLists.h in Headers */,
@@ -4387,7 +4451,6 @@
 				63CAB7381EB684BB0082A725 /* RxInternalUtilSynchronizedQueue.h in Headers */,
 				63CAB6741EB684BB0082A725 /* RxInternalOperatorsOperatorSubscribeOn.h in Headers */,
 				63CAB4D51EB684BA0082A725 /* DaggerInternalSetFactory.h in Headers */,
-				63CAB5091EB684BA0082A725 /* PDPerson$Configuration.h in Headers */,
 				63CAB8821EB684BC0082A725 /* CoTouchlabSqueakyStmtQueryNot.h in Headers */,
 				63CAB4811EB684BA0082A725 /* AndroidSupportAnnotationNonNull.h in Headers */,
 				63CAB4FD1EB684BA0082A725 /* PAppManager.h in Headers */,
@@ -4448,7 +4511,6 @@
 				63CAB5C81EB684BB0082A725 /* RxInternalOperatorsOnSubscribeCollect.h in Headers */,
 				63CAB4331EB684BA0082A725 /* AndroidDatabaseSqliteSQLiteDoneException.h in Headers */,
 				63CAB7E01EB684BB0082A725 /* CoTouchlabSqueakyDaoManagedModel.h in Headers */,
-				63CAB5051EB684BA0082A725 /* PDParty$Configuration.h in Headers */,
 				63CAB4091EB684BA0082A725 /* AndroidDatabaseSqliteDatabaseObjectNotClosedException.h in Headers */,
 				63CAB7001EB684BB0082A725 /* RxInternalUtilActionNotificationObserver.h in Headers */,
 				63CAB6FA1EB684BB0082A725 /* RxInternalSchedulersTrampolineScheduler.h in Headers */,
@@ -4477,7 +4539,6 @@
 				63CAB6161EB684BB0082A725 /* RxInternalOperatorsOperatorAll.h in Headers */,
 				63CAB6CE1EB684BB0082A725 /* RxInternalOperatorsSingleTakeUntilObservable.h in Headers */,
 				63CAB85C1EB684BC0082A725 /* CoTouchlabSqueakyMiscIOUtils.h in Headers */,
-				63CAB4FF1EB684BA0082A725 /* PDDatabaseHelper.h in Headers */,
 				63CAB7BE1EB684BB0082A725 /* RxSubjectsSubject.h in Headers */,
 				63CAB4A71EB684BA0082A725 /* AndroidUtilXml.h in Headers */,
 				63CAB7BC1EB684BB0082A725 /* RxSubjectsSerializedSubject.h in Headers */,
@@ -4496,6 +4557,7 @@
 				63CAB5941EB684BB0082A725 /* RxInternalOperatorsBackpressureUtils.h in Headers */,
 				63CAB4EF1EB684BA0082A725 /* DaggerMultibindingsMultibinds.h in Headers */,
 				63CAB7701EB684BB0082A725 /* RxObserverspackage-info.h in Headers */,
+				633D9B251EBA02F500CF6686 /* ComSquareupSqldelightColumnAdapter.h in Headers */,
 				63CAB4511EB684BA0082A725 /* AndroidDatabaseSqliteSQLiteTransactionListener.h in Headers */,
 				63CAB8701EB684BC0082A725 /* CoTouchlabSqueakyStmtJoinAlias.h in Headers */,
 				63CAB5171EB684BA0082A725 /* PPDaggerDaggerComponent.h in Headers */,
@@ -4511,6 +4573,7 @@
 				63CAB5BC1EB684BB0082A725 /* RxInternalOperatorsDeferredScalarSubscriberSafe.h in Headers */,
 				63CAB4431EB684BA0082A725 /* AndroidDatabaseSqliteSQLiteQuery.h in Headers */,
 				63CAB5D01EB684BB0082A725 /* RxInternalOperatorsOnSubscribeDelaySubscription.h in Headers */,
+				633D9B291EBA02F500CF6686 /* ComSquareupSqldelightInternalSqliteLiterals.h in Headers */,
 				63CAB87A1EB684BC0082A725 /* CoTouchlabSqueakyStmtQueryIn.h in Headers */,
 				63CAB73E1EB684BB0082A725 /* RxInternalUtilUnsafeBaseLinkedQueueProducerNodeRef.h in Headers */,
 				63CAB6301EB684BB0082A725 /* RxInternalOperatorsOperatorDistinct.h in Headers */,
@@ -4574,6 +4637,7 @@
 				63CAB8741EB684BC0082A725 /* CoTouchlabSqueakyStmtQueryBetween.h in Headers */,
 				63CAB5F21EB684BB0082A725 /* RxInternalOperatorsOnSubscribeOnAssemblyCompletable.h in Headers */,
 				63CAB5DC1EB684BB0082A725 /* RxInternalOperatorsOnSubscribeFlattenIterable.h in Headers */,
+				633D9B2F1EBA02F500CF6686 /* ComSquareupSqldelightSqlDelightStatement.h in Headers */,
 				63CAB4931EB684BA0082A725 /* AndroidUtilJsonScope.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -4798,10 +4862,10 @@
 				63CAB3D41EB684BA0082A725 /* AndroidAnnotationTargetApi.m in Sources */,
 				63CAB4361EB684BA0082A725 /* AndroidDatabaseSqliteSQLiteException.m in Sources */,
 				63CAB53D1EB684BA0082A725 /* RxCompletableSubscriber.m in Sources */,
+				633D9B481EBA146A00CF6686 /* PDParty.m in Sources */,
 				63CAB5851EB684BB0082A725 /* RxFunctionsFunc6.m in Sources */,
 				63CAB68B1EB684BB0082A725 /* RxInternalOperatorsOperatorTimeInterval.m in Sources */,
 				63CAB8211EB684BC0082A725 /* CoTouchlabSqueakyFieldTypesByteObjectType.m in Sources */,
-				63CAB5021EB684BA0082A725 /* PDDataProvider.m in Sources */,
 				63CAB5431EB684BB0082A725 /* RxDopplWeakReferenceHelper.m in Sources */,
 				63CAB83D1EB684BC0082A725 /* CoTouchlabSqueakyFieldTypesIntegerObjectType.m in Sources */,
 				63CAB4921EB684BA0082A725 /* AndroidUtilJsonReader.m in Sources */,
@@ -4817,6 +4881,7 @@
 				63CAB5531EB684BB0082A725 /* RxExceptionsOnErrorFailedException.m in Sources */,
 				63CAB5811EB684BB0082A725 /* RxFunctionsFunc4.m in Sources */,
 				63CAB6971EB684BB0082A725 /* RxInternalOperatorsOperatorToObservableSortedList.m in Sources */,
+				633D9B4E1EBA146A00CF6686 /* PDPersonModel.m in Sources */,
 				63CAB7851EB684BB0082A725 /* RxPluginsRxJavaCompletableExecutionHook.m in Sources */,
 				63CAB6491EB684BB0082A725 /* RxInternalOperatorsOperatorMaterialize.m in Sources */,
 				63CAB4901EB684BA0082A725 /* AndroidUtilEmptyArray.m in Sources */,
@@ -4844,6 +4909,7 @@
 				63CAB4861EB684BA0082A725 /* AndroidSupportAnnotationVisibleForTesting.m in Sources */,
 				63CAB74F1EB684BB0082A725 /* RxInternalUtilUnsafeSpmcArrayQueue.m in Sources */,
 				63CAB5AF1EB684BB0082A725 /* RxInternalOperatorsCompletableOnSubscribeMerge.m in Sources */,
+				633D9B421EBA146A00CF6686 /* PDAutoValue_Party.m in Sources */,
 				63CAB45E1EB684BA0082A725 /* AndroidOsBundle.m in Sources */,
 				63CAB3FE1EB684BA0082A725 /* AndroidDatabaseDataSetObserver.m in Sources */,
 				63CAB4161EB684BA0082A725 /* AndroidDatabaseSqliteSQLiteClosable.m in Sources */,
@@ -4855,7 +4921,6 @@
 				63CAB5791EB684BB0082A725 /* RxFunctionsFunc0.m in Sources */,
 				63CAB72D1EB684BB0082A725 /* RxInternalUtilRxRingBuffer.m in Sources */,
 				63CAB4C81EB684BA0082A725 /* DaggerInternalFactory.m in Sources */,
-				63CAB5001EB684BA0082A725 /* PDDatabaseHelper.m in Sources */,
 				63CAB5871EB684BB0082A725 /* RxFunctionsFunc7.m in Sources */,
 				63CAB72B1EB684BB0082A725 /* RxInternalUtilPlatformDependent.m in Sources */,
 				63CAB4C01EB684BA0082A725 /* DaggerInternalBeta.m in Sources */,
@@ -4864,6 +4929,7 @@
 				63CAB7491EB684BB0082A725 /* RxInternalUtilUnsafeMpscLinkedQueue.m in Sources */,
 				63CAB76B1EB684BB0082A725 /* RxObserver.m in Sources */,
 				63CAB6711EB684BB0082A725 /* RxInternalOperatorsOperatorSkipUntil.m in Sources */,
+				633D9B2E1EBA02F500CF6686 /* ComSquareupSqldelightSqlDelightCompiledStatement.m in Sources */,
 				63CAB7D31EB684BB0082A725 /* RxSubscriptionsRefCountSubscription.m in Sources */,
 				63CAB7371EB684BB0082A725 /* RxInternalUtilSuppressAnimalSniffer.m in Sources */,
 				63CAB4401EB684BA0082A725 /* AndroidDatabaseSqliteSQLiteOutOfMemoryException.m in Sources */,
@@ -4995,6 +5061,7 @@
 				63CAB87D1EB684BC0082A725 /* CoTouchlabSqueakyStmtQueryIsNotNull.m in Sources */,
 				63CAB7A71EB684BB0082A725 /* RxSchedulersTimestamped.m in Sources */,
 				63CAB8751EB684BC0082A725 /* CoTouchlabSqueakyStmtQueryBetween.m in Sources */,
+				633D9B281EBA02F500CF6686 /* ComSquareupSqldelightEnumColumnAdapter.m in Sources */,
 				63CAB4021EB684BA0082A725 /* AndroidDatabaseMatrixCursor.m in Sources */,
 				63CAB7231EB684BB0082A725 /* RxInternalUtilLinkedArrayList.m in Sources */,
 				63CAB4B41EB684BA0082A725 /* RenameComGoogleAndroidCollectSets.m in Sources */,
@@ -5005,7 +5072,6 @@
 				63CAB8191EB684BC0082A725 /* CoTouchlabSqueakyFieldTypesBooleanIntegerType.m in Sources */,
 				63CAB3FC1EB684BA0082A725 /* AndroidDatabaseDataSetObservable.m in Sources */,
 				63CAB4681EB684BA0082A725 /* AndroidOsIInterface.m in Sources */,
-				63CAB5061EB684BA0082A725 /* PDParty$Configuration.m in Sources */,
 				63CAB4CC1EB684BA0082A725 /* DaggerInternalMapFactory.m in Sources */,
 				63CAB6DD1EB684BB0082A725 /* RxInternalProducersQueuedValueProducer.m in Sources */,
 				63CAB7B91EB684BB0082A725 /* RxSubjectsPublishSubject.m in Sources */,
@@ -5049,7 +5115,6 @@
 				63CAB4001EB684BA0082A725 /* AndroidDatabaseDefaultDatabaseErrorHandler.m in Sources */,
 				63CAB6CB1EB684BB0082A725 /* RxInternalOperatorsSingleOperatorZip.m in Sources */,
 				63CAB4181EB684BA0082A725 /* AndroidDatabaseSqliteSQLiteConnection.m in Sources */,
-				63CAB50C1EB684BA0082A725 /* PDPerson.m in Sources */,
 				63CAB8391EB684BC0082A725 /* CoTouchlabSqueakyFieldTypesFloatObjectType.m in Sources */,
 				63CAB73F1EB684BB0082A725 /* RxInternalUtilUnsafeBaseLinkedQueueProducerNodeRef.m in Sources */,
 				63CAB69F1EB684BB0082A725 /* RxInternalOperatorsOperatorWindowWithSize.m in Sources */,
@@ -5067,8 +5132,10 @@
 				63CAB8551EB684BC0082A725 /* CoTouchlabSqueakyFieldTypesVoidType.m in Sources */,
 				63CAB41C1EB684BA0082A725 /* AndroidDatabaseSqliteSQLiteConstraintException.m in Sources */,
 				63CAB6771EB684BB0082A725 /* RxInternalOperatorsOperatorSwitch.m in Sources */,
+				633D9B2C1EBA02F500CF6686 /* ComSquareupSqldelightRowMapper.m in Sources */,
 				63CAB3F41EB684BA0082A725 /* AndroidDatabaseCursorWindowAllocationException.m in Sources */,
 				63CAB87B1EB684BC0082A725 /* CoTouchlabSqueakyStmtQueryIn.m in Sources */,
+				633D9B4C1EBA146A00CF6686 /* PDPerson.m in Sources */,
 				63CAB8111EB684BC0082A725 /* CoTouchlabSqueakyFieldTypesBaseEnumType.m in Sources */,
 				63CAB8051EB684BC0082A725 /* CoTouchlabSqueakyFieldForeignCollectionField.m in Sources */,
 				63CAB4C61EB684BA0082A725 /* DaggerInternalDoubleCheck.m in Sources */,
@@ -5140,6 +5207,7 @@
 				63CAB6B71EB684BB0082A725 /* RxInternalOperatorsSingleFromCallable.m in Sources */,
 				63CAB88D1EB684BC0082A725 /* CoTouchlabSqueakyStmtQuerySimpleComparison.m in Sources */,
 				63CAB6111EB684BB0082A725 /* RxInternalOperatorsOnSubscribeToMultimap.m in Sources */,
+				633D9B301EBA02F500CF6686 /* ComSquareupSqldelightSqlDelightStatement.m in Sources */,
 				63CAB4841EB684BA0082A725 /* AndroidSupportAnnotationNullable.m in Sources */,
 				63CAB74B1EB684BB0082A725 /* RxInternalUtilUnsafePow2.m in Sources */,
 				63CAB52F1EB684BA0082A725 /* RxAnnotationsBeta.m in Sources */,
@@ -5194,7 +5262,7 @@
 				63CAB3E41EB684BA0082A725 /* AndroidDatabaseAbstractCursor.m in Sources */,
 				63CAB79F1EB684BB0082A725 /* RxSchedulerspackage-info.m in Sources */,
 				63CAB4481EB684BA0082A725 /* AndroidDatabaseSqliteSQLiteReadOnlyDatabaseException.m in Sources */,
-				63CAB5081EB684BA0082A725 /* PDParty.m in Sources */,
+				633D9B461EBA146A00CF6686 /* PDDataProvider.m in Sources */,
 				63CAB5511EB684BB0082A725 /* RxExceptionsOnCompletedFailedException.m in Sources */,
 				63CAB7471EB684BB0082A725 /* RxInternalUtilUnsafeMpmcArrayQueue.m in Sources */,
 				63CAB3D21EB684BA0082A725 /* AndroidAnnotationSuppressLint.m in Sources */,
@@ -5217,6 +5285,7 @@
 				63CAB6F51EB684BB0082A725 /* RxInternalSchedulersSchedulerLifecycle.m in Sources */,
 				63CAB7A51EB684BB0082A725 /* RxSchedulersTimeInterval.m in Sources */,
 				63CAB6BF1EB684BB0082A725 /* RxInternalOperatorsSingleObserveOn.m in Sources */,
+				633D9B441EBA146A00CF6686 /* PDAutoValue_Person.m in Sources */,
 				63CAB4061EB684BA0082A725 /* AndroidDatabaseObservable.m in Sources */,
 				63CAB7CD1EB684BB0082A725 /* RxSubscriptionsCompositeSubscription.m in Sources */,
 				63CAB7951EB684BB0082A725 /* RxPluginsRxJavaSingleExecutionHookDefault.m in Sources */,
@@ -5231,6 +5300,7 @@
 				63CAB7F31EB684BC0082A725 /* CoTouchlabSqueakyDbSqliteSqueakyOpenHelper.m in Sources */,
 				63CAB72F1EB684BB0082A725 /* RxInternalUtilRxThreadFactory.m in Sources */,
 				63CAB7EB1EB684BC0082A725 /* CoTouchlabSqueakyDbSQLiteDatabase.m in Sources */,
+				633D9B501EBA146A00CF6686 /* PDSqldelightOpenHelper.m in Sources */,
 				63CAB75B1EB684BB0082A725 /* RxNotification.m in Sources */,
 				63CAB62B1EB684BB0082A725 /* RxInternalOperatorsOperatorDelay.m in Sources */,
 				63CAB7DF1EB684BB0082A725 /* CoTouchlabSqueakyDaoDaoHelper.m in Sources */,
@@ -5245,6 +5315,7 @@
 				63CAB7151EB684BB0082A725 /* RxInternalUtilAtomicSpscLinkedAtomicQueue.m in Sources */,
 				63CAB40E1EB684BA0082A725 /* AndroidDatabaseSqliteSQLiteAccessPermException.m in Sources */,
 				63CAB8271EB684BC0082A725 /* CoTouchlabSqueakyFieldTypesCharType.m in Sources */,
+				633D9B261EBA02F500CF6686 /* ComSquareupSqldelightColumnAdapter.m in Sources */,
 				63CAB6F91EB684BB0082A725 /* RxInternalSchedulersSleepingAction.m in Sources */,
 				63CAB66F1EB684BB0082A725 /* RxInternalOperatorsOperatorSkipLastTimed.m in Sources */,
 				63CAB8631EB684BC0082A725 /* CoTouchlabSqueakyTableDatabaseQuery.m in Sources */,
@@ -5270,6 +5341,7 @@
 				63CAB4DA1EB684BA0082A725 /* DaggerLazy.m in Sources */,
 				63CAB6311EB684BB0082A725 /* RxInternalOperatorsOperatorDistinct.m in Sources */,
 				63CAB8771EB684BC0082A725 /* CoTouchlabSqueakyStmtQueryClause.m in Sources */,
+				633D9B2A1EBA02F500CF6686 /* ComSquareupSqldelightInternalSqliteLiterals.m in Sources */,
 				63CAB82B1EB684BC0082A725 /* CoTouchlabSqueakyFieldTypesDateStringType.m in Sources */,
 				63CAB60B1EB684BB0082A725 /* RxInternalOperatorsOnSubscribeTimerOnce.m in Sources */,
 				63CAB6A91EB684BB0082A725 /* RxInternalOperatorsOperatorZip.m in Sources */,
@@ -5278,7 +5350,6 @@
 				63CAB54B1EB684BB0082A725 /* RxExceptionsCompositeException.m in Sources */,
 				63CAB7511EB684BB0082A725 /* RxInternalUtilUnsafeSpscArrayQueue.m in Sources */,
 				63CAB7AB1EB684BB0082A725 /* RxSingle.m in Sources */,
-				63CAB50A1EB684BA0082A725 /* PDPerson$Configuration.m in Sources */,
 				63CAB78D1EB684BB0082A725 /* RxPluginsRxJavaObservableExecutionHookDefault.m in Sources */,
 				63CAB83B1EB684BC0082A725 /* CoTouchlabSqueakyFieldTypesFloatType.m in Sources */,
 				63CAB8591EB684BC0082A725 /* CoTouchlabSqueakyLoggerOLog.m in Sources */,
@@ -5351,6 +5422,7 @@
 				63CAB7351EB684BB0082A725 /* RxInternalUtilSubscriptionList.m in Sources */,
 				63CAB79B1EB684BB0082A725 /* RxSchedulersImmediateScheduler.m in Sources */,
 				63CAB6E11EB684BB0082A725 /* RxInternalProducersSingleProducer.m in Sources */,
+				633D9B4A1EBA146A00CF6686 /* PDPartyModel.m in Sources */,
 				63CAB55F1EB684BB0082A725 /* RxFunctionsAction0.m in Sources */,
 				63CAB4461EB684BA0082A725 /* AndroidDatabaseSqliteSQLiteQueryBuilder.m in Sources */,
 				63CAB80F1EB684BC0082A725 /* CoTouchlabSqueakyFieldTypesBaseDateType.m in Sources */,

@@ -65,38 +65,4 @@ J2OBJC_TYPE_LITERAL_HEADER(PTMemoryDataProvider)
 
 #endif
 
-#if !defined (PTMemoryDataProvider_MemParty_) && (INCLUDE_ALL_PTMemoryDataProvider || defined(INCLUDE_PTMemoryDataProvider_MemParty))
-#define PTMemoryDataProvider_MemParty_
-
-#define RESTRICT_PDParty 1
-#define INCLUDE_PDParty 1
-#include "PDParty.h"
-
-@protocol JavaUtilList;
-
-@interface PTMemoryDataProvider_MemParty : PDParty {
- @public
-  id<JavaUtilList> people_;
-}
-
-#pragma mark Public
-
-- (instancetype)init;
-
-@end
-
-J2OBJC_EMPTY_STATIC_INIT(PTMemoryDataProvider_MemParty)
-
-J2OBJC_FIELD_SETTER(PTMemoryDataProvider_MemParty, people_, id<JavaUtilList>)
-
-FOUNDATION_EXPORT void PTMemoryDataProvider_MemParty_init(PTMemoryDataProvider_MemParty *self);
-
-FOUNDATION_EXPORT PTMemoryDataProvider_MemParty *new_PTMemoryDataProvider_MemParty_init() NS_RETURNS_RETAINED;
-
-FOUNDATION_EXPORT PTMemoryDataProvider_MemParty *create_PTMemoryDataProvider_MemParty_init();
-
-J2OBJC_TYPE_LITERAL_HEADER(PTMemoryDataProvider_MemParty)
-
-#endif
-
 #pragma pop_macro("INCLUDE_ALL_PTMemoryDataProvider")

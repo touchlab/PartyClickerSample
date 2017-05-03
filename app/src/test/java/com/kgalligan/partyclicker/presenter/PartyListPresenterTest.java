@@ -1,4 +1,5 @@
 package com.kgalligan.partyclicker.presenter;
+
 import com.kgalligan.partyclicker.data.DataProvider;
 import com.kgalligan.partyclicker.data.Party;
 import com.kgalligan.partyclicker.data.Person;
@@ -10,13 +11,13 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.ArgumentCaptor;
 
-
 import java.util.List;
 
 import javax.inject.Inject;
 
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
@@ -28,6 +29,7 @@ public class PartyListPresenterTest
 {
     @Inject
     DataProvider dataProvider;
+
     private PartyListPresenter partyListPresenter;
     private PartyListPresenter.UiInterface uiInterface;
 
@@ -57,7 +59,7 @@ public class PartyListPresenterTest
     public void callParty() throws Exception
     {
         Party hello = dataProvider.createParty("hello");
-        partyListPresenter.callParty(hello.id);
+        partyListPresenter.callParty((int)hello.id());
         verify(uiInterface).showParty(hello);
     }
 
@@ -69,7 +71,7 @@ public class PartyListPresenterTest
         partyListPresenter.createParty("a stone groove");
         verify(uiInterface).showParty(captor.capture());
 
-        assertEquals(captor.getValue().name, "a stone groove");
+        assertEquals(captor.getValue().name(), "a stone groove");
     }
 
     @Test
@@ -80,7 +82,7 @@ public class PartyListPresenterTest
         Party party = dataProvider.createParty("c");
         dataProvider.createParty("d");
 
-        partyListPresenter.deleteParty(party.id);
+        partyListPresenter.deleteParty((int)party.id());
 
         assertEquals(3, dataProvider.allParties().size());
     }
@@ -124,7 +126,7 @@ public class PartyListPresenterTest
             boolean found = true;
             for(Person memPerson : memPersonLIst)
             {
-                if(person.id == memPerson.id)
+                if(person.id() == memPerson.id())
                 {
                     found = true;
                     break;

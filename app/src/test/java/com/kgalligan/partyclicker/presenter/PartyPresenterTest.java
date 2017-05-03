@@ -1,4 +1,5 @@
 package com.kgalligan.partyclicker.presenter;
+
 import com.kgalligan.partyclicker.data.DataProvider;
 import com.kgalligan.partyclicker.data.Party;
 import com.kgalligan.partyclicker.test.DaggerTestNoContextComponent;
@@ -8,11 +9,10 @@ import com.kgalligan.partyclicker.test.TestNoContextModule;
 import org.junit.Before;
 import org.junit.Test;
 
-
 import javax.inject.Inject;
 
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.atLeastOnce;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
@@ -25,9 +25,9 @@ public class PartyPresenterTest
     @Inject
     DataProvider dataProvider;
 
-    private PartyPresenter                 partyPresenter;
+    private PartyPresenter             partyPresenter;
     private PartyPresenter.UiInterface uiInterface;
-    private Party                          party;
+    private Party                      party;
 
     @Before
     public void setUp() throws Exception
@@ -40,7 +40,7 @@ public class PartyPresenterTest
 
         party = dataProvider.createParty("marty");
 
-        partyPresenter = new PartyPresenter(party.id);
+        partyPresenter = new PartyPresenter((int)party.id());
 
         testComponent.inject(partyPresenter);
 
@@ -53,7 +53,7 @@ public class PartyPresenterTest
     {
         initMultiParty();
 
-        assertEquals(party.id, partyPresenter.getParty().id);
+        assertEquals(party.id(), partyPresenter.getParty().id());
 
         verify(uiInterface).updateUi();
         verify(uiInterface).processing(false);
@@ -80,7 +80,7 @@ public class PartyPresenterTest
         Thread.sleep(1000);
 
         assertEquals(3, partyPresenter.getPartyCount());
-        assertEquals(3, dataProvider.countCurrentParty(party.id));
+        assertEquals(3, dataProvider.countCurrentParty((int)party.id()));
 
         verify(uiInterface, atLeastOnce()).updateUi();
     }
@@ -93,7 +93,7 @@ public class PartyPresenterTest
         Thread.sleep(1000);
 
         assertEquals(2, partyPresenter.getPartyCount());
-        assertEquals(2, dataProvider.countCurrentParty(party.id));
+        assertEquals(2, dataProvider.countCurrentParty((int)party.id()));
 
         verify(uiInterface, atLeastOnce()).updateUi();
     }
@@ -125,7 +125,7 @@ public class PartyPresenterTest
     {
         initMultiParty();
 
-        assertEquals(party.id, partyPresenter.getParty().id);
+        assertEquals(party.id(), partyPresenter.getParty().id());
     }
 
 }

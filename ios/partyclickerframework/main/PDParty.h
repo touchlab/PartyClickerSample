@@ -15,26 +15,24 @@
 #if !defined (PDParty_) && (INCLUDE_ALL_PDParty || defined(INCLUDE_PDParty))
 #define PDParty_
 
-@class JavaUtilDate;
+#define RESTRICT_PDPartyModel 1
+#define INCLUDE_PDPartyModel 1
+#include "PDPartyModel.h"
 
-@interface PDParty : NSObject {
- @public
-  jint id__;
-  NSString *name_;
-  JavaUtilDate *created_;
-}
+@class PDPartyModel_Factory;
+@protocol ComSquareupSqldelightRowMapper;
+
+@interface PDParty : NSObject < PDPartyModel >
 
 #pragma mark Public
 
 - (instancetype)init;
 
++ (PDParty *)createWithLong:(jlong)id_
+               withNSString:(NSString *)name
+                   withLong:(jlong)created;
+
 - (NSString *)dateString;
-
-- (JavaUtilDate *)getCreated;
-
-- (jint)getId;
-
-- (NSString *)getName;
 
 - (NSString *)description;
 
@@ -42,14 +40,19 @@
 
 J2OBJC_STATIC_INIT(PDParty)
 
-J2OBJC_FIELD_SETTER(PDParty, name_, NSString *)
-J2OBJC_FIELD_SETTER(PDParty, created_, JavaUtilDate *)
+inline PDPartyModel_Factory *PDParty_get_FACTORY();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT PDPartyModel_Factory *PDParty_FACTORY;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(PDParty, FACTORY, PDPartyModel_Factory *)
+
+inline id<ComSquareupSqldelightRowMapper> PDParty_get_SELECT_ALL_MAPPER();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT id<ComSquareupSqldelightRowMapper> PDParty_SELECT_ALL_MAPPER;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(PDParty, SELECT_ALL_MAPPER, id<ComSquareupSqldelightRowMapper>)
 
 FOUNDATION_EXPORT void PDParty_init(PDParty *self);
 
-FOUNDATION_EXPORT PDParty *new_PDParty_init() NS_RETURNS_RETAINED;
-
-FOUNDATION_EXPORT PDParty *create_PDParty_init();
+FOUNDATION_EXPORT PDParty *PDParty_createWithLong_withNSString_withLong_(jlong id_, NSString *name, jlong created);
 
 J2OBJC_TYPE_LITERAL_HEADER(PDParty)
 

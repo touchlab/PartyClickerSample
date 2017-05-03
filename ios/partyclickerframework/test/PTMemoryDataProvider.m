@@ -5,10 +5,12 @@
 #include "J2ObjC_source.h"
 #include "PDParty.h"
 #include "PDPerson.h"
+#include "PTAutoValue_MemParty.h"
+#include "PTMemParty.h"
 #include "PTMemoryDataProvider.h"
 #include "java/lang/RuntimeException.h"
+#include "java/lang/System.h"
 #include "java/util/ArrayList.h"
-#include "java/util/Date.h"
 #include "java/util/Iterator.h"
 #include "java/util/List.h"
 
@@ -27,16 +29,13 @@ J2OBJC_IGNORE_DESIGNATED_END
 
 - (PDParty *)loadPartyWithInt:(jint)id_ {
   for (PDParty * __strong party in nil_chk(parties_)) {
-    if (((PDParty *) nil_chk(party))->id__ == id_) return party;
+    if ([((PDParty *) nil_chk(party)) id__] == id_) return party;
   }
   return nil;
 }
 
 - (PDParty *)createPartyWithNSString:(NSString *)name {
-  PDParty *party = create_PTMemoryDataProvider_MemParty_init();
-  JreStrongAssignAndConsume(&party->created_, new_JavaUtilDate_init());
-  JreStrongAssign(&party->name_, name);
-  party->id__ = idCounter_++;
+  PTMemParty *party = [((PTMemParty_Builder *) nil_chk([((PTMemParty_Builder *) nil_chk([((PTMemParty_Builder *) nil_chk([((PTMemParty_Builder *) nil_chk([create_PTAutoValue_MemParty_Builder_init() setCreatedWithLong:JavaLangSystem_currentTimeMillis()])) setNameWithNSString:name])) setIdWithLong:idCounter_++])) setPeopleWithJavaUtilList:create_JavaUtilArrayList_init()])) build];
   [((id<JavaUtilList>) nil_chk(parties_)) addWithId:party];
   return party;
 }
@@ -45,34 +44,31 @@ J2OBJC_IGNORE_DESIGNATED_END
   id<JavaUtilIterator> iterator = [((id<JavaUtilList>) nil_chk(parties_)) iterator];
   while ([((id<JavaUtilIterator>) nil_chk(iterator)) hasNext]) {
     PDParty *next = [iterator next];
-    if (((PDParty *) nil_chk(party))->id__ == ((PDParty *) nil_chk(next))->id__) {
+    if ([((PDParty *) nil_chk(party)) id__] == [((PDParty *) nil_chk(next)) id__]) {
       [iterator remove];
       return;
     }
   }
-  @throw create_JavaLangRuntimeException_initWithNSString_(JreStrcat("$I$", @"Party ", ((PDParty *) nil_chk(party))->id__, @" not found"));
+  @throw create_JavaLangRuntimeException_initWithNSString_(JreStrcat("$J$", @"Party ", [((PDParty *) nil_chk(party)) id__], @" not found"));
 }
 
 - (jint)countCurrentPartyWithInt:(jint)id_ {
-  PTMemoryDataProvider_MemParty *party = (PTMemoryDataProvider_MemParty *) cast_chk([self loadPartyWithInt:id_], [PTMemoryDataProvider_MemParty class]);
+  PTMemParty *party = (PTMemParty *) cast_chk([self loadPartyWithInt:id_], [PTMemParty class]);
   jint sum = 0;
-  for (PDPerson * __strong person in nil_chk(((PTMemoryDataProvider_MemParty *) nil_chk(party))->people_)) {
-    sum += ((PDPerson *) nil_chk(person))->val_;
+  for (PDPerson * __strong person in nil_chk([((PTMemParty *) nil_chk(party)) people])) {
+    sum += [((PDPerson *) nil_chk(person)) val];
   }
   return sum;
 }
 
 - (id<JavaUtilList>)allPeopleForPartyWithPDParty:(PDParty *)party {
-  return ((PTMemoryDataProvider_MemParty *) nil_chk(((PTMemoryDataProvider_MemParty *) cast_chk(party, [PTMemoryDataProvider_MemParty class]))))->people_;
+  return [((PTMemParty *) nil_chk(((PTMemParty *) cast_chk(party, [PTMemParty class])))) people];
 }
 
 - (void)addPersonWithPDParty:(PDParty *)party
                  withBoolean:(jboolean)coming {
-  PDPerson *person = create_PDPerson_init();
-  person->val_ = (jshort) (coming ? 1 : -1);
-  JreStrongAssignAndConsume(&person->recorded_, new_JavaUtilDate_init());
-  person->id__ = idCounter_++;
-  [((id<JavaUtilList>) nil_chk(((PTMemoryDataProvider_MemParty *) nil_chk(((PTMemoryDataProvider_MemParty *) cast_chk(party, [PTMemoryDataProvider_MemParty class]))))->people_)) addWithId:person];
+  PDPerson *person = PDPerson_createWithLong_withLong_withLong_withLong_(idCounter_++, JavaLangSystem_currentTimeMillis(), (jshort) (coming ? 1 : -1), [((PDParty *) nil_chk(party)) id__]);
+  [((id<JavaUtilList>) nil_chk([((PTMemParty *) cast_chk(party, [PTMemParty class])) people])) addWithId:person];
 }
 
 - (void)dealloc {
@@ -106,8 +102,8 @@ J2OBJC_IGNORE_DESIGNATED_END
     { "idCounter_", "I", .constantValue.asLong = 0, 0x40, -1, -1, -1, -1 },
     { "parties_", "LJavaUtilList;", .constantValue.asLong = 0, 0x0, -1, -1, 12, -1 },
   };
-  static const void *ptrTable[] = { "()Ljava/util/List<Lcom/kgalligan/partyclicker/data/Party;>;", "loadParty", "I", "createParty", "LNSString;", "deleteParty", "LPDParty;", "countCurrentParty", "allPeopleForParty", "(Lcom/kgalligan/partyclicker/data/Party;)Ljava/util/List<Lcom/kgalligan/partyclicker/data/Person;>;", "addPerson", "LPDParty;Z", "Ljava/util/List<Lcom/kgalligan/partyclicker/data/Party;>;", "LPTMemoryDataProvider_MemParty;" };
-  static const J2ObjcClassInfo _PTMemoryDataProvider = { "MemoryDataProvider", "com.kgalligan.partyclicker.test", ptrTable, methods, fields, 7, 0x1, 8, 2, -1, 13, -1, -1, -1 };
+  static const void *ptrTable[] = { "()Ljava/util/List<Lcom/kgalligan/partyclicker/data/Party;>;", "loadParty", "I", "createParty", "LNSString;", "deleteParty", "LPDParty;", "countCurrentParty", "allPeopleForParty", "(Lcom/kgalligan/partyclicker/data/Party;)Ljava/util/List<Lcom/kgalligan/partyclicker/data/Person;>;", "addPerson", "LPDParty;Z", "Ljava/util/List<Lcom/kgalligan/partyclicker/data/Party;>;" };
+  static const J2ObjcClassInfo _PTMemoryDataProvider = { "MemoryDataProvider", "com.kgalligan.partyclicker.test", ptrTable, methods, fields, 7, 0x1, 8, 2, -1, -1, -1, -1, -1 };
   return &_PTMemoryDataProvider;
 }
 
@@ -128,50 +124,3 @@ PTMemoryDataProvider *create_PTMemoryDataProvider_init() {
 }
 
 J2OBJC_CLASS_TYPE_LITERAL_SOURCE(PTMemoryDataProvider)
-
-@implementation PTMemoryDataProvider_MemParty
-
-J2OBJC_IGNORE_DESIGNATED_BEGIN
-- (instancetype)init {
-  PTMemoryDataProvider_MemParty_init(self);
-  return self;
-}
-J2OBJC_IGNORE_DESIGNATED_END
-
-- (void)dealloc {
-  RELEASE_(people_);
-  [super dealloc];
-}
-
-+ (const J2ObjcClassInfo *)__metadata {
-  static J2ObjcMethodInfo methods[] = {
-    { NULL, NULL, 0x1, -1, -1, -1, -1, -1, -1 },
-  };
-  #pragma clang diagnostic push
-  #pragma clang diagnostic ignored "-Wobjc-multiple-method-names"
-  methods[0].selector = @selector(init);
-  #pragma clang diagnostic pop
-  static const J2ObjcFieldInfo fields[] = {
-    { "people_", "LJavaUtilList;", .constantValue.asLong = 0, 0x0, -1, -1, 0, -1 },
-  };
-  static const void *ptrTable[] = { "Ljava/util/List<Lcom/kgalligan/partyclicker/data/Person;>;", "LPTMemoryDataProvider;" };
-  static const J2ObjcClassInfo _PTMemoryDataProvider_MemParty = { "MemParty", "com.kgalligan.partyclicker.test", ptrTable, methods, fields, 7, 0x9, 1, 1, 1, -1, -1, -1, -1 };
-  return &_PTMemoryDataProvider_MemParty;
-}
-
-@end
-
-void PTMemoryDataProvider_MemParty_init(PTMemoryDataProvider_MemParty *self) {
-  PDParty_init(self);
-  JreStrongAssignAndConsume(&self->people_, new_JavaUtilArrayList_init());
-}
-
-PTMemoryDataProvider_MemParty *new_PTMemoryDataProvider_MemParty_init() {
-  J2OBJC_NEW_IMPL(PTMemoryDataProvider_MemParty, init)
-}
-
-PTMemoryDataProvider_MemParty *create_PTMemoryDataProvider_MemParty_init() {
-  J2OBJC_CREATE_IMPL(PTMemoryDataProvider_MemParty, init)
-}
-
-J2OBJC_CLASS_TYPE_LITERAL_SOURCE(PTMemoryDataProvider_MemParty)

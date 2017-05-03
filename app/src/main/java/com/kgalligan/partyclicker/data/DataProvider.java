@@ -1,4 +1,5 @@
 package com.kgalligan.partyclicker.data;
+
 import java.util.List;
 
 /**

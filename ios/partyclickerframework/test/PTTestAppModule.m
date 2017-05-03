@@ -10,7 +10,7 @@
 #include "IOSObjectArray.h"
 #include "J2ObjC_source.h"
 #include "PDDataProvider.h"
-#include "PDDatabaseHelper.h"
+#include "PDSqldelightOpenHelper.h"
 #include "PPCrashReporter.h"
 #include "PPLogCrashReporter.h"
 #include "PTTestAppModule.h"
@@ -65,7 +65,7 @@ J2OBJC_IGNORE_DESIGNATED_END
 }
 
 - (id<PDDataProvider>)providesDataProviderWithAndroidAppApplication:(AndroidAppApplication *)application {
-  return create_PDDatabaseHelper_initWithAndroidContentContext_(application);
+  return create_PDSqldelightOpenHelper_initWithAndroidContentContext_(application);
 }
 
 - (id<PPCrashReporter>)providesCrashReporter {

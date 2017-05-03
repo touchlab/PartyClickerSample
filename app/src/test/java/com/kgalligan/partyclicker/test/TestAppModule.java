@@ -2,7 +2,7 @@ package com.kgalligan.partyclicker.test;
 import android.app.Application;
 
 import com.kgalligan.partyclicker.data.DataProvider;
-import com.kgalligan.partyclicker.data.DatabaseHelper;
+import com.kgalligan.partyclicker.data.SqldelightOpenHelper;
 import com.kgalligan.partyclicker.presenter.CrashReporter;
 import com.kgalligan.partyclicker.presenter.LogCrashReporter;
 
@@ -32,7 +32,7 @@ public class TestAppModule
     @Singleton
     DataProvider providesDataProvider(Application application)
     {
-        return new DatabaseHelper(application);
+        return new SqldelightOpenHelper(application);
     }
 
     @Provides

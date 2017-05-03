@@ -20,7 +20,7 @@ class PartyViewController: UIViewController, PPPartyPresenter_UiInterface{
     override func viewDidLoad() {
         self.navigationItem.title = party.description()
         self.navigationItem.backBarButtonItem?.title = "Parties"
-        presenter = PPPartyPresenter(int: jint(party.getId()))
+        presenter = PPPartyPresenter(int: jint(party.id__()))
         PAppManager.getInstance().getDaggerComponent().inject(with: presenter)
         presenter.applyUiInterface(with: self)
         presenter.init__()

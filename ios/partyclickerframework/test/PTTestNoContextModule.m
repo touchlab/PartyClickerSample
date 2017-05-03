@@ -9,7 +9,6 @@
 #include "J2ObjC_source.h"
 #include "PDDataProvider.h"
 #include "PPCrashReporter.h"
-#include "PPLogCrashReporter.h"
 #include "PTMemoryDataProvider.h"
 #include "PTTestNoContextModule.h"
 #include "RxObservable.h"
@@ -18,6 +17,17 @@
 
 #pragma clang diagnostic ignored "-Wprotocol"
 
+@interface PTTestNoContextModule () {
+ @public
+  id<PDDataProvider> dataProvider_;
+  id<PPCrashReporter> crashReporter_;
+}
+
+@end
+
+J2OBJC_FIELD_SETTER(PTTestNoContextModule, dataProvider_, id<PDDataProvider>)
+J2OBJC_FIELD_SETTER(PTTestNoContextModule, crashReporter_, id<PPCrashReporter>)
+
 __attribute__((unused)) static IOSObjectArray *PTTestNoContextModule__Annotations$0();
 
 __attribute__((unused)) static IOSObjectArray *PTTestNoContextModule__Annotations$1();
@@ -25,6 +35,24 @@ __attribute__((unused)) static IOSObjectArray *PTTestNoContextModule__Annotation
 __attribute__((unused)) static IOSObjectArray *PTTestNoContextModule__Annotations$2();
 
 __attribute__((unused)) static IOSObjectArray *PTTestNoContextModule__Annotations$3();
+
+@interface PTTestNoContextModule_1 : NSObject < PPCrashReporter >
+
+- (instancetype)init;
+
+- (void)logWithNSString:(NSString *)s;
+
+- (void)reportWithNSException:(NSException *)t;
+
+@end
+
+J2OBJC_EMPTY_STATIC_INIT(PTTestNoContextModule_1)
+
+__attribute__((unused)) static void PTTestNoContextModule_1_init(PTTestNoContextModule_1 *self);
+
+__attribute__((unused)) static PTTestNoContextModule_1 *new_PTTestNoContextModule_1_init() NS_RETURNS_RETAINED;
+
+__attribute__((unused)) static PTTestNoContextModule_1 *create_PTTestNoContextModule_1_init();
 
 @interface PTTestNoContextModule_$Lambda$1 : NSObject < RxObservable_Transformer >
 
@@ -46,6 +74,12 @@ __attribute__((unused)) static PTTestNoContextModule_$Lambda$1 *create_PTTestNoC
 
 @implementation PTTestNoContextModule
 
+- (instancetype)initWithPDDataProvider:(id<PDDataProvider>)dataProvider
+                   withPPCrashReporter:(id<PPCrashReporter>)crashReporter {
+  PTTestNoContextModule_initWithPDDataProvider_withPPCrashReporter_(self, dataProvider, crashReporter);
+  return self;
+}
+
 J2OBJC_IGNORE_DESIGNATED_BEGIN
 - (instancetype)init {
   PTTestNoContextModule_init(self);
@@ -54,7 +88,7 @@ J2OBJC_IGNORE_DESIGNATED_BEGIN
 J2OBJC_IGNORE_DESIGNATED_END
 
 - (id<PDDataProvider>)providesDataProvider {
-  return create_PTMemoryDataProvider_init();
+  return dataProvider_;
 }
 
 - (id<RxObservable_Transformer>)providesSchedulerTransformer {
@@ -62,32 +96,58 @@ J2OBJC_IGNORE_DESIGNATED_END
 }
 
 - (id<PPCrashReporter>)providesCrashReporter {
-  return create_PPLogCrashReporter_init();
+  return crashReporter_;
+}
+
+- (void)dealloc {
+  RELEASE_(dataProvider_);
+  RELEASE_(crashReporter_);
+  [super dealloc];
 }
 
 + (const J2ObjcClassInfo *)__metadata {
   static J2ObjcMethodInfo methods[] = {
+    { NULL, NULL, 0x1, -1, 0, -1, -1, -1, -1 },
     { NULL, NULL, 0x1, -1, -1, -1, -1, -1, -1 },
-    { NULL, "LPDDataProvider;", 0x0, -1, -1, -1, -1, 0, -1 },
-    { NULL, "LRxObservable_Transformer;", 0x0, -1, -1, -1, -1, 1, -1 },
-    { NULL, "LPPCrashReporter;", 0x0, -1, -1, -1, -1, 2, -1 },
+    { NULL, "LPDDataProvider;", 0x0, -1, -1, -1, -1, 1, -1 },
+    { NULL, "LRxObservable_Transformer;", 0x0, -1, -1, -1, -1, 2, -1 },
+    { NULL, "LPPCrashReporter;", 0x0, -1, -1, -1, -1, 3, -1 },
   };
   #pragma clang diagnostic push
   #pragma clang diagnostic ignored "-Wobjc-multiple-method-names"
-  methods[0].selector = @selector(init);
-  methods[1].selector = @selector(providesDataProvider);
-  methods[2].selector = @selector(providesSchedulerTransformer);
-  methods[3].selector = @selector(providesCrashReporter);
+  methods[0].selector = @selector(initWithPDDataProvider:withPPCrashReporter:);
+  methods[1].selector = @selector(init);
+  methods[2].selector = @selector(providesDataProvider);
+  methods[3].selector = @selector(providesSchedulerTransformer);
+  methods[4].selector = @selector(providesCrashReporter);
   #pragma clang diagnostic pop
-  static const void *ptrTable[] = { (void *)&PTTestNoContextModule__Annotations$0, (void *)&PTTestNoContextModule__Annotations$1, (void *)&PTTestNoContextModule__Annotations$2, (void *)&PTTestNoContextModule__Annotations$3 };
-  static const J2ObjcClassInfo _PTTestNoContextModule = { "TestNoContextModule", "com.kgalligan.partyclicker.test", ptrTable, methods, NULL, 7, 0x1, 4, 0, -1, -1, -1, -1, 3 };
+  static const J2ObjcFieldInfo fields[] = {
+    { "dataProvider_", "LPDDataProvider;", .constantValue.asLong = 0, 0x12, -1, -1, -1, -1 },
+    { "crashReporter_", "LPPCrashReporter;", .constantValue.asLong = 0, 0x12, -1, -1, -1, -1 },
+  };
+  static const void *ptrTable[] = { "LPDDataProvider;LPPCrashReporter;", (void *)&PTTestNoContextModule__Annotations$0, (void *)&PTTestNoContextModule__Annotations$1, (void *)&PTTestNoContextModule__Annotations$2, (void *)&PTTestNoContextModule__Annotations$3 };
+  static const J2ObjcClassInfo _PTTestNoContextModule = { "TestNoContextModule", "com.kgalligan.partyclicker.test", ptrTable, methods, fields, 7, 0x1, 5, 2, -1, -1, -1, -1, 4 };
   return &_PTTestNoContextModule;
 }
 
 @end
 
-void PTTestNoContextModule_init(PTTestNoContextModule *self) {
+void PTTestNoContextModule_initWithPDDataProvider_withPPCrashReporter_(PTTestNoContextModule *self, id<PDDataProvider> dataProvider, id<PPCrashReporter> crashReporter) {
   NSObject_init(self);
+  JreStrongAssign(&self->dataProvider_, dataProvider);
+  JreStrongAssign(&self->crashReporter_, crashReporter);
+}
+
+PTTestNoContextModule *new_PTTestNoContextModule_initWithPDDataProvider_withPPCrashReporter_(id<PDDataProvider> dataProvider, id<PPCrashReporter> crashReporter) {
+  J2OBJC_NEW_IMPL(PTTestNoContextModule, initWithPDDataProvider_withPPCrashReporter_, dataProvider, crashReporter)
+}
+
+PTTestNoContextModule *create_PTTestNoContextModule_initWithPDDataProvider_withPPCrashReporter_(id<PDDataProvider> dataProvider, id<PPCrashReporter> crashReporter) {
+  J2OBJC_CREATE_IMPL(PTTestNoContextModule, initWithPDDataProvider_withPPCrashReporter_, dataProvider, crashReporter)
+}
+
+void PTTestNoContextModule_init(PTTestNoContextModule *self) {
+  PTTestNoContextModule_initWithPDDataProvider_withPPCrashReporter_(self, create_PTMemoryDataProvider_init(), create_PTTestNoContextModule_1_init());
 }
 
 PTTestNoContextModule *new_PTTestNoContextModule_init() {
@@ -115,6 +175,52 @@ IOSObjectArray *PTTestNoContextModule__Annotations$3() {
 }
 
 J2OBJC_CLASS_TYPE_LITERAL_SOURCE(PTTestNoContextModule)
+
+@implementation PTTestNoContextModule_1
+
+J2OBJC_IGNORE_DESIGNATED_BEGIN
+- (instancetype)init {
+  PTTestNoContextModule_1_init(self);
+  return self;
+}
+J2OBJC_IGNORE_DESIGNATED_END
+
+- (void)logWithNSString:(NSString *)s {
+}
+
+- (void)reportWithNSException:(NSException *)t {
+}
+
++ (const J2ObjcClassInfo *)__metadata {
+  static J2ObjcMethodInfo methods[] = {
+    { NULL, NULL, 0x0, -1, -1, -1, -1, -1, -1 },
+    { NULL, "V", 0x1, 0, 1, -1, -1, -1, -1 },
+    { NULL, "V", 0x1, 2, 3, -1, -1, -1, -1 },
+  };
+  #pragma clang diagnostic push
+  #pragma clang diagnostic ignored "-Wobjc-multiple-method-names"
+  methods[0].selector = @selector(init);
+  methods[1].selector = @selector(logWithNSString:);
+  methods[2].selector = @selector(reportWithNSException:);
+  #pragma clang diagnostic pop
+  static const void *ptrTable[] = { "log", "LNSString;", "report", "LNSException;", "LPTTestNoContextModule;", "init" };
+  static const J2ObjcClassInfo _PTTestNoContextModule_1 = { "", "com.kgalligan.partyclicker.test", ptrTable, methods, NULL, 7, 0x8018, 3, 0, 4, -1, 5, -1, -1 };
+  return &_PTTestNoContextModule_1;
+}
+
+@end
+
+void PTTestNoContextModule_1_init(PTTestNoContextModule_1 *self) {
+  NSObject_init(self);
+}
+
+PTTestNoContextModule_1 *new_PTTestNoContextModule_1_init() {
+  J2OBJC_NEW_IMPL(PTTestNoContextModule_1, init)
+}
+
+PTTestNoContextModule_1 *create_PTTestNoContextModule_1_init() {
+  J2OBJC_CREATE_IMPL(PTTestNoContextModule_1, init)
+}
 
 J2OBJC_INITIALIZED_DEFN(PTTestNoContextModule_$Lambda$1)
 

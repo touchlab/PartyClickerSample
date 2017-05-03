@@ -2,7 +2,6 @@ package com.kgalligan.partyclicker.test;
 
 import com.kgalligan.partyclicker.data.DataProvider;
 import com.kgalligan.partyclicker.presenter.CrashReporter;
-import com.kgalligan.partyclicker.presenter.LogCrashReporter;
 
 import javax.inject.Singleton;
 
@@ -16,7 +15,7 @@ import rx.Observable;
 @Module
 public class TestNoContextModule
 {
-    private final DataProvider dataProvider;
+    private final DataProvider  dataProvider;
     private final CrashReporter crashReporter;
 
     public TestNoContextModule(DataProvider dataProvider, CrashReporter crashReporter)
