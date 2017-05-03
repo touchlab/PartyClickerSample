@@ -2,6 +2,7 @@ package com.kgalligan.partyclicker.presenter;
 
 import com.kgalligan.partyclicker.data.DataProvider;
 import com.kgalligan.partyclicker.data.Party;
+import com.kgalligan.partyclicker.data.PartyIntf;
 import com.kgalligan.partyclicker.test.DaggerTestNoContextComponent;
 import com.kgalligan.partyclicker.test.TestNoContextComponent;
 import com.kgalligan.partyclicker.test.TestNoContextModule;
@@ -27,7 +28,7 @@ public class PartyPresenterTest
 
     private PartyPresenter             partyPresenter;
     private PartyPresenter.UiInterface uiInterface;
-    private Party                      party;
+    private PartyIntf                  party;
 
     @Before
     public void setUp() throws Exception

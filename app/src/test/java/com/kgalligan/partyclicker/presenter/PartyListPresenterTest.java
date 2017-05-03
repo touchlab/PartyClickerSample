@@ -2,7 +2,9 @@ package com.kgalligan.partyclicker.presenter;
 
 import com.kgalligan.partyclicker.data.DataProvider;
 import com.kgalligan.partyclicker.data.Party;
+import com.kgalligan.partyclicker.data.PartyIntf;
 import com.kgalligan.partyclicker.data.Person;
+import com.kgalligan.partyclicker.data.PersonIntf;
 import com.kgalligan.partyclicker.test.DaggerTestNoContextComponent;
 import com.kgalligan.partyclicker.test.TestNoContextComponent;
 import com.kgalligan.partyclicker.test.TestNoContextModule;
@@ -58,7 +60,7 @@ public class PartyListPresenterTest
     @Test
     public void callParty() throws Exception
     {
-        Party hello = dataProvider.createParty("hello");
+        PartyIntf hello = dataProvider.createParty("hello");
         partyListPresenter.callParty((int)hello.id());
         verify(uiInterface).showParty(hello);
     }
@@ -79,7 +81,7 @@ public class PartyListPresenterTest
     {
         dataProvider.createParty("a");
         dataProvider.createParty("b");
-        Party party = dataProvider.createParty("c");
+        PartyIntf party = dataProvider.createParty("c");
         dataProvider.createParty("d");
 
         partyListPresenter.deleteParty((int)party.id());
@@ -92,7 +94,7 @@ public class PartyListPresenterTest
     {
         dataProvider.createParty("a");
         dataProvider.createParty("b");
-        Party party = dataProvider.createParty("c");
+        PartyIntf party = dataProvider.createParty("c");
         dataProvider.createParty("d");
 
         dataProvider.addPerson(party, true);
@@ -109,7 +111,7 @@ public class PartyListPresenterTest
     @Test
     public void allPeople() throws Exception
     {
-        Party party = dataProvider.createParty("on the patio");
+        PartyIntf party = dataProvider.createParty("on the patio");
 
         dataProvider.addPerson(party, true);
         dataProvider.addPerson(party, true);
@@ -117,14 +119,14 @@ public class PartyListPresenterTest
         dataProvider.addPerson(party, false);
         dataProvider.addPerson(party, true);
 
-        List<Person> personList = partyListPresenter.allPeople(party);
+        List<PersonIntf> personList = partyListPresenter.allPeople(party);
 
-        List<Person> memPersonLIst = dataProvider.allPeopleForParty(party);
+        List<PersonIntf> memPersonLIst = dataProvider.allPeopleForParty(party);
 
-        for(Person person : personList)
+        for(PersonIntf person : personList)
         {
             boolean found = true;
-            for(Person memPerson : memPersonLIst)
+            for(PersonIntf memPerson : memPersonLIst)
             {
                 if(person.id() == memPerson.id())
                 {

@@ -10,11 +10,11 @@ package com.kgalligan.partyclicker.data;
 
 public class ModPersonTask implements Runnable
 {
-    private final Party        party;
+    private final PartyIntf        party;
     private final boolean      coming;
     private final DataProvider databaseHelper;
 
-    public ModPersonTask(Party party, boolean coming, DataProvider databaseHelper)
+    public ModPersonTask(PartyIntf party, boolean coming, DataProvider databaseHelper)
     {
         this.party = party;
         this.coming = coming;

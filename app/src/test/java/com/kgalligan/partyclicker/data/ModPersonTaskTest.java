@@ -32,7 +32,7 @@ public class ModPersonTaskTest
     @Test
     public void run()
     {
-        Party party = dataProvider.createParty("asdf");
+        PartyIntf party = dataProvider.createParty("asdf");
         new ModPersonTask(party, true, dataProvider).run();
         new ModPersonTask(party, true, dataProvider).run();
         new ModPersonTask(party, true, dataProvider).run();

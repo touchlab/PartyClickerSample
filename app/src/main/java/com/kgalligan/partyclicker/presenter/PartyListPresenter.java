@@ -2,7 +2,9 @@ package com.kgalligan.partyclicker.presenter;
 import com.google.j2objc.annotations.Weak;
 import com.kgalligan.partyclicker.data.DataProvider;
 import com.kgalligan.partyclicker.data.Party;
+import com.kgalligan.partyclicker.data.PartyIntf;
 import com.kgalligan.partyclicker.data.Person;
+import com.kgalligan.partyclicker.data.PersonIntf;
 
 import java.util.List;
 
@@ -31,8 +33,8 @@ public class PartyListPresenter
     public interface UiInterface
     {
         void processing(boolean b);
-        void refreshPartyList(List<Party> partyList);
-        void showParty(Party party);
+        void refreshPartyList(List<PartyIntf> partyList);
+        void showParty(PartyIntf party);
     }
 
     public void applyUiInterface(UiInterface uiInterface)
@@ -49,11 +51,11 @@ public class PartyListPresenter
     {
         uiInterface.processing(true);
 
-        Observable.<List<Party>>create(subscriber -> {
+        Observable.<List<PartyIntf>>create(subscriber -> {
             subscriber.onNext(databaseHelper.allParties());
             subscriber.onCompleted();
         })
-                .compose((Observable.Transformer<List<Party>, List<Party>>)schedulerTransformer)
+                .compose((Observable.Transformer<List<PartyIntf>, List<PartyIntf>>)schedulerTransformer)
                 .subscribe(o -> {
                     uiInterface.refreshPartyList(o);
                     uiInterface.processing(false);
@@ -67,11 +69,11 @@ public class PartyListPresenter
      */
     public void callParty(int id)
     {
-        Observable.<Party>create(subscriber -> {
+        Observable.<PartyIntf>create(subscriber -> {
             subscriber.onNext(databaseHelper.loadParty(id));
             subscriber.onCompleted();
         })
-                .compose((Observable.Transformer<Party, Party>)schedulerTransformer)
+                .compose((Observable.Transformer<PartyIntf, PartyIntf>)schedulerTransformer)
                 .subscribe(party -> uiInterface.showParty(party), throwable -> crashReporter.report(throwable));
     }
 
@@ -83,33 +85,33 @@ public class PartyListPresenter
     public void createParty(String name)
     {
         crashReporter.log("Creating: "+ name);
-        Observable.<Party>create(subscriber -> {
+        Observable.<PartyIntf>create(subscriber -> {
             subscriber.onNext(databaseHelper.createParty(name));
             subscriber.onCompleted();
         })
-                .compose((Observable.Transformer<Party, Party>)schedulerTransformer)
+                .compose((Observable.Transformer<PartyIntf, PartyIntf>)schedulerTransformer)
                 .subscribe(party -> uiInterface.showParty(party), throwable -> crashReporter.report(throwable));
     }
 
     public void deleteParty(int id)
     {
-        Observable.<Party>create(subscriber -> {
-            Party party = databaseHelper.loadParty(id);
+        Observable.<PartyIntf>create(subscriber -> {
+            PartyIntf party = databaseHelper.loadParty(id);
             databaseHelper.deleteParty(party);
             subscriber.onNext(party);
             subscriber.onCompleted();
         })
-                .compose((Observable.Transformer<Party, Party>)schedulerTransformer)
+                .compose((Observable.Transformer<PartyIntf, PartyIntf>)schedulerTransformer)
                 .subscribe(o -> callRefreshPartyList(),
                         throwable -> crashReporter.report(throwable));
     }
 
-    public int countPeople(Party party)
+    public int countPeople(PartyIntf party)
     {
         return databaseHelper.countCurrentParty((int)party.id());
     }
 
-    public List<Person> allPeople(Party party)
+    public List<PersonIntf> allPeople(PartyIntf party)
     {
         return databaseHelper.allPeopleForParty(party);
     }

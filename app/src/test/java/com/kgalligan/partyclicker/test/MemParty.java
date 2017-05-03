@@ -1,7 +1,7 @@
 package com.kgalligan.partyclicker.test;
 import com.google.auto.value.AutoValue;
 import com.kgalligan.partyclicker.data.Party;
-import com.kgalligan.partyclicker.data.Person;
+import com.kgalligan.partyclicker.data.PersonIntf;
 
 import java.util.List;
 
@@ -11,14 +11,14 @@ import java.util.List;
 @AutoValue
 public abstract class MemParty extends Party
 {
-    public abstract List<Person> people();
+    public abstract List<PersonIntf> people();
 
     @AutoValue.Builder
     abstract static class Builder {
         abstract Builder setId(long id);
         abstract Builder setName(String name);
         abstract Builder setCreated(long created);
-        abstract Builder setPeople(List<Person> people);
+        abstract Builder setPeople(List<PersonIntf> people);
         abstract MemParty build();
     }
 }

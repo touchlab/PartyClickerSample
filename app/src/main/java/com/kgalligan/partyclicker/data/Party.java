@@ -11,7 +11,7 @@ import java.util.Date;
  */
 
 @AutoValue
-public abstract class Party implements PartyModel
+public abstract class Party implements PartyModel, PartyIntf
 {
     public static Party create(long id,
             String name,

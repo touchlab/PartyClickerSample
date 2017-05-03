@@ -39,15 +39,15 @@ public class SqldelightOpenHelper extends SQLiteOpenHelper implements DataProvid
     }
 
     @Override
-    public List<Party> allParties()
+    public List<PartyIntf> allParties()
     {
         SqlDelightStatement query = Party.FACTORY.selectAll();
         return allPartiesFromQuery(query);
     }
 
-    private List<Party> allPartiesFromQuery(SqlDelightStatement query)
+    private List<PartyIntf> allPartiesFromQuery(SqlDelightStatement query)
     {
-        List<Party> parties = new ArrayList<>();
+        List<PartyIntf> parties = new ArrayList<>();
         Cursor cursor = getWritableDatabase().rawQuery(query.statement, query.args);
         cursor.moveToFirst();
         while (!cursor.isAfterLast()){
@@ -59,14 +59,14 @@ public class SqldelightOpenHelper extends SQLiteOpenHelper implements DataProvid
     }
 
     @Override
-    public Party loadParty(int id)
+    public PartyIntf loadParty(int id)
     {
         SqlDelightStatement query = Party.FACTORY.selectById(id);
         return allPartiesFromQuery(query).get(0);
     }
 
     @Override
-    public Party createParty(String name)
+    public PartyIntf createParty(String name)
     {
         PartyModel.CreateParty createParty = new PartyModel.CreateParty(getWritableDatabase());
         createParty.bind(name, System.currentTimeMillis());
@@ -74,7 +74,7 @@ public class SqldelightOpenHelper extends SQLiteOpenHelper implements DataProvid
     }
 
     @Override
-    public void deleteParty(Party party)
+    public void deleteParty(PartyIntf party)
     {
 
         PartyModel.DeleteParty deleteParty = new PartyModel.DeleteParty(getWritableDatabase());
@@ -94,12 +94,12 @@ public class SqldelightOpenHelper extends SQLiteOpenHelper implements DataProvid
     }
 
     @Override
-    public List<Person> allPeopleForParty(Party party)
+    public List<PersonIntf> allPeopleForParty(PartyIntf party)
     {
         SqlDelightStatement query = Person.FACTORY.selectAllForParty(party.id());
         Cursor cursor = getWritableDatabase().rawQuery(query.statement, query.args);
         cursor.moveToFirst();
-        List<Person> persons = new ArrayList<>();
+        List<PersonIntf> persons = new ArrayList<>();
         while (!cursor.isAfterLast()){
             persons.add(Person.FACTORY.selectAllForPartyMapper().map(cursor));
             cursor.moveToNext();
@@ -109,7 +109,7 @@ public class SqldelightOpenHelper extends SQLiteOpenHelper implements DataProvid
     }
 
     @Override
-    public void addPerson(Party party, boolean coming)
+    public void addPerson(PartyIntf party, boolean coming)
     {
         PersonModel.CreatePerson createPerson = new PersonModel.CreatePerson(getWritableDatabase());
         createPerson.bind(System.currentTimeMillis(), coming ? 1 : -1, party.id());

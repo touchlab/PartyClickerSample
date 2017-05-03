@@ -11,17 +11,17 @@ import java.util.List;
 public interface DataProvider
 {
 
-    List<Party> allParties();
+    List<PartyIntf> allParties();
 
-    Party loadParty(int id);
+    PartyIntf loadParty(int id);
 
-    Party createParty(String name);
+    PartyIntf createParty(String name);
 
-    void deleteParty(Party party);
+    void deleteParty(PartyIntf party);
 
     int countCurrentParty(int id);
 
-    List<Person> allPeopleForParty(Party party);
+    List<PersonIntf> allPeopleForParty(PartyIntf party);
 
-    void addPerson(Party party, boolean coming);
+    void addPerson(PartyIntf party, boolean coming);
 }

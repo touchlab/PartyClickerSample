@@ -34,7 +34,7 @@ public class SqldelightOpenHelperTest
     Application application;
 
     SqldelightOpenHelper databaseHelper;
-    private Party party;
+    private PartyIntf party;
 
     @Before
     public void setUp() throws Exception
@@ -77,11 +77,11 @@ public class SqldelightOpenHelperTest
         databaseHelper.addPerson(party, false);
         databaseHelper.addPerson(party, true);
 
-        List<Person> people = databaseHelper.allPeopleForParty(party);
+        List<PersonIntf> people = databaseHelper.allPeopleForParty(party);
 
         assertEquals(5, people.size());
         Set<Integer> allIds = new HashSet<>();
-        for(Person person : people)
+        for(PersonIntf person : people)
         {
             allIds.add((int)person.id());
         }
@@ -115,9 +115,9 @@ public class SqldelightOpenHelperTest
     public void createParty() throws Exception
     {
         databaseHelper.createParty("asdf");
-        List<Party> parties = databaseHelper.allParties();
+        List<PartyIntf> parties = databaseHelper.allParties();
         assertEquals(2, parties.size());
-        for(Party p : parties)
+        for(PartyIntf p : parties)
         {
             assertTrue(p.name().equals("asdf") || p.name().equals("Hello test"));
         }
@@ -127,11 +127,11 @@ public class SqldelightOpenHelperTest
     public void deleteParty() throws Exception
     {
         databaseHelper.createParty("asdf");
-        List<Party> parties = databaseHelper.allParties();
+        List<PartyIntf> parties = databaseHelper.allParties();
         assertEquals(2, parties.size());
 
         int deleteCount = 0;
-        for(Party p : parties)
+        for(PartyIntf p : parties)
         {
             if(!p.name().equals("asdf"))
             {
@@ -142,7 +142,7 @@ public class SqldelightOpenHelperTest
 
         assertEquals(1, deleteCount);
 
-        List<Party> laterParties = databaseHelper.allParties();
+        List<PartyIntf> laterParties = databaseHelper.allParties();
         assertEquals(1, laterParties.size());
         assertEquals("asdf", laterParties.get(0).name());
     }
@@ -150,8 +150,8 @@ public class SqldelightOpenHelperTest
     @Test
     public void loadParty() throws Exception
     {
-        Party jjjjjjj = databaseHelper.createParty("jjjjjjj");
-        Party party = databaseHelper.loadParty((int)jjjjjjj.id());
+        PartyIntf jjjjjjj = databaseHelper.createParty("jjjjjjj");
+        PartyIntf party = databaseHelper.loadParty((int)jjjjjjj.id());
         assertEquals(party.name(), "jjjjjjj");
         assertEquals(party.name(), jjjjjjj.name());
     }

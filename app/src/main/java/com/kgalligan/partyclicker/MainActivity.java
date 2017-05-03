@@ -8,6 +8,7 @@ import android.widget.EditText;
 import android.widget.ListView;
 
 import com.kgalligan.partyclicker.data.Party;
+import com.kgalligan.partyclicker.data.PartyIntf;
 import com.kgalligan.partyclicker.presenter.PartyListPresenter;
 
 import java.util.ArrayList;
@@ -17,8 +18,8 @@ public class MainActivity extends AppCompatActivity implements PartyListPresente
 {
     private PartyListPresenter presenter;
 
-    private EditText            partyNameString;
-    private ArrayAdapter<Party> partyArrayAdapter;
+    private EditText                partyNameString;
+    private ArrayAdapter<PartyIntf> partyArrayAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -31,7 +32,7 @@ public class MainActivity extends AppCompatActivity implements PartyListPresente
         AppManager.getInstance().getDaggerComponent().inject(presenter);
 
         final ListView partyListView = (ListView) findViewById(R.id.partyListView);
-        partyArrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, new ArrayList<Party>());
+        partyArrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, new ArrayList<PartyIntf>());
         partyListView.setAdapter(partyArrayAdapter);
 
         partyNameString = (EditText) findViewById(R.id.partyNameString);
@@ -75,7 +76,7 @@ public class MainActivity extends AppCompatActivity implements PartyListPresente
     }
 
     @Override
-    public void refreshPartyList(List<Party> partyList)
+    public void refreshPartyList(List<PartyIntf> partyList)
     {
         partyArrayAdapter.clear();
         partyArrayAdapter.addAll(partyList);
@@ -83,7 +84,7 @@ public class MainActivity extends AppCompatActivity implements PartyListPresente
     }
 
     @Override
-    public void showParty(Party party)
+    public void showParty(PartyIntf party)
     {
         PartyActivity.callMe(MainActivity.this, (int)party.id());
     }

@@ -2,7 +2,9 @@ package com.kgalligan.partyclicker.test;
 
 import com.kgalligan.partyclicker.data.DataProvider;
 import com.kgalligan.partyclicker.data.Party;
+import com.kgalligan.partyclicker.data.PartyIntf;
 import com.kgalligan.partyclicker.data.Person;
+import com.kgalligan.partyclicker.data.PersonIntf;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -15,18 +17,18 @@ import java.util.List;
 public class MemoryDataProvider implements DataProvider
 {
     volatile int idCounter = 111;
-    List<Party> parties = new ArrayList<>();
+    List<PartyIntf> parties = new ArrayList<>();
 
     @Override
-    public List<Party> allParties()
+    public List<PartyIntf> allParties()
     {
         return parties;
     }
 
     @Override
-    public Party loadParty(int id)
+    public PartyIntf loadParty(int id)
     {
-        for(Party party : parties)
+        for(PartyIntf party : parties)
         {
             if(party.id() == id)
                 return party;
@@ -35,7 +37,7 @@ public class MemoryDataProvider implements DataProvider
     }
 
     @Override
-    public Party createParty(String name)
+    public PartyIntf createParty(String name)
     {
         MemParty party = new AutoValue_MemParty.Builder().setCreated(System.currentTimeMillis())
                 .setName(name)
@@ -49,12 +51,12 @@ public class MemoryDataProvider implements DataProvider
     }
 
     @Override
-    public void deleteParty(Party party)
+    public void deleteParty(PartyIntf party)
     {
-        Iterator<Party> iterator = parties.iterator();
+        Iterator<PartyIntf> iterator = parties.iterator();
         while(iterator.hasNext())
         {
-            Party next = iterator.next();
+            PartyIntf next = iterator.next();
             if(party.id() == next.id())
             {
                 iterator.remove();
@@ -70,7 +72,7 @@ public class MemoryDataProvider implements DataProvider
     {
         MemParty party = (MemParty)loadParty(id);
         int sum = 0;
-        for(Person person : party.people())
+        for(PersonIntf person : party.people())
         {
             sum += person.val();
         }
@@ -78,13 +80,13 @@ public class MemoryDataProvider implements DataProvider
     }
 
     @Override
-    public List<Person> allPeopleForParty(Party party)
+    public List<PersonIntf> allPeopleForParty(PartyIntf party)
     {
         return ((MemParty)party).people();
     }
 
     @Override
-    public void addPerson(Party party, boolean coming)
+    public void addPerson(PartyIntf party, boolean coming)
     {
 
         Person person = Person.create(idCounter++, System.currentTimeMillis(), (short)(coming ? 1 : -1), party.id());

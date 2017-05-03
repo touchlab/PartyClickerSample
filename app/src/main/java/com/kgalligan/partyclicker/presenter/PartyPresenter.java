@@ -3,6 +3,7 @@ import com.google.j2objc.annotations.Weak;
 import com.kgalligan.partyclicker.data.ModPersonTask;
 import com.kgalligan.partyclicker.data.DataProvider;
 import com.kgalligan.partyclicker.data.Party;
+import com.kgalligan.partyclicker.data.PartyIntf;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -18,7 +19,7 @@ import rx.Observable;
 public class PartyPresenter
 {
     private final int   partyId;
-    private       Party party;
+    private       PartyIntf party;
     private       int   partyCount;
     private final ExecutorService executorService = Executors.newSingleThreadExecutor();
 
@@ -57,10 +58,10 @@ public class PartyPresenter
 
     static class PartyInfo
     {
-        final Party party;
-        final int partyCount;
+        final PartyIntf party;
+        final int       partyCount;
 
-        public PartyInfo(Party party, int partyCount)
+        public PartyInfo(PartyIntf party, int partyCount)
         {
             this.party = party;
             this.partyCount = partyCount;
@@ -112,7 +113,7 @@ public class PartyPresenter
         return partyCount;
     }
 
-    public Party getParty()
+    public PartyIntf getParty()
     {
         return party;
     }

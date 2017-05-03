@@ -1,6 +1,7 @@
 package com.kgalligan.partyclicker.presenter;
 
 import com.kgalligan.partyclicker.data.Party;
+import com.kgalligan.partyclicker.data.PartyIntf;
 import com.kgalligan.partyclicker.test.DaggerTestNoContextComponent;
 import com.kgalligan.partyclicker.test.MemoryDataProvider;
 import com.kgalligan.partyclicker.test.TestNoContextComponent;
@@ -26,7 +27,7 @@ public class CrashReporterTest
         TestNoContextComponent component = DaggerTestNoContextComponent.builder()
                 .testNoContextModule(new TestNoContextModule(new MemoryDataProvider(){
                     @Override
-                    public Party createParty(String name)
+                    public PartyIntf createParty(String name)
                     {
                         if(name.contains("Fyre"))
                             throw new RuntimeException("#dumpsterfyre");

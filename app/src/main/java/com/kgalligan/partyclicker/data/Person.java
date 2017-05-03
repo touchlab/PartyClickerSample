@@ -6,7 +6,7 @@ import com.squareup.sqldelight.RowMapper;
  * Created by kgalligan on 5/2/17.
  */
 @AutoValue
-public abstract class Person implements PersonModel
+public abstract class Person implements PersonModel, PersonIntf
 {
     public static Person create(long id,
             long recorded,
