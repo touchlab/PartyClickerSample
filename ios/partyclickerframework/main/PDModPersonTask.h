@@ -19,16 +19,16 @@
 #define INCLUDE_JavaLangRunnable 1
 #include "java/lang/Runnable.h"
 
-@class PDParty;
 @protocol PDDataProvider;
+@protocol PDPartyIntf;
 
 @interface PDModPersonTask : NSObject < JavaLangRunnable >
 
 #pragma mark Public
 
-- (instancetype)initWithPDParty:(PDParty *)party
-                    withBoolean:(jboolean)coming
-             withPDDataProvider:(id<PDDataProvider>)databaseHelper;
+- (instancetype)initWithPDPartyIntf:(id<PDPartyIntf>)party
+                        withBoolean:(jboolean)coming
+                 withPDDataProvider:(id<PDDataProvider>)databaseHelper;
 
 - (void)run;
 
@@ -36,11 +36,11 @@
 
 J2OBJC_EMPTY_STATIC_INIT(PDModPersonTask)
 
-FOUNDATION_EXPORT void PDModPersonTask_initWithPDParty_withBoolean_withPDDataProvider_(PDModPersonTask *self, PDParty *party, jboolean coming, id<PDDataProvider> databaseHelper);
+FOUNDATION_EXPORT void PDModPersonTask_initWithPDPartyIntf_withBoolean_withPDDataProvider_(PDModPersonTask *self, id<PDPartyIntf> party, jboolean coming, id<PDDataProvider> databaseHelper);
 
-FOUNDATION_EXPORT PDModPersonTask *new_PDModPersonTask_initWithPDParty_withBoolean_withPDDataProvider_(PDParty *party, jboolean coming, id<PDDataProvider> databaseHelper) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT PDModPersonTask *new_PDModPersonTask_initWithPDPartyIntf_withBoolean_withPDDataProvider_(id<PDPartyIntf> party, jboolean coming, id<PDDataProvider> databaseHelper) NS_RETURNS_RETAINED;
 
-FOUNDATION_EXPORT PDModPersonTask *create_PDModPersonTask_initWithPDParty_withBoolean_withPDDataProvider_(PDParty *party, jboolean coming, id<PDDataProvider> databaseHelper);
+FOUNDATION_EXPORT PDModPersonTask *create_PDModPersonTask_initWithPDPartyIntf_withBoolean_withPDDataProvider_(id<PDPartyIntf> party, jboolean coming, id<PDDataProvider> databaseHelper);
 
 J2OBJC_TYPE_LITERAL_HEADER(PDModPersonTask)
 

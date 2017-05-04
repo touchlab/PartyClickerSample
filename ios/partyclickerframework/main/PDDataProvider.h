@@ -15,25 +15,25 @@
 #if !defined (PDDataProvider_) && (INCLUDE_ALL_PDDataProvider || defined(INCLUDE_PDDataProvider))
 #define PDDataProvider_
 
-@class PDParty;
 @protocol JavaUtilList;
+@protocol PDPartyIntf;
 
 @protocol PDDataProvider < JavaObject >
 
 - (id<JavaUtilList>)allParties;
 
-- (PDParty *)loadPartyWithInt:(jint)id_;
+- (id<PDPartyIntf>)loadPartyWithInt:(jint)id_;
 
-- (PDParty *)createPartyWithNSString:(NSString *)name;
+- (id<PDPartyIntf>)createPartyWithNSString:(NSString *)name;
 
-- (void)deletePartyWithPDParty:(PDParty *)party;
+- (void)deletePartyWithPDPartyIntf:(id<PDPartyIntf>)party;
 
 - (jint)countCurrentPartyWithInt:(jint)id_;
 
-- (id<JavaUtilList>)allPeopleForPartyWithPDParty:(PDParty *)party;
+- (id<JavaUtilList>)allPeopleForPartyWithPDPartyIntf:(id<PDPartyIntf>)party;
 
-- (void)addPersonWithPDParty:(PDParty *)party
-                 withBoolean:(jboolean)coming;
+- (void)addPersonWithPDPartyIntf:(id<PDPartyIntf>)party
+                     withBoolean:(jboolean)coming;
 
 @end
 

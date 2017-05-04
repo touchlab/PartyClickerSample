@@ -7,8 +7,8 @@
 #include "IOSClass.h"
 #include "IOSObjectArray.h"
 #include "J2ObjC_source.h"
-#include "PDParty.h"
-#include "PDPerson.h"
+#include "PDPartyIntf.h"
+#include "PDPersonIntf.h"
 #include "PDSqldelightOpenHelper.h"
 #include "PDSqldelightOpenHelperTest.h"
 #include "PTDaggerTestComponent.h"
@@ -27,12 +27,12 @@
 
 @interface PDSqldelightOpenHelperTest () {
  @public
-  PDParty *party_;
+  id<PDPartyIntf> party_;
 }
 
 @end
 
-J2OBJC_FIELD_SETTER(PDSqldelightOpenHelperTest, party_, PDParty *)
+J2OBJC_FIELD_SETTER(PDSqldelightOpenHelperTest, party_, id<PDPartyIntf>)
 
 __attribute__((unused)) static IOSObjectArray *PDSqldelightOpenHelperTest__Annotations$0();
 
@@ -71,40 +71,40 @@ J2OBJC_IGNORE_DESIGNATED_END
 }
 
 - (void)countCurrentParty {
-  OrgJunitAssert_assertEqualsWithLong_withLong_(0, [((PDSqldelightOpenHelper *) nil_chk(databaseHelper_)) countCurrentPartyWithInt:(jint) [((PDParty *) nil_chk(party_)) id__]]);
-  [((PDSqldelightOpenHelper *) nil_chk(databaseHelper_)) addPersonWithPDParty:party_ withBoolean:true];
-  [((PDSqldelightOpenHelper *) nil_chk(databaseHelper_)) addPersonWithPDParty:party_ withBoolean:true];
-  [((PDSqldelightOpenHelper *) nil_chk(databaseHelper_)) addPersonWithPDParty:party_ withBoolean:true];
-  OrgJunitAssert_assertEqualsWithLong_withLong_(3, [((PDSqldelightOpenHelper *) nil_chk(databaseHelper_)) countCurrentPartyWithInt:(jint) [((PDParty *) nil_chk(party_)) id__]]);
-  [((PDSqldelightOpenHelper *) nil_chk(databaseHelper_)) addPersonWithPDParty:party_ withBoolean:false];
-  OrgJunitAssert_assertEqualsWithLong_withLong_(2, [((PDSqldelightOpenHelper *) nil_chk(databaseHelper_)) countCurrentPartyWithInt:(jint) [((PDParty *) nil_chk(party_)) id__]]);
-  [((PDSqldelightOpenHelper *) nil_chk(databaseHelper_)) addPersonWithPDParty:party_ withBoolean:true];
-  OrgJunitAssert_assertEqualsWithLong_withLong_(3, [((PDSqldelightOpenHelper *) nil_chk(databaseHelper_)) countCurrentPartyWithInt:(jint) [((PDParty *) nil_chk(party_)) id__]]);
+  OrgJunitAssert_assertEqualsWithLong_withLong_(0, [((PDSqldelightOpenHelper *) nil_chk(databaseHelper_)) countCurrentPartyWithInt:(jint) [((id<PDPartyIntf>) nil_chk(party_)) id__]]);
+  [((PDSqldelightOpenHelper *) nil_chk(databaseHelper_)) addPersonWithPDPartyIntf:party_ withBoolean:true];
+  [((PDSqldelightOpenHelper *) nil_chk(databaseHelper_)) addPersonWithPDPartyIntf:party_ withBoolean:true];
+  [((PDSqldelightOpenHelper *) nil_chk(databaseHelper_)) addPersonWithPDPartyIntf:party_ withBoolean:true];
+  OrgJunitAssert_assertEqualsWithLong_withLong_(3, [((PDSqldelightOpenHelper *) nil_chk(databaseHelper_)) countCurrentPartyWithInt:(jint) [((id<PDPartyIntf>) nil_chk(party_)) id__]]);
+  [((PDSqldelightOpenHelper *) nil_chk(databaseHelper_)) addPersonWithPDPartyIntf:party_ withBoolean:false];
+  OrgJunitAssert_assertEqualsWithLong_withLong_(2, [((PDSqldelightOpenHelper *) nil_chk(databaseHelper_)) countCurrentPartyWithInt:(jint) [((id<PDPartyIntf>) nil_chk(party_)) id__]]);
+  [((PDSqldelightOpenHelper *) nil_chk(databaseHelper_)) addPersonWithPDPartyIntf:party_ withBoolean:true];
+  OrgJunitAssert_assertEqualsWithLong_withLong_(3, [((PDSqldelightOpenHelper *) nil_chk(databaseHelper_)) countCurrentPartyWithInt:(jint) [((id<PDPartyIntf>) nil_chk(party_)) id__]]);
 }
 
 - (void)allPeopleForParty {
-  [((PDSqldelightOpenHelper *) nil_chk(databaseHelper_)) addPersonWithPDParty:party_ withBoolean:true];
-  [((PDSqldelightOpenHelper *) nil_chk(databaseHelper_)) addPersonWithPDParty:party_ withBoolean:true];
-  [((PDSqldelightOpenHelper *) nil_chk(databaseHelper_)) addPersonWithPDParty:party_ withBoolean:true];
-  [((PDSqldelightOpenHelper *) nil_chk(databaseHelper_)) addPersonWithPDParty:party_ withBoolean:false];
-  [((PDSqldelightOpenHelper *) nil_chk(databaseHelper_)) addPersonWithPDParty:party_ withBoolean:true];
-  id<JavaUtilList> people = [((PDSqldelightOpenHelper *) nil_chk(databaseHelper_)) allPeopleForPartyWithPDParty:party_];
+  [((PDSqldelightOpenHelper *) nil_chk(databaseHelper_)) addPersonWithPDPartyIntf:party_ withBoolean:true];
+  [((PDSqldelightOpenHelper *) nil_chk(databaseHelper_)) addPersonWithPDPartyIntf:party_ withBoolean:true];
+  [((PDSqldelightOpenHelper *) nil_chk(databaseHelper_)) addPersonWithPDPartyIntf:party_ withBoolean:true];
+  [((PDSqldelightOpenHelper *) nil_chk(databaseHelper_)) addPersonWithPDPartyIntf:party_ withBoolean:false];
+  [((PDSqldelightOpenHelper *) nil_chk(databaseHelper_)) addPersonWithPDPartyIntf:party_ withBoolean:true];
+  id<JavaUtilList> people = [((PDSqldelightOpenHelper *) nil_chk(databaseHelper_)) allPeopleForPartyWithPDPartyIntf:party_];
   OrgJunitAssert_assertEqualsWithLong_withLong_(5, [((id<JavaUtilList>) nil_chk(people)) size]);
   id<JavaUtilSet> allIds = create_JavaUtilHashSet_init();
-  for (PDPerson * __strong person in people) {
-    [allIds addWithId:JavaLangInteger_valueOfWithInt_((jint) [((PDPerson *) nil_chk(person)) id__])];
+  for (id<PDPersonIntf> __strong person in people) {
+    [allIds addWithId:JavaLangInteger_valueOfWithInt_((jint) [((id<PDPersonIntf>) nil_chk(person)) id__])];
   }
   OrgJunitAssert_assertEqualsWithLong_withLong_(5, [allIds size]);
 }
 
 - (void)addPerson {
-  [((PDSqldelightOpenHelper *) nil_chk(databaseHelper_)) addPersonWithPDParty:party_ withBoolean:true];
-  [((PDSqldelightOpenHelper *) nil_chk(databaseHelper_)) addPersonWithPDParty:party_ withBoolean:true];
-  [((PDSqldelightOpenHelper *) nil_chk(databaseHelper_)) addPersonWithPDParty:party_ withBoolean:true];
-  [((PDSqldelightOpenHelper *) nil_chk(databaseHelper_)) addPersonWithPDParty:party_ withBoolean:false];
-  [((PDSqldelightOpenHelper *) nil_chk(databaseHelper_)) addPersonWithPDParty:party_ withBoolean:true];
-  OrgJunitAssert_assertEqualsWithLong_withLong_(5, [((id<JavaUtilList>) nil_chk([((PDSqldelightOpenHelper *) nil_chk(databaseHelper_)) allPeopleForPartyWithPDParty:party_])) size]);
-  OrgJunitAssert_assertEqualsWithLong_withLong_(3, [((PDSqldelightOpenHelper *) nil_chk(databaseHelper_)) countCurrentPartyWithInt:(jint) [((PDParty *) nil_chk(party_)) id__]]);
+  [((PDSqldelightOpenHelper *) nil_chk(databaseHelper_)) addPersonWithPDPartyIntf:party_ withBoolean:true];
+  [((PDSqldelightOpenHelper *) nil_chk(databaseHelper_)) addPersonWithPDPartyIntf:party_ withBoolean:true];
+  [((PDSqldelightOpenHelper *) nil_chk(databaseHelper_)) addPersonWithPDPartyIntf:party_ withBoolean:true];
+  [((PDSqldelightOpenHelper *) nil_chk(databaseHelper_)) addPersonWithPDPartyIntf:party_ withBoolean:false];
+  [((PDSqldelightOpenHelper *) nil_chk(databaseHelper_)) addPersonWithPDPartyIntf:party_ withBoolean:true];
+  OrgJunitAssert_assertEqualsWithLong_withLong_(5, [((id<JavaUtilList>) nil_chk([((PDSqldelightOpenHelper *) nil_chk(databaseHelper_)) allPeopleForPartyWithPDPartyIntf:party_])) size]);
+  OrgJunitAssert_assertEqualsWithLong_withLong_(3, [((PDSqldelightOpenHelper *) nil_chk(databaseHelper_)) countCurrentPartyWithInt:(jint) [((id<PDPartyIntf>) nil_chk(party_)) id__]]);
 }
 
 - (void)allParties {
@@ -118,8 +118,8 @@ J2OBJC_IGNORE_DESIGNATED_END
   [((PDSqldelightOpenHelper *) nil_chk(databaseHelper_)) createPartyWithNSString:@"asdf"];
   id<JavaUtilList> parties = [((PDSqldelightOpenHelper *) nil_chk(databaseHelper_)) allParties];
   OrgJunitAssert_assertEqualsWithLong_withLong_(2, [((id<JavaUtilList>) nil_chk(parties)) size]);
-  for (PDParty * __strong p in parties) {
-    OrgJunitAssert_assertTrueWithBoolean_([((NSString *) nil_chk([((PDParty *) nil_chk(p)) name])) isEqual:@"asdf"] || [((NSString *) nil_chk([p name])) isEqual:@"Hello test"]);
+  for (id<PDPartyIntf> __strong p in parties) {
+    OrgJunitAssert_assertTrueWithBoolean_([((NSString *) nil_chk([((id<PDPartyIntf>) nil_chk(p)) name])) isEqual:@"asdf"] || [((NSString *) nil_chk([p name])) isEqual:@"Hello test"]);
   }
 }
 
@@ -128,22 +128,22 @@ J2OBJC_IGNORE_DESIGNATED_END
   id<JavaUtilList> parties = [((PDSqldelightOpenHelper *) nil_chk(databaseHelper_)) allParties];
   OrgJunitAssert_assertEqualsWithLong_withLong_(2, [((id<JavaUtilList>) nil_chk(parties)) size]);
   jint deleteCount = 0;
-  for (PDParty * __strong p in parties) {
-    if (![((NSString *) nil_chk([((PDParty *) nil_chk(p)) name])) isEqual:@"asdf"]) {
-      [((PDSqldelightOpenHelper *) nil_chk(databaseHelper_)) deletePartyWithPDParty:p];
+  for (id<PDPartyIntf> __strong p in parties) {
+    if (![((NSString *) nil_chk([((id<PDPartyIntf>) nil_chk(p)) name])) isEqual:@"asdf"]) {
+      [((PDSqldelightOpenHelper *) nil_chk(databaseHelper_)) deletePartyWithPDPartyIntf:p];
       deleteCount++;
     }
   }
   OrgJunitAssert_assertEqualsWithLong_withLong_(1, deleteCount);
   id<JavaUtilList> laterParties = [((PDSqldelightOpenHelper *) nil_chk(databaseHelper_)) allParties];
   OrgJunitAssert_assertEqualsWithLong_withLong_(1, [((id<JavaUtilList>) nil_chk(laterParties)) size]);
-  OrgJunitAssert_assertEqualsWithId_withId_(@"asdf", [((PDParty *) nil_chk([laterParties getWithInt:0])) name]);
+  OrgJunitAssert_assertEqualsWithId_withId_(@"asdf", [((id<PDPartyIntf>) nil_chk([laterParties getWithInt:0])) name]);
 }
 
 - (void)loadParty {
-  PDParty *jjjjjjj = [((PDSqldelightOpenHelper *) nil_chk(databaseHelper_)) createPartyWithNSString:@"jjjjjjj"];
-  PDParty *party = [((PDSqldelightOpenHelper *) nil_chk(databaseHelper_)) loadPartyWithInt:(jint) [((PDParty *) nil_chk(jjjjjjj)) id__]];
-  OrgJunitAssert_assertEqualsWithId_withId_([((PDParty *) nil_chk(party)) name], @"jjjjjjj");
+  id<PDPartyIntf> jjjjjjj = [((PDSqldelightOpenHelper *) nil_chk(databaseHelper_)) createPartyWithNSString:@"jjjjjjj"];
+  id<PDPartyIntf> party = [((PDSqldelightOpenHelper *) nil_chk(databaseHelper_)) loadPartyWithInt:(jint) [((id<PDPartyIntf>) nil_chk(jjjjjjj)) id__]];
+  OrgJunitAssert_assertEqualsWithId_withId_([((id<PDPartyIntf>) nil_chk(party)) name], @"jjjjjjj");
   OrgJunitAssert_assertEqualsWithId_withId_([party name], [jjjjjjj name]);
 }
 
@@ -181,7 +181,7 @@ J2OBJC_IGNORE_DESIGNATED_END
   static const J2ObjcFieldInfo fields[] = {
     { "application_", "LAndroidAppApplication;", .constantValue.asLong = 0, 0x0, -1, -1, -1, 9 },
     { "databaseHelper_", "LPDSqldelightOpenHelper;", .constantValue.asLong = 0, 0x0, -1, -1, -1, -1 },
-    { "party_", "LPDParty;", .constantValue.asLong = 0, 0x2, -1, -1, -1, -1 },
+    { "party_", "LPDPartyIntf;", .constantValue.asLong = 0, 0x2, -1, -1, -1, -1 },
   };
   static const void *ptrTable[] = { "LJavaLangException;", (void *)&PDSqldelightOpenHelperTest__Annotations$0, (void *)&PDSqldelightOpenHelperTest__Annotations$1, (void *)&PDSqldelightOpenHelperTest__Annotations$2, (void *)&PDSqldelightOpenHelperTest__Annotations$3, (void *)&PDSqldelightOpenHelperTest__Annotations$4, (void *)&PDSqldelightOpenHelperTest__Annotations$5, (void *)&PDSqldelightOpenHelperTest__Annotations$6, (void *)&PDSqldelightOpenHelperTest__Annotations$7, (void *)&PDSqldelightOpenHelperTest__Annotations$8, (void *)&PDSqldelightOpenHelperTest__Annotations$9 };
   static const J2ObjcClassInfo _PDSqldelightOpenHelperTest = { "SqldelightOpenHelperTest", "com.kgalligan.partyclicker.data", ptrTable, methods, fields, 7, 0x1, 9, 3, -1, -1, -1, -1, 10 };

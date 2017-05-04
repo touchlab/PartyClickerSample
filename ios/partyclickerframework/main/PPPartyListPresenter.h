@@ -15,9 +15,9 @@
 #if !defined (PPPartyListPresenter_) && (INCLUDE_ALL_PPPartyListPresenter || defined(INCLUDE_PPPartyListPresenter))
 #define PPPartyListPresenter_
 
-@class PDParty;
 @protocol JavaUtilList;
 @protocol PDDataProvider;
+@protocol PDPartyIntf;
 @protocol PPCrashReporter;
 @protocol PPPartyListPresenter_UiInterface;
 @protocol RxObservable_Transformer;
@@ -33,7 +33,7 @@
 
 - (instancetype)init;
 
-- (id<JavaUtilList>)allPeopleWithPDParty:(PDParty *)party;
+- (id<JavaUtilList>)allPeopleWithPDPartyIntf:(id<PDPartyIntf>)party;
 
 - (void)applyUiInterfaceWithPPPartyListPresenter_UiInterface:(id<PPPartyListPresenter_UiInterface>)uiInterface;
 
@@ -43,7 +43,7 @@
 
 - (void)clearUiInterface;
 
-- (jint)countPeopleWithPDParty:(PDParty *)party;
+- (jint)countPeopleWithPDPartyIntf:(id<PDPartyIntf>)party;
 
 - (void)createPartyWithNSString:(NSString *)name;
 
@@ -72,8 +72,8 @@ J2OBJC_TYPE_LITERAL_HEADER(PPPartyListPresenter)
 #if !defined (PPPartyListPresenter_UiInterface_) && (INCLUDE_ALL_PPPartyListPresenter || defined(INCLUDE_PPPartyListPresenter_UiInterface))
 #define PPPartyListPresenter_UiInterface_
 
-@class PDParty;
 @protocol JavaUtilList;
+@protocol PDPartyIntf;
 
 @protocol PPPartyListPresenter_UiInterface < JavaObject >
 
@@ -81,7 +81,7 @@ J2OBJC_TYPE_LITERAL_HEADER(PPPartyListPresenter)
 
 - (void)refreshPartyListWithJavaUtilList:(id<JavaUtilList>)partyList;
 
-- (void)showPartyWithPDParty:(PDParty *)party;
+- (void)showPartyWithPDPartyIntf:(id<PDPartyIntf>)party;
 
 @end
 

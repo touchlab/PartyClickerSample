@@ -8,7 +8,7 @@
 #include "PDDataProvider.h"
 #include "PDModPersonTask.h"
 #include "PDModPersonTaskTest.h"
-#include "PDParty.h"
+#include "PDPartyIntf.h"
 #include "PTDaggerTestNoContextComponent.h"
 #include "PTTestNoContextComponent.h"
 #include "PTTestNoContextModule.h"
@@ -39,13 +39,13 @@ J2OBJC_IGNORE_DESIGNATED_END
 }
 
 - (void)run {
-  PDParty *party = [((id<PDDataProvider>) nil_chk(dataProvider_)) createPartyWithNSString:@"asdf"];
-  [create_PDModPersonTask_initWithPDParty_withBoolean_withPDDataProvider_(party, true, dataProvider_) run];
-  [create_PDModPersonTask_initWithPDParty_withBoolean_withPDDataProvider_(party, true, dataProvider_) run];
-  [create_PDModPersonTask_initWithPDParty_withBoolean_withPDDataProvider_(party, true, dataProvider_) run];
-  [create_PDModPersonTask_initWithPDParty_withBoolean_withPDDataProvider_(party, false, dataProvider_) run];
-  [create_PDModPersonTask_initWithPDParty_withBoolean_withPDDataProvider_(party, true, dataProvider_) run];
-  OrgJunitAssert_assertEqualsWithLong_withLong_([((id<PDDataProvider>) nil_chk(dataProvider_)) countCurrentPartyWithInt:(jint) [((PDParty *) nil_chk(party)) id__]], 3);
+  id<PDPartyIntf> party = [((id<PDDataProvider>) nil_chk(dataProvider_)) createPartyWithNSString:@"asdf"];
+  [create_PDModPersonTask_initWithPDPartyIntf_withBoolean_withPDDataProvider_(party, true, dataProvider_) run];
+  [create_PDModPersonTask_initWithPDPartyIntf_withBoolean_withPDDataProvider_(party, true, dataProvider_) run];
+  [create_PDModPersonTask_initWithPDPartyIntf_withBoolean_withPDDataProvider_(party, true, dataProvider_) run];
+  [create_PDModPersonTask_initWithPDPartyIntf_withBoolean_withPDDataProvider_(party, false, dataProvider_) run];
+  [create_PDModPersonTask_initWithPDPartyIntf_withBoolean_withPDDataProvider_(party, true, dataProvider_) run];
+  OrgJunitAssert_assertEqualsWithLong_withLong_([((id<PDDataProvider>) nil_chk(dataProvider_)) countCurrentPartyWithInt:(jint) [((id<PDPartyIntf>) nil_chk(party)) id__]], 3);
 }
 
 - (void)dealloc {

@@ -86,7 +86,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         styleEditButton()
     }
     
-    func showParty(with party: PDParty!) {
+    func showParty(with party: PDPartyIntf!) {
         performSegue(withIdentifier: "ShowParty", sender: party)
     }
     

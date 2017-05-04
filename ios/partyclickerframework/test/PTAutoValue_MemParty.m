@@ -130,7 +130,7 @@ J2OBJC_FIELD_SETTER(PTAutoValue_MemParty_Builder, people_, id<JavaUtilList>)
     { "created_", "J", .constantValue.asLong = 0, 0x12, -1, -1, -1, -1 },
     { "people_", "LJavaUtilList;", .constantValue.asLong = 0, 0x12, -1, -1, 7, -1 },
   };
-  static const void *ptrTable[] = { "JLNSString;JLJavaUtilList;", "(JLjava/lang/String;JLjava/util/List<Lcom/kgalligan/partyclicker/data/Person;>;)V", "id", "()Ljava/util/List<Lcom/kgalligan/partyclicker/data/Person;>;", "equals", "LNSObject;", "hashCode", "Ljava/util/List<Lcom/kgalligan/partyclicker/data/Person;>;", "LPTAutoValue_MemParty_Builder;" };
+  static const void *ptrTable[] = { "JLNSString;JLJavaUtilList;", "(JLjava/lang/String;JLjava/util/List<Lcom/kgalligan/partyclicker/data/PersonIntf;>;)V", "id", "()Ljava/util/List<Lcom/kgalligan/partyclicker/data/PersonIntf;>;", "equals", "LNSObject;", "hashCode", "Ljava/util/List<Lcom/kgalligan/partyclicker/data/PersonIntf;>;", "LPTAutoValue_MemParty_Builder;" };
   static const J2ObjcClassInfo _PTAutoValue_MemParty = { "AutoValue_MemParty", "com.kgalligan.partyclicker.test", ptrTable, methods, fields, 7, 0x10, 7, 4, -1, 8, -1, -1, -1 };
   return &_PTAutoValue_MemParty;
 }
@@ -243,7 +243,7 @@ J2OBJC_IGNORE_DESIGNATED_END
     { "created_", "LJavaLangLong;", .constantValue.asLong = 0, 0x2, -1, -1, -1, -1 },
     { "people_", "LJavaUtilList;", .constantValue.asLong = 0, 0x2, -1, -1, 10, -1 },
   };
-  static const void *ptrTable[] = { "LPTMemParty;", "setId", "J", "setName", "LNSString;", "setCreated", "setPeople", "LJavaUtilList;", "(Ljava/util/List<Lcom/kgalligan/partyclicker/data/Person;>;)Lcom/kgalligan/partyclicker/test/MemParty$Builder;", "id", "Ljava/util/List<Lcom/kgalligan/partyclicker/data/Person;>;", "LPTAutoValue_MemParty;" };
+  static const void *ptrTable[] = { "LPTMemParty;", "setId", "J", "setName", "LNSString;", "setCreated", "setPeople", "LJavaUtilList;", "(Ljava/util/List<Lcom/kgalligan/partyclicker/data/PersonIntf;>;)Lcom/kgalligan/partyclicker/test/MemParty$Builder;", "id", "Ljava/util/List<Lcom/kgalligan/partyclicker/data/PersonIntf;>;", "LPTAutoValue_MemParty;" };
   static const J2ObjcClassInfo _PTAutoValue_MemParty_Builder = { "Builder", "com.kgalligan.partyclicker.test", ptrTable, methods, fields, 7, 0x18, 7, 4, 11, -1, -1, -1, -1 };
   return &_PTAutoValue_MemParty_Builder;
 }

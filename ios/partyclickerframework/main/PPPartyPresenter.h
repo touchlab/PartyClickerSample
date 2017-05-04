@@ -15,8 +15,8 @@
 #if !defined (PPPartyPresenter_) && (INCLUDE_ALL_PPPartyPresenter || defined(INCLUDE_PPPartyPresenter))
 #define PPPartyPresenter_
 
-@class PDParty;
 @protocol PDDataProvider;
+@protocol PDPartyIntf;
 @protocol PPCrashReporter;
 @protocol PPPartyPresenter_UiInterface;
 @protocol RxObservable_Transformer;
@@ -38,7 +38,7 @@
 
 - (void)clearUiInterface;
 
-- (PDParty *)getParty;
+- (id<PDPartyIntf>)getParty;
 
 - (jint)getPartyCount;
 
@@ -88,30 +88,30 @@ J2OBJC_TYPE_LITERAL_HEADER(PPPartyPresenter_UiInterface)
 #if !defined (PPPartyPresenter_PartyInfo_) && (INCLUDE_ALL_PPPartyPresenter || defined(INCLUDE_PPPartyPresenter_PartyInfo))
 #define PPPartyPresenter_PartyInfo_
 
-@class PDParty;
+@protocol PDPartyIntf;
 
 @interface PPPartyPresenter_PartyInfo : NSObject {
  @public
-  PDParty *party_;
+  id<PDPartyIntf> party_;
   jint partyCount_;
 }
 
 #pragma mark Public
 
-- (instancetype)initWithPDParty:(PDParty *)party
-                        withInt:(jint)partyCount;
+- (instancetype)initWithPDPartyIntf:(id<PDPartyIntf>)party
+                            withInt:(jint)partyCount;
 
 @end
 
 J2OBJC_EMPTY_STATIC_INIT(PPPartyPresenter_PartyInfo)
 
-J2OBJC_FIELD_SETTER(PPPartyPresenter_PartyInfo, party_, PDParty *)
+J2OBJC_FIELD_SETTER(PPPartyPresenter_PartyInfo, party_, id<PDPartyIntf>)
 
-FOUNDATION_EXPORT void PPPartyPresenter_PartyInfo_initWithPDParty_withInt_(PPPartyPresenter_PartyInfo *self, PDParty *party, jint partyCount);
+FOUNDATION_EXPORT void PPPartyPresenter_PartyInfo_initWithPDPartyIntf_withInt_(PPPartyPresenter_PartyInfo *self, id<PDPartyIntf> party, jint partyCount);
 
-FOUNDATION_EXPORT PPPartyPresenter_PartyInfo *new_PPPartyPresenter_PartyInfo_initWithPDParty_withInt_(PDParty *party, jint partyCount) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT PPPartyPresenter_PartyInfo *new_PPPartyPresenter_PartyInfo_initWithPDPartyIntf_withInt_(id<PDPartyIntf> party, jint partyCount) NS_RETURNS_RETAINED;
 
-FOUNDATION_EXPORT PPPartyPresenter_PartyInfo *create_PPPartyPresenter_PartyInfo_initWithPDParty_withInt_(PDParty *party, jint partyCount);
+FOUNDATION_EXPORT PPPartyPresenter_PartyInfo *create_PPPartyPresenter_PartyInfo_initWithPDPartyIntf_withInt_(id<PDPartyIntf> party, jint partyCount);
 
 J2OBJC_TYPE_LITERAL_HEADER(PPPartyPresenter_PartyInfo)
 

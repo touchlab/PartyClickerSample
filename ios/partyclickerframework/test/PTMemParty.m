@@ -32,7 +32,7 @@ J2OBJC_IGNORE_DESIGNATED_END
   methods[0].selector = @selector(init);
   methods[1].selector = @selector(people);
   #pragma clang diagnostic pop
-  static const void *ptrTable[] = { "()Ljava/util/List<Lcom/kgalligan/partyclicker/data/Person;>;", "LPTMemParty_Builder;" };
+  static const void *ptrTable[] = { "()Ljava/util/List<Lcom/kgalligan/partyclicker/data/PersonIntf;>;", "LPTMemParty_Builder;" };
   static const J2ObjcClassInfo _PTMemParty = { "MemParty", "com.kgalligan.partyclicker.test", ptrTable, methods, NULL, 7, 0x401, 2, 0, -1, 1, -1, -1, -1 };
   return &_PTMemParty;
 }
@@ -102,7 +102,7 @@ J2OBJC_IGNORE_DESIGNATED_END
   methods[4].selector = @selector(setPeopleWithJavaUtilList:);
   methods[5].selector = @selector(build);
   #pragma clang diagnostic pop
-  static const void *ptrTable[] = { "setId", "J", "setName", "LNSString;", "setCreated", "setPeople", "LJavaUtilList;", "(Ljava/util/List<Lcom/kgalligan/partyclicker/data/Person;>;)Lcom/kgalligan/partyclicker/test/MemParty$Builder;", "LPTMemParty;" };
+  static const void *ptrTable[] = { "setId", "J", "setName", "LNSString;", "setCreated", "setPeople", "LJavaUtilList;", "(Ljava/util/List<Lcom/kgalligan/partyclicker/data/PersonIntf;>;)Lcom/kgalligan/partyclicker/test/MemParty$Builder;", "LPTMemParty;" };
   static const J2ObjcClassInfo _PTMemParty_Builder = { "Builder", "com.kgalligan.partyclicker.test", ptrTable, methods, NULL, 7, 0x408, 6, 0, 8, -1, -1, -1, -1 };
   return &_PTMemParty_Builder;
 }

@@ -12,6 +12,7 @@
 #include "IOSObjectArray.h"
 #include "J2ObjC_source.h"
 #include "PDParty.h"
+#include "PDPartyIntf.h"
 #include "PDPartyModel.h"
 #include "PDPerson.h"
 #include "PDPersonModel.h"
@@ -67,20 +68,20 @@ __attribute__((unused)) static id<JavaUtilList> PDSqldelightOpenHelper_allPartie
   return PDSqldelightOpenHelper_allPartiesFromQueryWithComSquareupSqldelightSqlDelightStatement_(self, query);
 }
 
-- (PDParty *)loadPartyWithInt:(jint)id_ {
+- (id<PDPartyIntf>)loadPartyWithInt:(jint)id_ {
   ComSquareupSqldelightSqlDelightStatement *query = [((PDPartyModel_Factory *) nil_chk(JreLoadStatic(PDParty, FACTORY))) selectByIdWithLong:id_];
   return [((id<JavaUtilList>) nil_chk(PDSqldelightOpenHelper_allPartiesFromQueryWithComSquareupSqldelightSqlDelightStatement_(self, query))) getWithInt:0];
 }
 
-- (PDParty *)createPartyWithNSString:(NSString *)name {
+- (id<PDPartyIntf>)createPartyWithNSString:(NSString *)name {
   PDPartyModel_CreateParty *createParty = create_PDPartyModel_CreateParty_initWithAndroidDatabaseSqliteSQLiteDatabase_([self getWritableDatabase]);
   [createParty bindWithNSString:name withLong:JavaLangSystem_currentTimeMillis()];
   return [self loadPartyWithInt:(jint) [((AndroidDatabaseSqliteSQLiteStatement *) nil_chk(createParty->program_)) executeInsert]];
 }
 
-- (void)deletePartyWithPDParty:(PDParty *)party {
+- (void)deletePartyWithPDPartyIntf:(id<PDPartyIntf>)party {
   PDPartyModel_DeleteParty *deleteParty = create_PDPartyModel_DeleteParty_initWithAndroidDatabaseSqliteSQLiteDatabase_([self getWritableDatabase]);
-  [deleteParty bindWithLong:[((PDParty *) nil_chk(party)) id__]];
+  [deleteParty bindWithLong:[((id<PDPartyIntf>) nil_chk(party)) id__]];
   [((AndroidDatabaseSqliteSQLiteStatement *) nil_chk(deleteParty->program_)) execute];
 }
 
@@ -93,8 +94,8 @@ __attribute__((unused)) static id<JavaUtilList> PDSqldelightOpenHelper_allPartie
   return count;
 }
 
-- (id<JavaUtilList>)allPeopleForPartyWithPDParty:(PDParty *)party {
-  ComSquareupSqldelightSqlDelightStatement *query = [((PDPersonModel_Factory *) nil_chk(JreLoadStatic(PDPerson, FACTORY))) selectAllForPartyWithLong:[((PDParty *) nil_chk(party)) id__]];
+- (id<JavaUtilList>)allPeopleForPartyWithPDPartyIntf:(id<PDPartyIntf>)party {
+  ComSquareupSqldelightSqlDelightStatement *query = [((PDPersonModel_Factory *) nil_chk(JreLoadStatic(PDPerson, FACTORY))) selectAllForPartyWithLong:[((id<PDPartyIntf>) nil_chk(party)) id__]];
   id<AndroidDatabaseCursor> cursor = [((AndroidDatabaseSqliteSQLiteDatabase *) nil_chk([self getWritableDatabase])) rawQueryWithNSString:((ComSquareupSqldelightSqlDelightStatement *) nil_chk(query))->statement_ withNSStringArray:query->args_];
   [((id<AndroidDatabaseCursor>) nil_chk(cursor)) moveToFirst];
   id<JavaUtilList> persons = create_JavaUtilArrayList_init();
@@ -106,10 +107,10 @@ __attribute__((unused)) static id<JavaUtilList> PDSqldelightOpenHelper_allPartie
   return persons;
 }
 
-- (void)addPersonWithPDParty:(PDParty *)party
-                 withBoolean:(jboolean)coming {
+- (void)addPersonWithPDPartyIntf:(id<PDPartyIntf>)party
+                     withBoolean:(jboolean)coming {
   PDPersonModel_CreatePerson *createPerson = create_PDPersonModel_CreatePerson_initWithAndroidDatabaseSqliteSQLiteDatabase_([self getWritableDatabase]);
-  [createPerson bindWithLong:JavaLangSystem_currentTimeMillis() withLong:coming ? 1 : -1 withLong:[((PDParty *) nil_chk(party)) id__]];
+  [createPerson bindWithLong:JavaLangSystem_currentTimeMillis() withLong:coming ? 1 : -1 withLong:[((id<PDPartyIntf>) nil_chk(party)) id__]];
   [((AndroidDatabaseSqliteSQLiteStatement *) nil_chk(createPerson->program_)) execute];
 }
 
@@ -120,8 +121,8 @@ __attribute__((unused)) static id<JavaUtilList> PDSqldelightOpenHelper_allPartie
     { NULL, "V", 0x1, 3, 4, -1, -1, -1, -1 },
     { NULL, "LJavaUtilList;", 0x1, -1, -1, -1, 5, -1, -1 },
     { NULL, "LJavaUtilList;", 0x2, 6, 7, -1, 8, -1, -1 },
-    { NULL, "LPDParty;", 0x1, 9, 10, -1, -1, -1, -1 },
-    { NULL, "LPDParty;", 0x1, 11, 12, -1, -1, -1, -1 },
+    { NULL, "LPDPartyIntf;", 0x1, 9, 10, -1, -1, -1, -1 },
+    { NULL, "LPDPartyIntf;", 0x1, 11, 12, -1, -1, -1, -1 },
     { NULL, "V", 0x1, 13, 14, -1, -1, -1, -1 },
     { NULL, "I", 0x1, 15, 10, -1, -1, -1, -1 },
     { NULL, "LJavaUtilList;", 0x1, 16, 14, -1, 17, -1, -1 },
@@ -136,17 +137,17 @@ __attribute__((unused)) static id<JavaUtilList> PDSqldelightOpenHelper_allPartie
   methods[4].selector = @selector(allPartiesFromQueryWithComSquareupSqldelightSqlDelightStatement:);
   methods[5].selector = @selector(loadPartyWithInt:);
   methods[6].selector = @selector(createPartyWithNSString:);
-  methods[7].selector = @selector(deletePartyWithPDParty:);
+  methods[7].selector = @selector(deletePartyWithPDPartyIntf:);
   methods[8].selector = @selector(countCurrentPartyWithInt:);
-  methods[9].selector = @selector(allPeopleForPartyWithPDParty:);
-  methods[10].selector = @selector(addPersonWithPDParty:withBoolean:);
+  methods[9].selector = @selector(allPeopleForPartyWithPDPartyIntf:);
+  methods[10].selector = @selector(addPersonWithPDPartyIntf:withBoolean:);
   #pragma clang diagnostic pop
   static const J2ObjcFieldInfo fields[] = {
     { "DATABASE_FILE_NAME", "LNSString;", .constantValue.asLong = 0, 0x1a, -1, 20, -1, -1 },
     { "BASELINE", "I", .constantValue.asInt = PDSqldelightOpenHelper_BASELINE, 0x1a, -1, -1, -1, -1 },
     { "CURRENT_VERSION", "I", .constantValue.asInt = PDSqldelightOpenHelper_CURRENT_VERSION, 0x1a, -1, -1, -1, -1 },
   };
-  static const void *ptrTable[] = { "LAndroidContentContext;", "onCreate", "LAndroidDatabaseSqliteSQLiteDatabase;", "onUpgrade", "LAndroidDatabaseSqliteSQLiteDatabase;II", "()Ljava/util/List<Lcom/kgalligan/partyclicker/data/Party;>;", "allPartiesFromQuery", "LComSquareupSqldelightSqlDelightStatement;", "(Lcom/squareup/sqldelight/SqlDelightStatement;)Ljava/util/List<Lcom/kgalligan/partyclicker/data/Party;>;", "loadParty", "I", "createParty", "LNSString;", "deleteParty", "LPDParty;", "countCurrentParty", "allPeopleForParty", "(Lcom/kgalligan/partyclicker/data/Party;)Ljava/util/List<Lcom/kgalligan/partyclicker/data/Person;>;", "addPerson", "LPDParty;Z", &PDSqldelightOpenHelper_DATABASE_FILE_NAME };
+  static const void *ptrTable[] = { "LAndroidContentContext;", "onCreate", "LAndroidDatabaseSqliteSQLiteDatabase;", "onUpgrade", "LAndroidDatabaseSqliteSQLiteDatabase;II", "()Ljava/util/List<Lcom/kgalligan/partyclicker/data/PartyIntf;>;", "allPartiesFromQuery", "LComSquareupSqldelightSqlDelightStatement;", "(Lcom/squareup/sqldelight/SqlDelightStatement;)Ljava/util/List<Lcom/kgalligan/partyclicker/data/PartyIntf;>;", "loadParty", "I", "createParty", "LNSString;", "deleteParty", "LPDPartyIntf;", "countCurrentParty", "allPeopleForParty", "(Lcom/kgalligan/partyclicker/data/PartyIntf;)Ljava/util/List<Lcom/kgalligan/partyclicker/data/PersonIntf;>;", "addPerson", "LPDPartyIntf;Z", &PDSqldelightOpenHelper_DATABASE_FILE_NAME };
   static const J2ObjcClassInfo _PDSqldelightOpenHelper = { "SqldelightOpenHelper", "com.kgalligan.partyclicker.data", ptrTable, methods, fields, 7, 0x1, 11, 3, -1, -1, -1, -1, -1 };
   return &_PDSqldelightOpenHelper;
 }

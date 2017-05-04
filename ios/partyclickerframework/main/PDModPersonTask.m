@@ -5,31 +5,31 @@
 #include "J2ObjC_source.h"
 #include "PDDataProvider.h"
 #include "PDModPersonTask.h"
-#include "PDParty.h"
+#include "PDPartyIntf.h"
 
 @interface PDModPersonTask () {
  @public
-  PDParty *party_;
+  id<PDPartyIntf> party_;
   jboolean coming_;
   id<PDDataProvider> databaseHelper_;
 }
 
 @end
 
-J2OBJC_FIELD_SETTER(PDModPersonTask, party_, PDParty *)
+J2OBJC_FIELD_SETTER(PDModPersonTask, party_, id<PDPartyIntf>)
 J2OBJC_FIELD_SETTER(PDModPersonTask, databaseHelper_, id<PDDataProvider>)
 
 @implementation PDModPersonTask
 
-- (instancetype)initWithPDParty:(PDParty *)party
-                    withBoolean:(jboolean)coming
-             withPDDataProvider:(id<PDDataProvider>)databaseHelper {
-  PDModPersonTask_initWithPDParty_withBoolean_withPDDataProvider_(self, party, coming, databaseHelper);
+- (instancetype)initWithPDPartyIntf:(id<PDPartyIntf>)party
+                        withBoolean:(jboolean)coming
+                 withPDDataProvider:(id<PDDataProvider>)databaseHelper {
+  PDModPersonTask_initWithPDPartyIntf_withBoolean_withPDDataProvider_(self, party, coming, databaseHelper);
   return self;
 }
 
 - (void)run {
-  [((id<PDDataProvider>) nil_chk(databaseHelper_)) addPersonWithPDParty:party_ withBoolean:coming_];
+  [((id<PDDataProvider>) nil_chk(databaseHelper_)) addPersonWithPDPartyIntf:party_ withBoolean:coming_];
 }
 
 - (void)dealloc {
@@ -45,34 +45,34 @@ J2OBJC_FIELD_SETTER(PDModPersonTask, databaseHelper_, id<PDDataProvider>)
   };
   #pragma clang diagnostic push
   #pragma clang diagnostic ignored "-Wobjc-multiple-method-names"
-  methods[0].selector = @selector(initWithPDParty:withBoolean:withPDDataProvider:);
+  methods[0].selector = @selector(initWithPDPartyIntf:withBoolean:withPDDataProvider:);
   methods[1].selector = @selector(run);
   #pragma clang diagnostic pop
   static const J2ObjcFieldInfo fields[] = {
-    { "party_", "LPDParty;", .constantValue.asLong = 0, 0x12, -1, -1, -1, -1 },
+    { "party_", "LPDPartyIntf;", .constantValue.asLong = 0, 0x12, -1, -1, -1, -1 },
     { "coming_", "Z", .constantValue.asLong = 0, 0x12, -1, -1, -1, -1 },
     { "databaseHelper_", "LPDDataProvider;", .constantValue.asLong = 0, 0x12, -1, -1, -1, -1 },
   };
-  static const void *ptrTable[] = { "LPDParty;ZLPDDataProvider;" };
+  static const void *ptrTable[] = { "LPDPartyIntf;ZLPDDataProvider;" };
   static const J2ObjcClassInfo _PDModPersonTask = { "ModPersonTask", "com.kgalligan.partyclicker.data", ptrTable, methods, fields, 7, 0x1, 2, 3, -1, -1, -1, -1, -1 };
   return &_PDModPersonTask;
 }
 
 @end
 
-void PDModPersonTask_initWithPDParty_withBoolean_withPDDataProvider_(PDModPersonTask *self, PDParty *party, jboolean coming, id<PDDataProvider> databaseHelper) {
+void PDModPersonTask_initWithPDPartyIntf_withBoolean_withPDDataProvider_(PDModPersonTask *self, id<PDPartyIntf> party, jboolean coming, id<PDDataProvider> databaseHelper) {
   NSObject_init(self);
   JreStrongAssign(&self->party_, party);
   self->coming_ = coming;
   JreStrongAssign(&self->databaseHelper_, databaseHelper);
 }
 
-PDModPersonTask *new_PDModPersonTask_initWithPDParty_withBoolean_withPDDataProvider_(PDParty *party, jboolean coming, id<PDDataProvider> databaseHelper) {
-  J2OBJC_NEW_IMPL(PDModPersonTask, initWithPDParty_withBoolean_withPDDataProvider_, party, coming, databaseHelper)
+PDModPersonTask *new_PDModPersonTask_initWithPDPartyIntf_withBoolean_withPDDataProvider_(id<PDPartyIntf> party, jboolean coming, id<PDDataProvider> databaseHelper) {
+  J2OBJC_NEW_IMPL(PDModPersonTask, initWithPDPartyIntf_withBoolean_withPDDataProvider_, party, coming, databaseHelper)
 }
 
-PDModPersonTask *create_PDModPersonTask_initWithPDParty_withBoolean_withPDDataProvider_(PDParty *party, jboolean coming, id<PDDataProvider> databaseHelper) {
-  J2OBJC_CREATE_IMPL(PDModPersonTask, initWithPDParty_withBoolean_withPDDataProvider_, party, coming, databaseHelper)
+PDModPersonTask *create_PDModPersonTask_initWithPDPartyIntf_withBoolean_withPDDataProvider_(id<PDPartyIntf> party, jboolean coming, id<PDDataProvider> databaseHelper) {
+  J2OBJC_CREATE_IMPL(PDModPersonTask, initWithPDPartyIntf_withBoolean_withPDDataProvider_, party, coming, databaseHelper)
 }
 
 J2OBJC_CLASS_TYPE_LITERAL_SOURCE(PDModPersonTask)

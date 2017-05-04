@@ -41,6 +41,10 @@
 		633D9B4E1EBA146A00CF6686 /* PDPersonModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 633D9B3E1EBA146A00CF6686 /* PDPersonModel.m */; };
 		633D9B4F1EBA146A00CF6686 /* PDSqldelightOpenHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 633D9B3F1EBA146A00CF6686 /* PDSqldelightOpenHelper.h */; };
 		633D9B501EBA146A00CF6686 /* PDSqldelightOpenHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 633D9B401EBA146A00CF6686 /* PDSqldelightOpenHelper.m */; };
+		633D9B551EBA1B5500CF6686 /* PDPartyIntf.h in Headers */ = {isa = PBXBuildFile; fileRef = 633D9B511EBA1B5400CF6686 /* PDPartyIntf.h */; };
+		633D9B561EBA1B5500CF6686 /* PDPartyIntf.m in Sources */ = {isa = PBXBuildFile; fileRef = 633D9B521EBA1B5400CF6686 /* PDPartyIntf.m */; };
+		633D9B571EBA1B5500CF6686 /* PDPersonIntf.h in Headers */ = {isa = PBXBuildFile; fileRef = 633D9B531EBA1B5500CF6686 /* PDPersonIntf.h */; };
+		633D9B581EBA1B5500CF6686 /* PDPersonIntf.m in Sources */ = {isa = PBXBuildFile; fileRef = 633D9B541EBA1B5500CF6686 /* PDPersonIntf.m */; };
 		638BAE0E1EB645B5007A671B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638BAE0D1EB645B5007A671B /* AppDelegate.swift */; };
 		638BAE101EB645B5007A671B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638BAE0F1EB645B5007A671B /* ViewController.swift */; };
 		638BAE131EB645B5007A671B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 638BAE111EB645B5007A671B /* Main.storyboard */; };
@@ -1350,6 +1354,10 @@
 		633D9B3E1EBA146A00CF6686 /* PDPersonModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDPersonModel.m; sourceTree = "<group>"; };
 		633D9B3F1EBA146A00CF6686 /* PDSqldelightOpenHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDSqldelightOpenHelper.h; sourceTree = "<group>"; };
 		633D9B401EBA146A00CF6686 /* PDSqldelightOpenHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDSqldelightOpenHelper.m; sourceTree = "<group>"; };
+		633D9B511EBA1B5400CF6686 /* PDPartyIntf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDPartyIntf.h; sourceTree = "<group>"; };
+		633D9B521EBA1B5400CF6686 /* PDPartyIntf.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDPartyIntf.m; sourceTree = "<group>"; };
+		633D9B531EBA1B5500CF6686 /* PDPersonIntf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDPersonIntf.h; sourceTree = "<group>"; };
+		633D9B541EBA1B5500CF6686 /* PDPersonIntf.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDPersonIntf.m; sourceTree = "<group>"; };
 		638BAE0A1EB645B5007A671B /* ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		638BAE0D1EB645B5007A671B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		638BAE0F1EB645B5007A671B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -2715,6 +2723,10 @@
 		63CAAF031EB684B70082A725 /* main */ = {
 			isa = PBXGroup;
 			children = (
+				633D9B511EBA1B5400CF6686 /* PDPartyIntf.h */,
+				633D9B521EBA1B5400CF6686 /* PDPartyIntf.m */,
+				633D9B531EBA1B5500CF6686 /* PDPersonIntf.h */,
+				633D9B541EBA1B5500CF6686 /* PDPersonIntf.m */,
 				633D9B311EBA146A00CF6686 /* PDAutoValue_Party.h */,
 				633D9B321EBA146A00CF6686 /* PDAutoValue_Party.m */,
 				633D9B331EBA146A00CF6686 /* PDAutoValue_Person.h */,
@@ -4291,6 +4303,7 @@
 				63CAB7A21EB684BB0082A725 /* RxSchedulersTestScheduler.h in Headers */,
 				63CAB7A01EB684BB0082A725 /* RxSchedulersSchedulers.h in Headers */,
 				63CAB48B1EB684BA0082A725 /* AndroidUtilAndroidException.h in Headers */,
+				633D9B571EBA1B5500CF6686 /* PDPersonIntf.h in Headers */,
 				63CAB4111EB684BA0082A725 /* AndroidDatabaseSqliteSQLiteBlobTooBigException.h in Headers */,
 				63CAB4171EB684BA0082A725 /* AndroidDatabaseSqliteSQLiteConnection.h in Headers */,
 				63CAB8761EB684BC0082A725 /* CoTouchlabSqueakyStmtQueryClause.h in Headers */,
@@ -4408,6 +4421,7 @@
 				63CAB44F1EB684BA0082A725 /* AndroidDatabaseSqliteSQLiteTableLockedException.h in Headers */,
 				63CAB57A1EB684BB0082A725 /* RxFunctionsFunc1.h in Headers */,
 				63CAB5521EB684BB0082A725 /* RxExceptionsOnErrorFailedException.h in Headers */,
+				633D9B551EBA1B5500CF6686 /* PDPartyIntf.h in Headers */,
 				63CAB6FE1EB684BB0082A725 /* RxInternalSubscriptionsUnsubscribed.h in Headers */,
 				63CAB4631EB684BA0082A725 /* AndroidOsHandlerThread.h in Headers */,
 				63CAB68E1EB684BB0082A725 /* RxInternalOperatorsOperatorTimeoutBase.h in Headers */,
@@ -5253,6 +5267,7 @@
 				63CAB5B31EB684BB0082A725 /* RxInternalOperatorsCompletableOnSubscribeMergeDelayErrorArray.m in Sources */,
 				63CAB6A51EB684BB0082A725 /* RxInternalOperatorsOperatorWithLatestFrom.m in Sources */,
 				63CAB45C1EB684BA0082A725 /* AndroidOsBuild.m in Sources */,
+				633D9B581EBA1B5500CF6686 /* PDPersonIntf.m in Sources */,
 				63CAB4041EB684BA0082A725 /* AndroidDatabaseMergeCursor.m in Sources */,
 				63CAB5C51EB684BB0082A725 /* RxInternalOperatorsOnSubscribeAmb.m in Sources */,
 				63CAB77D1EB684BB0082A725 /* RxObserversTestObserver.m in Sources */,
@@ -5377,6 +5392,7 @@
 				63CAB5491EB684BB0082A725 /* RxExceptionsAssemblyStackTraceException.m in Sources */,
 				63CAB6471EB684BB0082A725 /* RxInternalOperatorsOperatorMapPair.m in Sources */,
 				63CAB6E31EB684BB0082A725 /* RxInternalSchedulersCachedThreadScheduler.m in Sources */,
+				633D9B561EBA1B5500CF6686 /* PDPartyIntf.m in Sources */,
 				63CAB82F1EB684BC0082A725 /* CoTouchlabSqueakyFieldTypesDateType.m in Sources */,
 				63CAB4141EB684BA0082A725 /* AndroidDatabaseSqliteSQLiteCantOpenDatabaseException.m in Sources */,
 				63CAB67F1EB684BB0082A725 /* RxInternalOperatorsOperatorTakeLastTimed.m in Sources */,

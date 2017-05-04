@@ -19,10 +19,14 @@
 #define INCLUDE_PDPersonModel 1
 #include "PDPersonModel.h"
 
+#define RESTRICT_PDPersonIntf 1
+#define INCLUDE_PDPersonIntf 1
+#include "PDPersonIntf.h"
+
 @class PDPersonModel_Factory;
 @protocol ComSquareupSqldelightRowMapper;
 
-@interface PDPerson : NSObject < PDPersonModel >
+@interface PDPerson : NSObject < PDPersonModel, PDPersonIntf >
 
 #pragma mark Public
 

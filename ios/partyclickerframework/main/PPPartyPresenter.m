@@ -7,7 +7,7 @@
 #include "J2ObjC_source.h"
 #include "PDDataProvider.h"
 #include "PDModPersonTask.h"
-#include "PDParty.h"
+#include "PDPartyIntf.h"
 #include "PPCrashReporter.h"
 #include "PPPartyPresenter.h"
 #include "RxFunctionsAction1.h"
@@ -24,7 +24,7 @@
 @interface PPPartyPresenter () {
  @public
   jint partyId_;
-  PDParty *party_;
+  id<PDPartyIntf> party_;
   jint partyCount_;
   id<JavaUtilConcurrentExecutorService> executorService_;
   __unsafe_unretained id<PPPartyPresenter_UiInterface> uiInterface_;
@@ -32,7 +32,7 @@
 
 @end
 
-J2OBJC_FIELD_SETTER(PPPartyPresenter, party_, PDParty *)
+J2OBJC_FIELD_SETTER(PPPartyPresenter, party_, id<PDPartyIntf>)
 J2OBJC_FIELD_SETTER(PPPartyPresenter, executorService_, id<JavaUtilConcurrentExecutorService>)
 
 __attribute__((unused)) static IOSObjectArray *PPPartyPresenter__Annotations$0();
@@ -121,14 +121,14 @@ __attribute__((unused)) static PPPartyPresenter_$Lambda$3 *create_PPPartyPresent
 
 - (void)addPerson {
   partyCount_++;
-  [((id<JavaUtilConcurrentExecutorService>) nil_chk(executorService_)) executeWithJavaLangRunnable:create_PDModPersonTask_initWithPDParty_withBoolean_withPDDataProvider_(party_, true, databaseHelper_)];
+  [((id<JavaUtilConcurrentExecutorService>) nil_chk(executorService_)) executeWithJavaLangRunnable:create_PDModPersonTask_initWithPDPartyIntf_withBoolean_withPDDataProvider_(party_, true, databaseHelper_)];
   [((id<PPPartyPresenter_UiInterface>) nil_chk(uiInterface_)) updateUi];
 }
 
 - (void)removePerson {
   if (partyCount_ > 0) {
     partyCount_--;
-    [((id<JavaUtilConcurrentExecutorService>) nil_chk(executorService_)) executeWithJavaLangRunnable:create_PDModPersonTask_initWithPDParty_withBoolean_withPDDataProvider_(party_, false, databaseHelper_)];
+    [((id<JavaUtilConcurrentExecutorService>) nil_chk(executorService_)) executeWithJavaLangRunnable:create_PDModPersonTask_initWithPDPartyIntf_withBoolean_withPDDataProvider_(party_, false, databaseHelper_)];
   }
   [((id<PPPartyPresenter_UiInterface>) nil_chk(uiInterface_)) updateUi];
 }
@@ -137,7 +137,7 @@ __attribute__((unused)) static PPPartyPresenter_$Lambda$3 *create_PPPartyPresent
   return partyCount_;
 }
 
-- (PDParty *)getParty {
+- (id<PDPartyIntf>)getParty {
   return party_;
 }
 
@@ -168,7 +168,7 @@ __attribute__((unused)) static PPPartyPresenter_$Lambda$3 *create_PPPartyPresent
     { NULL, "V", 0x1, -1, -1, -1, -1, -1, -1 },
     { NULL, "V", 0x1, -1, -1, -1, -1, -1, -1 },
     { NULL, "I", 0x1, -1, -1, -1, -1, -1, -1 },
-    { NULL, "LPDParty;", 0x1, -1, -1, -1, -1, -1, -1 },
+    { NULL, "LPDPartyIntf;", 0x1, -1, -1, -1, -1, -1, -1 },
     { NULL, "Z", 0x1, -1, -1, -1, -1, -1, -1 },
   };
   #pragma clang diagnostic push
@@ -185,7 +185,7 @@ __attribute__((unused)) static PPPartyPresenter_$Lambda$3 *create_PPPartyPresent
   #pragma clang diagnostic pop
   static const J2ObjcFieldInfo fields[] = {
     { "partyId_", "I", .constantValue.asLong = 0, 0x12, -1, -1, -1, -1 },
-    { "party_", "LPDParty;", .constantValue.asLong = 0, 0x2, -1, -1, -1, -1 },
+    { "party_", "LPDPartyIntf;", .constantValue.asLong = 0, 0x2, -1, -1, -1, -1 },
     { "partyCount_", "I", .constantValue.asLong = 0, 0x2, -1, -1, -1, -1 },
     { "executorService_", "LJavaUtilConcurrentExecutorService;", .constantValue.asLong = 0, 0x12, -1, -1, -1, -1 },
     { "databaseHelper_", "LPDDataProvider;", .constantValue.asLong = 0, 0x0, -1, -1, -1, 4 },
@@ -251,9 +251,9 @@ J2OBJC_INTERFACE_TYPE_LITERAL_SOURCE(PPPartyPresenter_UiInterface)
 
 @implementation PPPartyPresenter_PartyInfo
 
-- (instancetype)initWithPDParty:(PDParty *)party
-                        withInt:(jint)partyCount {
-  PPPartyPresenter_PartyInfo_initWithPDParty_withInt_(self, party, partyCount);
+- (instancetype)initWithPDPartyIntf:(id<PDPartyIntf>)party
+                            withInt:(jint)partyCount {
+  PPPartyPresenter_PartyInfo_initWithPDPartyIntf_withInt_(self, party, partyCount);
   return self;
 }
 
@@ -268,31 +268,31 @@ J2OBJC_INTERFACE_TYPE_LITERAL_SOURCE(PPPartyPresenter_UiInterface)
   };
   #pragma clang diagnostic push
   #pragma clang diagnostic ignored "-Wobjc-multiple-method-names"
-  methods[0].selector = @selector(initWithPDParty:withInt:);
+  methods[0].selector = @selector(initWithPDPartyIntf:withInt:);
   #pragma clang diagnostic pop
   static const J2ObjcFieldInfo fields[] = {
-    { "party_", "LPDParty;", .constantValue.asLong = 0, 0x10, -1, -1, -1, -1 },
+    { "party_", "LPDPartyIntf;", .constantValue.asLong = 0, 0x10, -1, -1, -1, -1 },
     { "partyCount_", "I", .constantValue.asLong = 0, 0x10, -1, -1, -1, -1 },
   };
-  static const void *ptrTable[] = { "LPDParty;I", "LPPPartyPresenter;" };
+  static const void *ptrTable[] = { "LPDPartyIntf;I", "LPPPartyPresenter;" };
   static const J2ObjcClassInfo _PPPartyPresenter_PartyInfo = { "PartyInfo", "com.kgalligan.partyclicker.presenter", ptrTable, methods, fields, 7, 0x8, 1, 2, 1, -1, -1, -1, -1 };
   return &_PPPartyPresenter_PartyInfo;
 }
 
 @end
 
-void PPPartyPresenter_PartyInfo_initWithPDParty_withInt_(PPPartyPresenter_PartyInfo *self, PDParty *party, jint partyCount) {
+void PPPartyPresenter_PartyInfo_initWithPDPartyIntf_withInt_(PPPartyPresenter_PartyInfo *self, id<PDPartyIntf> party, jint partyCount) {
   NSObject_init(self);
   JreStrongAssign(&self->party_, party);
   self->partyCount_ = partyCount;
 }
 
-PPPartyPresenter_PartyInfo *new_PPPartyPresenter_PartyInfo_initWithPDParty_withInt_(PDParty *party, jint partyCount) {
-  J2OBJC_NEW_IMPL(PPPartyPresenter_PartyInfo, initWithPDParty_withInt_, party, partyCount)
+PPPartyPresenter_PartyInfo *new_PPPartyPresenter_PartyInfo_initWithPDPartyIntf_withInt_(id<PDPartyIntf> party, jint partyCount) {
+  J2OBJC_NEW_IMPL(PPPartyPresenter_PartyInfo, initWithPDPartyIntf_withInt_, party, partyCount)
 }
 
-PPPartyPresenter_PartyInfo *create_PPPartyPresenter_PartyInfo_initWithPDParty_withInt_(PDParty *party, jint partyCount) {
-  J2OBJC_CREATE_IMPL(PPPartyPresenter_PartyInfo, initWithPDParty_withInt_, party, partyCount)
+PPPartyPresenter_PartyInfo *create_PPPartyPresenter_PartyInfo_initWithPDPartyIntf_withInt_(id<PDPartyIntf> party, jint partyCount) {
+  J2OBJC_CREATE_IMPL(PPPartyPresenter_PartyInfo, initWithPDPartyIntf_withInt_, party, partyCount)
 }
 
 J2OBJC_CLASS_TYPE_LITERAL_SOURCE(PPPartyPresenter_PartyInfo)
@@ -300,7 +300,7 @@ J2OBJC_CLASS_TYPE_LITERAL_SOURCE(PPPartyPresenter_PartyInfo)
 @implementation PPPartyPresenter_$Lambda$1
 
 - (void)callWithId:(RxSubscriber *)subscriber {
-  [((RxSubscriber *) nil_chk(subscriber)) onNextWithId:create_PPPartyPresenter_PartyInfo_initWithPDParty_withInt_([((id<PDDataProvider>) nil_chk(this$0_->databaseHelper_)) loadPartyWithInt:this$0_->partyId_], [((id<PDDataProvider>) nil_chk(this$0_->databaseHelper_)) countCurrentPartyWithInt:this$0_->partyId_])];
+  [((RxSubscriber *) nil_chk(subscriber)) onNextWithId:create_PPPartyPresenter_PartyInfo_initWithPDPartyIntf_withInt_([((id<PDDataProvider>) nil_chk(this$0_->databaseHelper_)) loadPartyWithInt:this$0_->partyId_], [((id<PDDataProvider>) nil_chk(this$0_->databaseHelper_)) countCurrentPartyWithInt:this$0_->partyId_])];
   [subscriber onCompleted];
 }
 

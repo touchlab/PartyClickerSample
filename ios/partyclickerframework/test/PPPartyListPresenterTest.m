@@ -7,7 +7,8 @@
 #include "J2ObjC_source.h"
 #include "PDDataProvider.h"
 #include "PDParty.h"
-#include "PDPerson.h"
+#include "PDPartyIntf.h"
+#include "PDPersonIntf.h"
 #include "PPPartyListPresenter.h"
 #include "PPPartyListPresenterTest.h"
 #include "PTDaggerTestNoContextComponent.h"
@@ -74,55 +75,55 @@ J2OBJC_IGNORE_DESIGNATED_END
 }
 
 - (void)callParty {
-  PDParty *hello = [((id<PDDataProvider>) nil_chk(dataProvider_)) createPartyWithNSString:@"hello"];
-  [((PPPartyListPresenter *) nil_chk(partyListPresenter_)) callPartyWithInt:(jint) [((PDParty *) nil_chk(hello)) id__]];
-  [((id<PPPartyListPresenter_UiInterface>) nil_chk(OrgMockitoMockito_verifyWithId_(uiInterface_))) showPartyWithPDParty:hello];
+  id<PDPartyIntf> hello = [((id<PDDataProvider>) nil_chk(dataProvider_)) createPartyWithNSString:@"hello"];
+  [((PPPartyListPresenter *) nil_chk(partyListPresenter_)) callPartyWithInt:(jint) [((id<PDPartyIntf>) nil_chk(hello)) id__]];
+  [((id<PPPartyListPresenter_UiInterface>) nil_chk(OrgMockitoMockito_verifyWithId_(uiInterface_))) showPartyWithPDPartyIntf:hello];
 }
 
 - (void)createParty {
   OrgMockitoArgumentCaptor *captor = OrgMockitoArgumentCaptor_forClassWithIOSClass_(PDParty_class_());
   [((id<PDDataProvider>) nil_chk(dataProvider_)) createPartyWithNSString:@"not a stone groove"];
   [((PPPartyListPresenter *) nil_chk(partyListPresenter_)) createPartyWithNSString:@"a stone groove"];
-  [((id<PPPartyListPresenter_UiInterface>) nil_chk(OrgMockitoMockito_verifyWithId_(uiInterface_))) showPartyWithPDParty:[((OrgMockitoArgumentCaptor *) nil_chk(captor)) capture]];
+  [((id<PPPartyListPresenter_UiInterface>) nil_chk(OrgMockitoMockito_verifyWithId_(uiInterface_))) showPartyWithPDPartyIntf:[((OrgMockitoArgumentCaptor *) nil_chk(captor)) capture]];
   OrgJunitAssert_assertEqualsWithId_withId_([((PDParty *) nil_chk([captor getValue])) name], @"a stone groove");
 }
 
 - (void)deleteParty {
   [((id<PDDataProvider>) nil_chk(dataProvider_)) createPartyWithNSString:@"a"];
   [((id<PDDataProvider>) nil_chk(dataProvider_)) createPartyWithNSString:@"b"];
-  PDParty *party = [((id<PDDataProvider>) nil_chk(dataProvider_)) createPartyWithNSString:@"c"];
+  id<PDPartyIntf> party = [((id<PDDataProvider>) nil_chk(dataProvider_)) createPartyWithNSString:@"c"];
   [((id<PDDataProvider>) nil_chk(dataProvider_)) createPartyWithNSString:@"d"];
-  [((PPPartyListPresenter *) nil_chk(partyListPresenter_)) deletePartyWithInt:(jint) [((PDParty *) nil_chk(party)) id__]];
+  [((PPPartyListPresenter *) nil_chk(partyListPresenter_)) deletePartyWithInt:(jint) [((id<PDPartyIntf>) nil_chk(party)) id__]];
   OrgJunitAssert_assertEqualsWithLong_withLong_(3, [((id<JavaUtilList>) nil_chk([((id<PDDataProvider>) nil_chk(dataProvider_)) allParties])) size]);
 }
 
 - (void)countPeople {
   [((id<PDDataProvider>) nil_chk(dataProvider_)) createPartyWithNSString:@"a"];
   [((id<PDDataProvider>) nil_chk(dataProvider_)) createPartyWithNSString:@"b"];
-  PDParty *party = [((id<PDDataProvider>) nil_chk(dataProvider_)) createPartyWithNSString:@"c"];
+  id<PDPartyIntf> party = [((id<PDDataProvider>) nil_chk(dataProvider_)) createPartyWithNSString:@"c"];
   [((id<PDDataProvider>) nil_chk(dataProvider_)) createPartyWithNSString:@"d"];
-  [((id<PDDataProvider>) nil_chk(dataProvider_)) addPersonWithPDParty:party withBoolean:true];
-  [((id<PDDataProvider>) nil_chk(dataProvider_)) addPersonWithPDParty:party withBoolean:true];
-  [((id<PDDataProvider>) nil_chk(dataProvider_)) addPersonWithPDParty:party withBoolean:true];
-  [((id<PDDataProvider>) nil_chk(dataProvider_)) addPersonWithPDParty:party withBoolean:false];
-  [((id<PDDataProvider>) nil_chk(dataProvider_)) addPersonWithPDParty:party withBoolean:true];
-  jint countPeople = [((PPPartyListPresenter *) nil_chk(partyListPresenter_)) countPeopleWithPDParty:party];
+  [((id<PDDataProvider>) nil_chk(dataProvider_)) addPersonWithPDPartyIntf:party withBoolean:true];
+  [((id<PDDataProvider>) nil_chk(dataProvider_)) addPersonWithPDPartyIntf:party withBoolean:true];
+  [((id<PDDataProvider>) nil_chk(dataProvider_)) addPersonWithPDPartyIntf:party withBoolean:true];
+  [((id<PDDataProvider>) nil_chk(dataProvider_)) addPersonWithPDPartyIntf:party withBoolean:false];
+  [((id<PDDataProvider>) nil_chk(dataProvider_)) addPersonWithPDPartyIntf:party withBoolean:true];
+  jint countPeople = [((PPPartyListPresenter *) nil_chk(partyListPresenter_)) countPeopleWithPDPartyIntf:party];
   OrgJunitAssert_assertEqualsWithLong_withLong_(3, countPeople);
 }
 
 - (void)allPeople {
-  PDParty *party = [((id<PDDataProvider>) nil_chk(dataProvider_)) createPartyWithNSString:@"on the patio"];
-  [((id<PDDataProvider>) nil_chk(dataProvider_)) addPersonWithPDParty:party withBoolean:true];
-  [((id<PDDataProvider>) nil_chk(dataProvider_)) addPersonWithPDParty:party withBoolean:true];
-  [((id<PDDataProvider>) nil_chk(dataProvider_)) addPersonWithPDParty:party withBoolean:true];
-  [((id<PDDataProvider>) nil_chk(dataProvider_)) addPersonWithPDParty:party withBoolean:false];
-  [((id<PDDataProvider>) nil_chk(dataProvider_)) addPersonWithPDParty:party withBoolean:true];
-  id<JavaUtilList> personList = [((PPPartyListPresenter *) nil_chk(partyListPresenter_)) allPeopleWithPDParty:party];
-  id<JavaUtilList> memPersonLIst = [((id<PDDataProvider>) nil_chk(dataProvider_)) allPeopleForPartyWithPDParty:party];
-  for (PDPerson * __strong person in nil_chk(personList)) {
+  id<PDPartyIntf> party = [((id<PDDataProvider>) nil_chk(dataProvider_)) createPartyWithNSString:@"on the patio"];
+  [((id<PDDataProvider>) nil_chk(dataProvider_)) addPersonWithPDPartyIntf:party withBoolean:true];
+  [((id<PDDataProvider>) nil_chk(dataProvider_)) addPersonWithPDPartyIntf:party withBoolean:true];
+  [((id<PDDataProvider>) nil_chk(dataProvider_)) addPersonWithPDPartyIntf:party withBoolean:true];
+  [((id<PDDataProvider>) nil_chk(dataProvider_)) addPersonWithPDPartyIntf:party withBoolean:false];
+  [((id<PDDataProvider>) nil_chk(dataProvider_)) addPersonWithPDPartyIntf:party withBoolean:true];
+  id<JavaUtilList> personList = [((PPPartyListPresenter *) nil_chk(partyListPresenter_)) allPeopleWithPDPartyIntf:party];
+  id<JavaUtilList> memPersonLIst = [((id<PDDataProvider>) nil_chk(dataProvider_)) allPeopleForPartyWithPDPartyIntf:party];
+  for (id<PDPersonIntf> __strong person in nil_chk(personList)) {
     jboolean found = true;
-    for (PDPerson * __strong memPerson in nil_chk(memPersonLIst)) {
-      if ([((PDPerson *) nil_chk(person)) id__] == [((PDPerson *) nil_chk(memPerson)) id__]) {
+    for (id<PDPersonIntf> __strong memPerson in nil_chk(memPersonLIst)) {
+      if ([((id<PDPersonIntf>) nil_chk(person)) id__] == [((id<PDPersonIntf>) nil_chk(memPerson)) id__]) {
         found = true;
         break;
       }

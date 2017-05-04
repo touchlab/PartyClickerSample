@@ -6,7 +6,7 @@
 #include "IOSObjectArray.h"
 #include "J2ObjC_source.h"
 #include "PDDataProvider.h"
-#include "PDParty.h"
+#include "PDPartyIntf.h"
 #include "PPCrashReporter.h"
 #include "PPPartyListPresenter.h"
 #include "RxFunctionsAction1.h"
@@ -110,7 +110,7 @@ __attribute__((unused)) static PPPartyListPresenter_$Lambda$4 *create_PPPartyLis
   PPPartyListPresenter *this$0_;
 }
 
-- (void)callWithId:(PDParty *)party;
+- (void)callWithId:(id<PDPartyIntf>)party;
 
 @end
 
@@ -162,7 +162,7 @@ __attribute__((unused)) static PPPartyListPresenter_$Lambda$7 *create_PPPartyLis
   PPPartyListPresenter *this$0_;
 }
 
-- (void)callWithId:(PDParty *)party;
+- (void)callWithId:(id<PDPartyIntf>)party;
 
 @end
 
@@ -214,7 +214,7 @@ __attribute__((unused)) static PPPartyListPresenter_$Lambda$10 *create_PPPartyLi
   PPPartyListPresenter *this$0_;
 }
 
-- (void)callWithId:(PDParty *)o;
+- (void)callWithId:(id<PDPartyIntf>)o;
 
 @end
 
@@ -278,12 +278,12 @@ J2OBJC_IGNORE_DESIGNATED_END
   [((RxObservable *) nil_chk([((RxObservable *) nil_chk(RxObservable_createWithRxObservable_OnSubscribe_(create_PPPartyListPresenter_$Lambda$10_initWithPPPartyListPresenter_withInt_(self, id_)))) composeWithRxObservable_Transformer:schedulerTransformer_])) subscribeWithRxFunctionsAction1:create_PPPartyListPresenter_$Lambda$11_initWithPPPartyListPresenter_(self) withRxFunctionsAction1:create_PPPartyListPresenter_$Lambda$12_initWithPPPartyListPresenter_(self)];
 }
 
-- (jint)countPeopleWithPDParty:(PDParty *)party {
-  return [((id<PDDataProvider>) nil_chk(databaseHelper_)) countCurrentPartyWithInt:(jint) [((PDParty *) nil_chk(party)) id__]];
+- (jint)countPeopleWithPDPartyIntf:(id<PDPartyIntf>)party {
+  return [((id<PDDataProvider>) nil_chk(databaseHelper_)) countCurrentPartyWithInt:(jint) [((id<PDPartyIntf>) nil_chk(party)) id__]];
 }
 
-- (id<JavaUtilList>)allPeopleWithPDParty:(PDParty *)party {
-  return [((id<PDDataProvider>) nil_chk(databaseHelper_)) allPeopleForPartyWithPDParty:party];
+- (id<JavaUtilList>)allPeopleWithPDPartyIntf:(id<PDPartyIntf>)party {
+  return [((id<PDDataProvider>) nil_chk(databaseHelper_)) allPeopleForPartyWithPDPartyIntf:party];
 }
 
 - (void)__javaClone:(PPPartyListPresenter *)original {
@@ -319,8 +319,8 @@ J2OBJC_IGNORE_DESIGNATED_END
   methods[4].selector = @selector(callPartyWithInt:);
   methods[5].selector = @selector(createPartyWithNSString:);
   methods[6].selector = @selector(deletePartyWithInt:);
-  methods[7].selector = @selector(countPeopleWithPDParty:);
-  methods[8].selector = @selector(allPeopleWithPDParty:);
+  methods[7].selector = @selector(countPeopleWithPDPartyIntf:);
+  methods[8].selector = @selector(allPeopleWithPDPartyIntf:);
   #pragma clang diagnostic pop
   static const J2ObjcFieldInfo fields[] = {
     { "databaseHelper_", "LPDDataProvider;", .constantValue.asLong = 0, 0x0, -1, -1, -1, 11 },
@@ -328,7 +328,7 @@ J2OBJC_IGNORE_DESIGNATED_END
     { "schedulerTransformer_", "LRxObservable_Transformer;", .constantValue.asLong = 0, 0x0, -1, -1, -1, 13 },
     { "uiInterface_", "LPPPartyListPresenter_UiInterface;", .constantValue.asLong = 0, 0x2, -1, -1, -1, -1 },
   };
-  static const void *ptrTable[] = { "applyUiInterface", "LPPPartyListPresenter_UiInterface;", "callParty", "I", "createParty", "LNSString;", "deleteParty", "countPeople", "LPDParty;", "allPeople", "(Lcom/kgalligan/partyclicker/data/Party;)Ljava/util/List<Lcom/kgalligan/partyclicker/data/Person;>;", (void *)&PPPartyListPresenter__Annotations$0, (void *)&PPPartyListPresenter__Annotations$1, (void *)&PPPartyListPresenter__Annotations$2 };
+  static const void *ptrTable[] = { "applyUiInterface", "LPPPartyListPresenter_UiInterface;", "callParty", "I", "createParty", "LNSString;", "deleteParty", "countPeople", "LPDPartyIntf;", "allPeople", "(Lcom/kgalligan/partyclicker/data/PartyIntf;)Ljava/util/List<Lcom/kgalligan/partyclicker/data/PersonIntf;>;", (void *)&PPPartyListPresenter__Annotations$0, (void *)&PPPartyListPresenter__Annotations$1, (void *)&PPPartyListPresenter__Annotations$2 };
   static const J2ObjcClassInfo _PPPartyListPresenter = { "PartyListPresenter", "com.kgalligan.partyclicker.presenter", ptrTable, methods, fields, 7, 0x1, 9, 4, -1, 1, -1, -1, -1 };
   return &_PPPartyListPresenter;
 }
@@ -373,9 +373,9 @@ J2OBJC_CLASS_TYPE_LITERAL_SOURCE(PPPartyListPresenter)
   #pragma clang diagnostic ignored "-Wobjc-multiple-method-names"
   methods[0].selector = @selector(processingWithBoolean:);
   methods[1].selector = @selector(refreshPartyListWithJavaUtilList:);
-  methods[2].selector = @selector(showPartyWithPDParty:);
+  methods[2].selector = @selector(showPartyWithPDPartyIntf:);
   #pragma clang diagnostic pop
-  static const void *ptrTable[] = { "processing", "Z", "refreshPartyList", "LJavaUtilList;", "(Ljava/util/List<Lcom/kgalligan/partyclicker/data/Party;>;)V", "showParty", "LPDParty;", "LPPPartyListPresenter;" };
+  static const void *ptrTable[] = { "processing", "Z", "refreshPartyList", "LJavaUtilList;", "(Ljava/util/List<Lcom/kgalligan/partyclicker/data/PartyIntf;>;)V", "showParty", "LPDPartyIntf;", "LPPPartyListPresenter;" };
   static const J2ObjcClassInfo _PPPartyListPresenter_UiInterface = { "UiInterface", "com.kgalligan.partyclicker.presenter", ptrTable, methods, NULL, 7, 0x609, 3, 0, 7, -1, -1, -1, -1 };
   return &_PPPartyListPresenter_UiInterface;
 }
@@ -494,8 +494,8 @@ PPPartyListPresenter_$Lambda$4 *create_PPPartyListPresenter_$Lambda$4_initWithPP
 
 @implementation PPPartyListPresenter_$Lambda$5
 
-- (void)callWithId:(PDParty *)party {
-  [((id<PPPartyListPresenter_UiInterface>) nil_chk(this$0_->uiInterface_)) showPartyWithPDParty:party];
+- (void)callWithId:(id<PDPartyIntf>)party {
+  [((id<PPPartyListPresenter_UiInterface>) nil_chk(this$0_->uiInterface_)) showPartyWithPDPartyIntf:party];
 }
 
 - (void)dealloc {
@@ -575,8 +575,8 @@ PPPartyListPresenter_$Lambda$7 *create_PPPartyListPresenter_$Lambda$7_initWithPP
 
 @implementation PPPartyListPresenter_$Lambda$8
 
-- (void)callWithId:(PDParty *)party {
-  [((id<PPPartyListPresenter_UiInterface>) nil_chk(this$0_->uiInterface_)) showPartyWithPDParty:party];
+- (void)callWithId:(id<PDPartyIntf>)party {
+  [((id<PPPartyListPresenter_UiInterface>) nil_chk(this$0_->uiInterface_)) showPartyWithPDPartyIntf:party];
 }
 
 - (void)dealloc {
@@ -628,8 +628,8 @@ PPPartyListPresenter_$Lambda$9 *create_PPPartyListPresenter_$Lambda$9_initWithPP
 @implementation PPPartyListPresenter_$Lambda$10
 
 - (void)callWithId:(RxSubscriber *)subscriber {
-  PDParty *party = [((id<PDDataProvider>) nil_chk(this$0_->databaseHelper_)) loadPartyWithInt:val$id_];
-  [((id<PDDataProvider>) nil_chk(this$0_->databaseHelper_)) deletePartyWithPDParty:party];
+  id<PDPartyIntf> party = [((id<PDDataProvider>) nil_chk(this$0_->databaseHelper_)) loadPartyWithInt:val$id_];
+  [((id<PDDataProvider>) nil_chk(this$0_->databaseHelper_)) deletePartyWithPDPartyIntf:party];
   [((RxSubscriber *) nil_chk(subscriber)) onNextWithId:party];
   [subscriber onCompleted];
 }
@@ -657,7 +657,7 @@ PPPartyListPresenter_$Lambda$10 *create_PPPartyListPresenter_$Lambda$10_initWith
 
 @implementation PPPartyListPresenter_$Lambda$11
 
-- (void)callWithId:(PDParty *)o {
+- (void)callWithId:(id<PDPartyIntf>)o {
   [this$0_ callRefreshPartyList];
 }
 

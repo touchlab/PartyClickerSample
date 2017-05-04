@@ -5,7 +5,7 @@
 #include "IOSClass.h"
 #include "IOSObjectArray.h"
 #include "J2ObjC_source.h"
-#include "PDParty.h"
+#include "PDPartyIntf.h"
 #include "PPCrashReporter.h"
 #include "PPCrashReporterTest.h"
 #include "PPPartyListPresenter.h"
@@ -39,7 +39,7 @@ __attribute__((unused)) static IOSObjectArray *PPCrashReporterTest__Annotations$
 
 - (instancetype)init;
 
-- (PDParty *)createPartyWithNSString:(NSString *)name;
+- (id<PDPartyIntf>)createPartyWithNSString:(NSString *)name;
 
 @end
 
@@ -139,7 +139,7 @@ J2OBJC_IGNORE_DESIGNATED_BEGIN
 }
 J2OBJC_IGNORE_DESIGNATED_END
 
-- (PDParty *)createPartyWithNSString:(NSString *)name {
+- (id<PDPartyIntf>)createPartyWithNSString:(NSString *)name {
   if ([((NSString *) nil_chk(name)) java_contains:@"Fyre"]) @throw create_JavaLangRuntimeException_initWithNSString_(@"#dumpsterfyre");
   else {
     return [super createPartyWithNSString:name];
@@ -149,7 +149,7 @@ J2OBJC_IGNORE_DESIGNATED_END
 + (const J2ObjcClassInfo *)__metadata {
   static J2ObjcMethodInfo methods[] = {
     { NULL, NULL, 0x0, -1, -1, -1, -1, -1, -1 },
-    { NULL, "LPDParty;", 0x1, 0, 1, -1, -1, -1, -1 },
+    { NULL, "LPDPartyIntf;", 0x1, 0, 1, -1, -1, -1, -1 },
   };
   #pragma clang diagnostic push
   #pragma clang diagnostic ignored "-Wobjc-multiple-method-names"

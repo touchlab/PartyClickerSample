@@ -19,10 +19,13 @@
 #define INCLUDE_PDPartyModel 1
 #include "PDPartyModel.h"
 
-@class PDPartyModel_Factory;
-@protocol ComSquareupSqldelightRowMapper;
+#define RESTRICT_PDPartyIntf 1
+#define INCLUDE_PDPartyIntf 1
+#include "PDPartyIntf.h"
 
-@interface PDParty : NSObject < PDPartyModel >
+@class PDPartyModel_Factory;
+
+@interface PDParty : NSObject < PDPartyModel, PDPartyIntf >
 
 #pragma mark Public
 
@@ -44,11 +47,6 @@ inline PDPartyModel_Factory *PDParty_get_FACTORY();
 /*! INTERNAL ONLY - Use accessor function from above. */
 FOUNDATION_EXPORT PDPartyModel_Factory *PDParty_FACTORY;
 J2OBJC_STATIC_FIELD_OBJ_FINAL(PDParty, FACTORY, PDPartyModel_Factory *)
-
-inline id<ComSquareupSqldelightRowMapper> PDParty_get_SELECT_ALL_MAPPER();
-/*! INTERNAL ONLY - Use accessor function from above. */
-FOUNDATION_EXPORT id<ComSquareupSqldelightRowMapper> PDParty_SELECT_ALL_MAPPER;
-J2OBJC_STATIC_FIELD_OBJ_FINAL(PDParty, SELECT_ALL_MAPPER, id<ComSquareupSqldelightRowMapper>)
 
 FOUNDATION_EXPORT void PDParty_init(PDParty *self);
 

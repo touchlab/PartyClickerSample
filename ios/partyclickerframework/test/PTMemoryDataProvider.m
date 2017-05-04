@@ -3,8 +3,9 @@
 //
 
 #include "J2ObjC_source.h"
-#include "PDParty.h"
+#include "PDPartyIntf.h"
 #include "PDPerson.h"
+#include "PDPersonIntf.h"
 #include "PTAutoValue_MemParty.h"
 #include "PTMemParty.h"
 #include "PTMemoryDataProvider.h"
@@ -27,47 +28,47 @@ J2OBJC_IGNORE_DESIGNATED_END
   return parties_;
 }
 
-- (PDParty *)loadPartyWithInt:(jint)id_ {
-  for (PDParty * __strong party in nil_chk(parties_)) {
-    if ([((PDParty *) nil_chk(party)) id__] == id_) return party;
+- (id<PDPartyIntf>)loadPartyWithInt:(jint)id_ {
+  for (id<PDPartyIntf> __strong party in nil_chk(parties_)) {
+    if ([((id<PDPartyIntf>) nil_chk(party)) id__] == id_) return party;
   }
   return nil;
 }
 
-- (PDParty *)createPartyWithNSString:(NSString *)name {
+- (id<PDPartyIntf>)createPartyWithNSString:(NSString *)name {
   PTMemParty *party = [((PTMemParty_Builder *) nil_chk([((PTMemParty_Builder *) nil_chk([((PTMemParty_Builder *) nil_chk([((PTMemParty_Builder *) nil_chk([create_PTAutoValue_MemParty_Builder_init() setCreatedWithLong:JavaLangSystem_currentTimeMillis()])) setNameWithNSString:name])) setIdWithLong:idCounter_++])) setPeopleWithJavaUtilList:create_JavaUtilArrayList_init()])) build];
   [((id<JavaUtilList>) nil_chk(parties_)) addWithId:party];
   return party;
 }
 
-- (void)deletePartyWithPDParty:(PDParty *)party {
+- (void)deletePartyWithPDPartyIntf:(id<PDPartyIntf>)party {
   id<JavaUtilIterator> iterator = [((id<JavaUtilList>) nil_chk(parties_)) iterator];
   while ([((id<JavaUtilIterator>) nil_chk(iterator)) hasNext]) {
-    PDParty *next = [iterator next];
-    if ([((PDParty *) nil_chk(party)) id__] == [((PDParty *) nil_chk(next)) id__]) {
+    id<PDPartyIntf> next = [iterator next];
+    if ([((id<PDPartyIntf>) nil_chk(party)) id__] == [((id<PDPartyIntf>) nil_chk(next)) id__]) {
       [iterator remove];
       return;
     }
   }
-  @throw create_JavaLangRuntimeException_initWithNSString_(JreStrcat("$J$", @"Party ", [((PDParty *) nil_chk(party)) id__], @" not found"));
+  @throw create_JavaLangRuntimeException_initWithNSString_(JreStrcat("$J$", @"Party ", [((id<PDPartyIntf>) nil_chk(party)) id__], @" not found"));
 }
 
 - (jint)countCurrentPartyWithInt:(jint)id_ {
   PTMemParty *party = (PTMemParty *) cast_chk([self loadPartyWithInt:id_], [PTMemParty class]);
   jint sum = 0;
-  for (PDPerson * __strong person in nil_chk([((PTMemParty *) nil_chk(party)) people])) {
-    sum += [((PDPerson *) nil_chk(person)) val];
+  for (id<PDPersonIntf> __strong person in nil_chk([((PTMemParty *) nil_chk(party)) people])) {
+    sum += [((id<PDPersonIntf>) nil_chk(person)) val];
   }
   return sum;
 }
 
-- (id<JavaUtilList>)allPeopleForPartyWithPDParty:(PDParty *)party {
+- (id<JavaUtilList>)allPeopleForPartyWithPDPartyIntf:(id<PDPartyIntf>)party {
   return [((PTMemParty *) nil_chk(((PTMemParty *) cast_chk(party, [PTMemParty class])))) people];
 }
 
-- (void)addPersonWithPDParty:(PDParty *)party
-                 withBoolean:(jboolean)coming {
-  PDPerson *person = PDPerson_createWithLong_withLong_withLong_withLong_(idCounter_++, JavaLangSystem_currentTimeMillis(), (jshort) (coming ? 1 : -1), [((PDParty *) nil_chk(party)) id__]);
+- (void)addPersonWithPDPartyIntf:(id<PDPartyIntf>)party
+                     withBoolean:(jboolean)coming {
+  PDPerson *person = PDPerson_createWithLong_withLong_withLong_withLong_(idCounter_++, JavaLangSystem_currentTimeMillis(), (jshort) (coming ? 1 : -1), [((id<PDPartyIntf>) nil_chk(party)) id__]);
   [((id<JavaUtilList>) nil_chk([((PTMemParty *) cast_chk(party, [PTMemParty class])) people])) addWithId:person];
 }
 
@@ -80,8 +81,8 @@ J2OBJC_IGNORE_DESIGNATED_END
   static J2ObjcMethodInfo methods[] = {
     { NULL, NULL, 0x1, -1, -1, -1, -1, -1, -1 },
     { NULL, "LJavaUtilList;", 0x1, -1, -1, -1, 0, -1, -1 },
-    { NULL, "LPDParty;", 0x1, 1, 2, -1, -1, -1, -1 },
-    { NULL, "LPDParty;", 0x1, 3, 4, -1, -1, -1, -1 },
+    { NULL, "LPDPartyIntf;", 0x1, 1, 2, -1, -1, -1, -1 },
+    { NULL, "LPDPartyIntf;", 0x1, 3, 4, -1, -1, -1, -1 },
     { NULL, "V", 0x1, 5, 6, -1, -1, -1, -1 },
     { NULL, "I", 0x1, 7, 2, -1, -1, -1, -1 },
     { NULL, "LJavaUtilList;", 0x1, 8, 6, -1, 9, -1, -1 },
@@ -93,16 +94,16 @@ J2OBJC_IGNORE_DESIGNATED_END
   methods[1].selector = @selector(allParties);
   methods[2].selector = @selector(loadPartyWithInt:);
   methods[3].selector = @selector(createPartyWithNSString:);
-  methods[4].selector = @selector(deletePartyWithPDParty:);
+  methods[4].selector = @selector(deletePartyWithPDPartyIntf:);
   methods[5].selector = @selector(countCurrentPartyWithInt:);
-  methods[6].selector = @selector(allPeopleForPartyWithPDParty:);
-  methods[7].selector = @selector(addPersonWithPDParty:withBoolean:);
+  methods[6].selector = @selector(allPeopleForPartyWithPDPartyIntf:);
+  methods[7].selector = @selector(addPersonWithPDPartyIntf:withBoolean:);
   #pragma clang diagnostic pop
   static const J2ObjcFieldInfo fields[] = {
     { "idCounter_", "I", .constantValue.asLong = 0, 0x40, -1, -1, -1, -1 },
     { "parties_", "LJavaUtilList;", .constantValue.asLong = 0, 0x0, -1, -1, 12, -1 },
   };
-  static const void *ptrTable[] = { "()Ljava/util/List<Lcom/kgalligan/partyclicker/data/Party;>;", "loadParty", "I", "createParty", "LNSString;", "deleteParty", "LPDParty;", "countCurrentParty", "allPeopleForParty", "(Lcom/kgalligan/partyclicker/data/Party;)Ljava/util/List<Lcom/kgalligan/partyclicker/data/Person;>;", "addPerson", "LPDParty;Z", "Ljava/util/List<Lcom/kgalligan/partyclicker/data/Party;>;" };
+  static const void *ptrTable[] = { "()Ljava/util/List<Lcom/kgalligan/partyclicker/data/PartyIntf;>;", "loadParty", "I", "createParty", "LNSString;", "deleteParty", "LPDPartyIntf;", "countCurrentParty", "allPeopleForParty", "(Lcom/kgalligan/partyclicker/data/PartyIntf;)Ljava/util/List<Lcom/kgalligan/partyclicker/data/PersonIntf;>;", "addPerson", "LPDPartyIntf;Z", "Ljava/util/List<Lcom/kgalligan/partyclicker/data/PartyIntf;>;" };
   static const J2ObjcClassInfo _PTMemoryDataProvider = { "MemoryDataProvider", "com.kgalligan.partyclicker.test", ptrTable, methods, fields, 7, 0x1, 8, 2, -1, -1, -1, -1, -1 };
   return &_PTMemoryDataProvider;
 }

@@ -19,8 +19,8 @@
 #define INCLUDE_PDDataProvider 1
 #include "PDDataProvider.h"
 
-@class PDParty;
 @protocol JavaUtilList;
+@protocol PDPartyIntf;
 
 @interface PTMemoryDataProvider : NSObject < PDDataProvider > {
  @public
@@ -32,20 +32,20 @@
 
 - (instancetype)init;
 
-- (void)addPersonWithPDParty:(PDParty *)party
-                 withBoolean:(jboolean)coming;
+- (void)addPersonWithPDPartyIntf:(id<PDPartyIntf>)party
+                     withBoolean:(jboolean)coming;
 
 - (id<JavaUtilList>)allParties;
 
-- (id<JavaUtilList>)allPeopleForPartyWithPDParty:(PDParty *)party;
+- (id<JavaUtilList>)allPeopleForPartyWithPDPartyIntf:(id<PDPartyIntf>)party;
 
 - (jint)countCurrentPartyWithInt:(jint)id_;
 
-- (PDParty *)createPartyWithNSString:(NSString *)name;
+- (id<PDPartyIntf>)createPartyWithNSString:(NSString *)name;
 
-- (void)deletePartyWithPDParty:(PDParty *)party;
+- (void)deletePartyWithPDPartyIntf:(id<PDPartyIntf>)party;
 
-- (PDParty *)loadPartyWithInt:(jint)id_;
+- (id<PDPartyIntf>)loadPartyWithInt:(jint)id_;
 
 @end
 
