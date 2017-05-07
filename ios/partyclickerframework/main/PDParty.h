@@ -15,11 +15,12 @@
 #if !defined (PDParty_) && (INCLUDE_ALL_PDParty || defined(INCLUDE_PDParty))
 #define PDParty_
 
+@class JavaLangLong;
 @class JavaUtilDate;
 
 @interface PDParty : NSObject {
  @public
-  jint id__;
+  JavaLangLong *id__;
   NSString *name_;
   JavaUtilDate *created_;
 }
@@ -28,13 +29,23 @@
 
 - (instancetype)init;
 
+- (instancetype)initWithJavaLangLong:(JavaLangLong *)id_
+                        withNSString:(NSString *)name
+                    withJavaUtilDate:(JavaUtilDate *)created;
+
 - (NSString *)dateString;
 
 - (JavaUtilDate *)getCreated;
 
-- (jint)getId;
+- (JavaLangLong *)getId;
 
 - (NSString *)getName;
+
+- (void)setCreatedWithJavaUtilDate:(JavaUtilDate *)created;
+
+- (void)setIdWithJavaLangLong:(JavaLangLong *)id_;
+
+- (void)setNameWithNSString:(NSString *)name;
 
 - (NSString *)description;
 
@@ -42,8 +53,15 @@
 
 J2OBJC_STATIC_INIT(PDParty)
 
+J2OBJC_FIELD_SETTER(PDParty, id__, JavaLangLong *)
 J2OBJC_FIELD_SETTER(PDParty, name_, NSString *)
 J2OBJC_FIELD_SETTER(PDParty, created_, JavaUtilDate *)
+
+FOUNDATION_EXPORT void PDParty_initWithJavaLangLong_withNSString_withJavaUtilDate_(PDParty *self, JavaLangLong *id_, NSString *name, JavaUtilDate *created);
+
+FOUNDATION_EXPORT PDParty *new_PDParty_initWithJavaLangLong_withNSString_withJavaUtilDate_(JavaLangLong *id_, NSString *name, JavaUtilDate *created) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT PDParty *create_PDParty_initWithJavaLangLong_withNSString_withJavaUtilDate_(JavaLangLong *id_, NSString *name, JavaUtilDate *created);
 
 FOUNDATION_EXPORT void PDParty_init(PDParty *self);
 

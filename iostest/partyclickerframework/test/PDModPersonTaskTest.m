@@ -12,6 +12,7 @@
 #include "PTDaggerTestNoContextComponent.h"
 #include "PTTestNoContextComponent.h"
 #include "PTTestNoContextModule.h"
+#include "java/lang/Long.h"
 #include "java/lang/annotation/Annotation.h"
 #include "javax/inject/Inject.h"
 #include "org/junit/Assert.h"
@@ -45,7 +46,7 @@ J2OBJC_IGNORE_DESIGNATED_END
   [create_PDModPersonTask_initWithPDParty_withBoolean_withPDDataProvider_(party, true, dataProvider_) run];
   [create_PDModPersonTask_initWithPDParty_withBoolean_withPDDataProvider_(party, false, dataProvider_) run];
   [create_PDModPersonTask_initWithPDParty_withBoolean_withPDDataProvider_(party, true, dataProvider_) run];
-  OrgJunitAssert_assertEqualsWithLong_withLong_([((id<PDDataProvider>) nil_chk(dataProvider_)) countCurrentPartyWithInt:((PDParty *) nil_chk(party))->id__], 3);
+  OrgJunitAssert_assertEqualsWithLong_withLong_([((id<PDDataProvider>) nil_chk(dataProvider_)) countCurrentPartyWithInt:[((JavaLangLong *) nil_chk(((PDParty *) nil_chk(party))->id__)) intValue]], 3);
 }
 
 - (void)dealloc {

@@ -1,10 +1,14 @@
 package com.kgalligan.partyclicker.test;
 import android.app.Application;
 
+import com.kgalligan.partyclicker.data.DaoMaster;
+import com.kgalligan.partyclicker.data.DaoSession;
 import com.kgalligan.partyclicker.data.DataProvider;
 import com.kgalligan.partyclicker.data.DatabaseHelper;
 import com.kgalligan.partyclicker.presenter.CrashReporter;
 import com.kgalligan.partyclicker.presenter.LogCrashReporter;
+
+import org.greenrobot.greendao.database.Database;
 
 import javax.inject.Singleton;
 
@@ -32,7 +36,10 @@ public class TestAppModule
     @Singleton
     DataProvider providesDataProvider(Application application)
     {
-        return new DatabaseHelper(application);
+        DaoMaster.DevOpenHelper helper = new DaoMaster.DevOpenHelper(application,"notes-db");
+        Database db     = helper.getWritableDb();
+        DaoSession daoSession = new DaoMaster(db).newSession();
+        return new DatabaseHelper(daoSession);
     }
 
     @Provides

@@ -9,6 +9,9 @@
 #include "IOSClass.h"
 #include "IOSObjectArray.h"
 #include "J2ObjC_source.h"
+#include "OrgGreenrobotGreendaoDatabaseDatabase.h"
+#include "PDDaoMaster.h"
+#include "PDDaoSession.h"
 #include "PDDataProvider.h"
 #include "PDDatabaseHelper.h"
 #include "PPCrashReporter.h"
@@ -65,7 +68,10 @@ J2OBJC_IGNORE_DESIGNATED_END
 }
 
 - (id<PDDataProvider>)providesDataProviderWithAndroidAppApplication:(AndroidAppApplication *)application {
-  return create_PDDatabaseHelper_initWithAndroidContentContext_(application);
+  PDDaoMaster_DevOpenHelper *helper = create_PDDaoMaster_DevOpenHelper_initWithAndroidContentContext_withNSString_(application, @"notes-db");
+  id<OrgGreenrobotGreendaoDatabaseDatabase> db = [helper getWritableDb];
+  PDDaoSession *daoSession = [create_PDDaoMaster_initWithOrgGreenrobotGreendaoDatabaseDatabase_(db) newSession];
+  return create_PDDatabaseHelper_initWithPDDaoSession_(daoSession);
 }
 
 - (id<PPCrashReporter>)providesCrashReporter {

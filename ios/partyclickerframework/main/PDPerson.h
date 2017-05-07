@@ -12,17 +12,25 @@
 #endif
 #undef RESTRICT_PDPerson
 
+#if __has_feature(nullability)
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wnullability-completeness"
+#endif
+
 #if !defined (PDPerson_) && (INCLUDE_ALL_PDPerson || defined(INCLUDE_PDPerson))
 #define PDPerson_
 
+@class JavaLangLong;
 @class JavaUtilDate;
+@class PDDaoSession;
 @class PDParty;
 
 @interface PDPerson : NSObject {
  @public
-  jint id__;
+  JavaLangLong *id__;
   JavaUtilDate *recorded_;
   jshort val_;
+  jlong partyId_;
   PDParty *party_;
 }
 
@@ -30,14 +38,54 @@
 
 - (instancetype)init;
 
+- (instancetype)initWithJavaLangLong:(JavaLangLong *)id_
+                    withJavaUtilDate:(JavaUtilDate *)recorded
+                           withShort:(jshort)val
+                            withLong:(jlong)partyId;
+
+- (void)__setDaoSessionWithPDDaoSession:(PDDaoSession *)daoSession;
+
+- (void)delete__;
+
+- (JavaLangLong *)getId;
+
+- (PDParty *)getParty;
+
+- (jlong)getPartyId;
+
+- (JavaUtilDate *)getRecorded;
+
+- (jshort)getVal;
+
 - (NSString *)recordedString;
+
+- (void)refresh;
+
+- (void)setIdWithJavaLangLong:(JavaLangLong *)id_;
+
+- (void)setPartyWithPDParty:(PDParty *)party;
+
+- (void)setPartyIdWithLong:(jlong)partyId;
+
+- (void)setRecordedWithJavaUtilDate:(JavaUtilDate *)recorded;
+
+- (void)setValWithShort:(jshort)val;
+
+- (void)update;
 
 @end
 
 J2OBJC_STATIC_INIT(PDPerson)
 
+J2OBJC_FIELD_SETTER(PDPerson, id__, JavaLangLong *)
 J2OBJC_FIELD_SETTER(PDPerson, recorded_, JavaUtilDate *)
 J2OBJC_FIELD_SETTER(PDPerson, party_, PDParty *)
+
+FOUNDATION_EXPORT void PDPerson_initWithJavaLangLong_withJavaUtilDate_withShort_withLong_(PDPerson *self, JavaLangLong *id_, JavaUtilDate *recorded, jshort val, jlong partyId);
+
+FOUNDATION_EXPORT PDPerson *new_PDPerson_initWithJavaLangLong_withJavaUtilDate_withShort_withLong_(JavaLangLong *id_, JavaUtilDate *recorded, jshort val, jlong partyId) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT PDPerson *create_PDPerson_initWithJavaLangLong_withJavaUtilDate_withShort_withLong_(JavaLangLong *id_, JavaUtilDate *recorded, jshort val, jlong partyId);
 
 FOUNDATION_EXPORT void PDPerson_init(PDPerson *self);
 
@@ -51,4 +99,8 @@ J2OBJC_TYPE_LITERAL_HEADER(PDPerson)
 
 #endif
 
+
+#if __has_feature(nullability)
+#pragma clang diagnostic pop
+#endif
 #pragma pop_macro("INCLUDE_ALL_PDPerson")

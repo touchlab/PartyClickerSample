@@ -14,7 +14,7 @@ import java.util.List;
 
 public class MemoryDataProvider implements DataProvider
 {
-    volatile int idCounter = 111;
+    volatile long idCounter = 111;
     List<Party> parties = new ArrayList<>();
 
     public static class MemParty extends Party

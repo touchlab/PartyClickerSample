@@ -24,7 +24,7 @@
 
 @interface PTMemoryDataProvider : NSObject < PDDataProvider > {
  @public
-  volatile_jint idCounter_;
+  volatile_jlong idCounter_;
   id<JavaUtilList> parties_;
 }
 

@@ -13,6 +13,7 @@
 #include "PTDaggerTestNoContextComponent.h"
 #include "PTTestNoContextComponent.h"
 #include "PTTestNoContextModule.h"
+#include "java/lang/Long.h"
 #include "java/lang/annotation/Annotation.h"
 #include "java/util/List.h"
 #include "javax/inject/Inject.h"
@@ -75,7 +76,7 @@ J2OBJC_IGNORE_DESIGNATED_END
 
 - (void)callParty {
   PDParty *hello = [((id<PDDataProvider>) nil_chk(dataProvider_)) createPartyWithNSString:@"hello"];
-  [((PPPartyListPresenter *) nil_chk(partyListPresenter_)) callPartyWithInt:((PDParty *) nil_chk(hello))->id__];
+  [((PPPartyListPresenter *) nil_chk(partyListPresenter_)) callPartyWithInt:[((JavaLangLong *) nil_chk(((PDParty *) nil_chk(hello))->id__)) intValue]];
   [((id<PPPartyListPresenter_UiInterface>) nil_chk(OrgMockitoMockito_verifyWithId_(uiInterface_))) showPartyWithPDParty:hello];
 }
 
@@ -92,7 +93,7 @@ J2OBJC_IGNORE_DESIGNATED_END
   [((id<PDDataProvider>) nil_chk(dataProvider_)) createPartyWithNSString:@"b"];
   PDParty *party = [((id<PDDataProvider>) nil_chk(dataProvider_)) createPartyWithNSString:@"c"];
   [((id<PDDataProvider>) nil_chk(dataProvider_)) createPartyWithNSString:@"d"];
-  [((PPPartyListPresenter *) nil_chk(partyListPresenter_)) deletePartyWithInt:((PDParty *) nil_chk(party))->id__];
+  [((PPPartyListPresenter *) nil_chk(partyListPresenter_)) deletePartyWithInt:[((JavaLangLong *) nil_chk(((PDParty *) nil_chk(party))->id__)) intValue]];
   OrgJunitAssert_assertEqualsWithLong_withLong_(3, [((id<JavaUtilList>) nil_chk([((id<PDDataProvider>) nil_chk(dataProvider_)) allParties])) size]);
 }
 

@@ -8,6 +8,9 @@
 #include "IOSClass.h"
 #include "IOSObjectArray.h"
 #include "J2ObjC_source.h"
+#include "OrgGreenrobotGreendaoDatabaseDatabase.h"
+#include "PDDaoMaster.h"
+#include "PDDaoSession.h"
 #include "PDDataProvider.h"
 #include "PDDatabaseHelper.h"
 #include "PPAppModule.h"
@@ -77,7 +80,10 @@ __attribute__((unused)) static PPAppModule_$Lambda$1 *create_PPAppModule_$Lambda
 }
 
 - (id<PDDataProvider>)providesDataProviderWithAndroidAppApplication:(AndroidAppApplication *)application {
-  return create_PDDatabaseHelper_initWithAndroidContentContext_(application);
+  PDDaoMaster_DevOpenHelper *helper = create_PDDaoMaster_DevOpenHelper_initWithAndroidContentContext_withNSString_(application, @"partydb");
+  id<OrgGreenrobotGreendaoDatabaseDatabase> db = [helper getWritableDb];
+  PDDaoSession *daoSession = [create_PDDaoMaster_initWithOrgGreenrobotGreendaoDatabaseDatabase_(db) newSession];
+  return create_PDDatabaseHelper_initWithPDDaoSession_(daoSession);
 }
 
 - (id<RxObservable_Transformer>)providesSchedulerTransformer {

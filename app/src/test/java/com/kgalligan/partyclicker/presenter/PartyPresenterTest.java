@@ -40,7 +40,7 @@ public class PartyPresenterTest
 
         party = dataProvider.createParty("marty");
 
-        partyPresenter = new PartyPresenter(party.id);
+        partyPresenter = new PartyPresenter(party.id.intValue());
 
         testComponent.inject(partyPresenter);
 
@@ -80,7 +80,7 @@ public class PartyPresenterTest
         Thread.sleep(1000);
 
         assertEquals(3, partyPresenter.getPartyCount());
-        assertEquals(3, dataProvider.countCurrentParty(party.id));
+        assertEquals(3, dataProvider.countCurrentParty(party.id.intValue()));
 
         verify(uiInterface, atLeastOnce()).updateUi();
     }
@@ -93,7 +93,7 @@ public class PartyPresenterTest
         Thread.sleep(1000);
 
         assertEquals(2, partyPresenter.getPartyCount());
-        assertEquals(2, dataProvider.countCurrentParty(party.id));
+        assertEquals(2, dataProvider.countCurrentParty(party.id.intValue()));
 
         verify(uiInterface, atLeastOnce()).updateUi();
     }

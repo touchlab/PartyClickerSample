@@ -57,7 +57,7 @@ public class PartyListPresenterTest
     public void callParty() throws Exception
     {
         Party hello = dataProvider.createParty("hello");
-        partyListPresenter.callParty(hello.id);
+        partyListPresenter.callParty(hello.id.intValue());
         verify(uiInterface).showParty(hello);
     }
 
@@ -80,7 +80,7 @@ public class PartyListPresenterTest
         Party party = dataProvider.createParty("c");
         dataProvider.createParty("d");
 
-        partyListPresenter.deleteParty(party.id);
+        partyListPresenter.deleteParty(party.id.intValue());
 
         assertEquals(3, dataProvider.allParties().size());
     }

@@ -13,6 +13,7 @@
 #include "RxObservable.h"
 #include "RxSubscriber.h"
 #include "RxSubscription.h"
+#include "java/lang/Long.h"
 #include "java/lang/annotation/Annotation.h"
 #include "java/util/List.h"
 #include "javax/inject/Inject.h"
@@ -279,7 +280,7 @@ J2OBJC_IGNORE_DESIGNATED_END
 }
 
 - (jint)countPeopleWithPDParty:(PDParty *)party {
-  return [((id<PDDataProvider>) nil_chk(databaseHelper_)) countCurrentPartyWithInt:((PDParty *) nil_chk(party))->id__];
+  return [((id<PDDataProvider>) nil_chk(databaseHelper_)) countCurrentPartyWithInt:[((JavaLangLong *) nil_chk(((PDParty *) nil_chk(party))->id__)) intValue]];
 }
 
 - (id<JavaUtilList>)allPeopleWithPDParty:(PDParty *)party {

@@ -5,6 +5,7 @@ import com.kgalligan.partyclicker.test.DaggerTestComponent;
 import com.kgalligan.partyclicker.test.TestAppModule;
 import com.kgalligan.partyclicker.test.TestComponent;
 
+import org.greenrobot.greendao.database.Database;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -41,28 +42,33 @@ public class DatabaseHelperTest
                 .build();
 
         testComponent.inject(this);
-        databaseHelper = new DatabaseHelper(application);
+
+        DaoMaster.DevOpenHelper helper = new DaoMaster.DevOpenHelper(application,"notes-db");
+        Database db     = helper.getWritableDb();
+        DaoSession daoSession = new DaoMaster(db).newSession();
+
+        databaseHelper = new DatabaseHelper(daoSession);
         party = databaseHelper.createParty("Hello test");
     }
 
     @Test
     public void countCurrentParty() throws Exception
     {
-        assertEquals(0, databaseHelper.countCurrentParty(party.id));
+        assertEquals(0, databaseHelper.countCurrentParty(party.id.intValue()));
 
         databaseHelper.addPerson(party, true);
         databaseHelper.addPerson(party, true);
         databaseHelper.addPerson(party, true);
 
-        assertEquals(3, databaseHelper.countCurrentParty(party.id));
+        assertEquals(3, databaseHelper.countCurrentParty(party.id.intValue()));
 
         databaseHelper.addPerson(party, false);
 
-        assertEquals(2, databaseHelper.countCurrentParty(party.id));
+        assertEquals(2, databaseHelper.countCurrentParty(party.id.intValue()));
 
         databaseHelper.addPerson(party, true);
 
-        assertEquals(3, databaseHelper.countCurrentParty(party.id));
+        assertEquals(3, databaseHelper.countCurrentParty(party.id.intValue()));
     }
 
     @Test
@@ -77,7 +83,7 @@ public class DatabaseHelperTest
         List<Person> people = databaseHelper.allPeopleForParty(party);
 
         assertEquals(5, people.size());
-        Set<Integer> allIds = new HashSet<>();
+        Set<Long> allIds = new HashSet<>();
         for(Person person : people)
         {
             allIds.add(person.id);
@@ -96,7 +102,7 @@ public class DatabaseHelperTest
         databaseHelper.addPerson(party, true);
 
         assertEquals(5, databaseHelper.allPeopleForParty(party).size());
-        assertEquals(3, databaseHelper.countCurrentParty(party.id));
+        assertEquals(3, databaseHelper.countCurrentParty(party.id.intValue()));
     }
 
     @Test
@@ -148,7 +154,7 @@ public class DatabaseHelperTest
     public void loadParty() throws Exception
     {
         Party jjjjjjj = databaseHelper.createParty("jjjjjjj");
-        Party party = databaseHelper.loadParty(jjjjjjj.id);
+        Party party = databaseHelper.loadParty(jjjjjjj.id.intValue());
         assertEquals(party.name, "jjjjjjj");
         assertEquals(party.name, jjjjjjj.name);
     }

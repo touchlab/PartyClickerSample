@@ -6,6 +6,7 @@
 #include "PDParty.h"
 #include "PDPerson.h"
 #include "PTMemoryDataProvider.h"
+#include "java/lang/Long.h"
 #include "java/lang/RuntimeException.h"
 #include "java/util/ArrayList.h"
 #include "java/util/Date.h"
@@ -27,7 +28,7 @@ J2OBJC_IGNORE_DESIGNATED_END
 
 - (PDParty *)loadPartyWithInt:(jint)id_ {
   for (PDParty * __strong party in nil_chk(parties_)) {
-    if (((PDParty *) nil_chk(party))->id__ == id_) return party;
+    if ([((JavaLangLong *) nil_chk(((PDParty *) nil_chk(party))->id__)) longLongValue] == id_) return party;
   }
   return nil;
 }
@@ -36,7 +37,7 @@ J2OBJC_IGNORE_DESIGNATED_END
   PDParty *party = create_PTMemoryDataProvider_MemParty_init();
   JreStrongAssignAndConsume(&party->created_, new_JavaUtilDate_init());
   JreStrongAssign(&party->name_, name);
-  party->id__ = idCounter_++;
+  JreStrongAssign(&party->id__, JavaLangLong_valueOfWithLong_(idCounter_++));
   [((id<JavaUtilList>) nil_chk(parties_)) addWithId:party];
   return party;
 }
@@ -50,7 +51,7 @@ J2OBJC_IGNORE_DESIGNATED_END
       return;
     }
   }
-  @throw create_JavaLangRuntimeException_initWithNSString_(JreStrcat("$I$", @"Party ", ((PDParty *) nil_chk(party))->id__, @" not found"));
+  @throw create_JavaLangRuntimeException_initWithNSString_(JreStrcat("$@$", @"Party ", ((PDParty *) nil_chk(party))->id__, @" not found"));
 }
 
 - (jint)countCurrentPartyWithInt:(jint)id_ {
@@ -71,7 +72,7 @@ J2OBJC_IGNORE_DESIGNATED_END
   PDPerson *person = create_PDPerson_init();
   person->val_ = (jshort) (coming ? 1 : -1);
   JreStrongAssignAndConsume(&person->recorded_, new_JavaUtilDate_init());
-  person->id__ = idCounter_++;
+  JreStrongAssign(&person->id__, JavaLangLong_valueOfWithLong_(idCounter_++));
   [((id<JavaUtilList>) nil_chk(((PTMemoryDataProvider_MemParty *) nil_chk(((PTMemoryDataProvider_MemParty *) cast_chk(party, [PTMemoryDataProvider_MemParty class]))))->people_)) addWithId:person];
 }
 
@@ -103,7 +104,7 @@ J2OBJC_IGNORE_DESIGNATED_END
   methods[7].selector = @selector(addPersonWithPDParty:withBoolean:);
   #pragma clang diagnostic pop
   static const J2ObjcFieldInfo fields[] = {
-    { "idCounter_", "I", .constantValue.asLong = 0, 0x40, -1, -1, -1, -1 },
+    { "idCounter_", "J", .constantValue.asLong = 0, 0x40, -1, -1, -1, -1 },
     { "parties_", "LJavaUtilList;", .constantValue.asLong = 0, 0x0, -1, -1, 12, -1 },
   };
   static const void *ptrTable[] = { "()Ljava/util/List<Lcom/kgalligan/partyclicker/data/Party;>;", "loadParty", "I", "createParty", "LNSString;", "deleteParty", "LPDParty;", "countCurrentParty", "allPeopleForParty", "(Lcom/kgalligan/partyclicker/data/Party;)Ljava/util/List<Lcom/kgalligan/partyclicker/data/Person;>;", "addPerson", "LPDParty;Z", "Ljava/util/List<Lcom/kgalligan/partyclicker/data/Party;>;", "LPTMemoryDataProvider_MemParty;" };
@@ -115,7 +116,7 @@ J2OBJC_IGNORE_DESIGNATED_END
 
 void PTMemoryDataProvider_init(PTMemoryDataProvider *self) {
   NSObject_init(self);
-  JreAssignVolatileInt(&self->idCounter_, 111);
+  JreAssignVolatileLong(&self->idCounter_, 111);
   JreStrongAssignAndConsume(&self->parties_, new_JavaUtilArrayList_init());
 }
 

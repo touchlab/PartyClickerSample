@@ -7,6 +7,9 @@
 #include "IOSClass.h"
 #include "IOSObjectArray.h"
 #include "J2ObjC_source.h"
+#include "OrgGreenrobotGreendaoDatabaseDatabase.h"
+#include "PDDaoMaster.h"
+#include "PDDaoSession.h"
 #include "PDDatabaseHelper.h"
 #include "PDDatabaseHelperTest.h"
 #include "PDParty.h"
@@ -14,7 +17,7 @@
 #include "PTDaggerTestComponent.h"
 #include "PTTestAppModule.h"
 #include "PTTestComponent.h"
-#include "java/lang/Integer.h"
+#include "java/lang/Long.h"
 #include "java/lang/annotation/Annotation.h"
 #include "java/util/HashSet.h"
 #include "java/util/List.h"
@@ -66,20 +69,23 @@ J2OBJC_IGNORE_DESIGNATED_END
 - (void)setUp {
   id<PTTestComponent> testComponent = [((PTDaggerTestComponent_Builder *) nil_chk([((PTDaggerTestComponent_Builder *) nil_chk(PTDaggerTestComponent_builder())) testAppModuleWithPTTestAppModule:create_PTTestAppModule_init()])) build];
   [((id<PTTestComponent>) nil_chk(testComponent)) injectWithPDDatabaseHelperTest:self];
-  JreStrongAssignAndConsume(&databaseHelper_, new_PDDatabaseHelper_initWithAndroidContentContext_(application_));
+  PDDaoMaster_DevOpenHelper *helper = create_PDDaoMaster_DevOpenHelper_initWithAndroidContentContext_withNSString_(application_, @"notes-db");
+  id<OrgGreenrobotGreendaoDatabaseDatabase> db = [helper getWritableDb];
+  PDDaoSession *daoSession = [create_PDDaoMaster_initWithOrgGreenrobotGreendaoDatabaseDatabase_(db) newSession];
+  JreStrongAssignAndConsume(&databaseHelper_, new_PDDatabaseHelper_initWithPDDaoSession_(daoSession));
   JreStrongAssign(&party_, [databaseHelper_ createPartyWithNSString:@"Hello test"]);
 }
 
 - (void)countCurrentParty {
-  OrgJunitAssert_assertEqualsWithLong_withLong_(0, [((PDDatabaseHelper *) nil_chk(databaseHelper_)) countCurrentPartyWithInt:((PDParty *) nil_chk(party_))->id__]);
+  OrgJunitAssert_assertEqualsWithLong_withLong_(0, [((PDDatabaseHelper *) nil_chk(databaseHelper_)) countCurrentPartyWithInt:[((JavaLangLong *) nil_chk(((PDParty *) nil_chk(party_))->id__)) intValue]]);
   [((PDDatabaseHelper *) nil_chk(databaseHelper_)) addPersonWithPDParty:party_ withBoolean:true];
   [((PDDatabaseHelper *) nil_chk(databaseHelper_)) addPersonWithPDParty:party_ withBoolean:true];
   [((PDDatabaseHelper *) nil_chk(databaseHelper_)) addPersonWithPDParty:party_ withBoolean:true];
-  OrgJunitAssert_assertEqualsWithLong_withLong_(3, [((PDDatabaseHelper *) nil_chk(databaseHelper_)) countCurrentPartyWithInt:((PDParty *) nil_chk(party_))->id__]);
+  OrgJunitAssert_assertEqualsWithLong_withLong_(3, [((PDDatabaseHelper *) nil_chk(databaseHelper_)) countCurrentPartyWithInt:[((JavaLangLong *) nil_chk(((PDParty *) nil_chk(party_))->id__)) intValue]]);
   [((PDDatabaseHelper *) nil_chk(databaseHelper_)) addPersonWithPDParty:party_ withBoolean:false];
-  OrgJunitAssert_assertEqualsWithLong_withLong_(2, [((PDDatabaseHelper *) nil_chk(databaseHelper_)) countCurrentPartyWithInt:((PDParty *) nil_chk(party_))->id__]);
+  OrgJunitAssert_assertEqualsWithLong_withLong_(2, [((PDDatabaseHelper *) nil_chk(databaseHelper_)) countCurrentPartyWithInt:[((JavaLangLong *) nil_chk(((PDParty *) nil_chk(party_))->id__)) intValue]]);
   [((PDDatabaseHelper *) nil_chk(databaseHelper_)) addPersonWithPDParty:party_ withBoolean:true];
-  OrgJunitAssert_assertEqualsWithLong_withLong_(3, [((PDDatabaseHelper *) nil_chk(databaseHelper_)) countCurrentPartyWithInt:((PDParty *) nil_chk(party_))->id__]);
+  OrgJunitAssert_assertEqualsWithLong_withLong_(3, [((PDDatabaseHelper *) nil_chk(databaseHelper_)) countCurrentPartyWithInt:[((JavaLangLong *) nil_chk(((PDParty *) nil_chk(party_))->id__)) intValue]]);
 }
 
 - (void)allPeopleForParty {
@@ -92,7 +98,7 @@ J2OBJC_IGNORE_DESIGNATED_END
   OrgJunitAssert_assertEqualsWithLong_withLong_(5, [((id<JavaUtilList>) nil_chk(people)) size]);
   id<JavaUtilSet> allIds = create_JavaUtilHashSet_init();
   for (PDPerson * __strong person in people) {
-    [allIds addWithId:JavaLangInteger_valueOfWithInt_(((PDPerson *) nil_chk(person))->id__)];
+    [allIds addWithId:((PDPerson *) nil_chk(person))->id__];
   }
   OrgJunitAssert_assertEqualsWithLong_withLong_(5, [allIds size]);
 }
@@ -104,7 +110,7 @@ J2OBJC_IGNORE_DESIGNATED_END
   [((PDDatabaseHelper *) nil_chk(databaseHelper_)) addPersonWithPDParty:party_ withBoolean:false];
   [((PDDatabaseHelper *) nil_chk(databaseHelper_)) addPersonWithPDParty:party_ withBoolean:true];
   OrgJunitAssert_assertEqualsWithLong_withLong_(5, [((id<JavaUtilList>) nil_chk([((PDDatabaseHelper *) nil_chk(databaseHelper_)) allPeopleForPartyWithPDParty:party_])) size]);
-  OrgJunitAssert_assertEqualsWithLong_withLong_(3, [((PDDatabaseHelper *) nil_chk(databaseHelper_)) countCurrentPartyWithInt:((PDParty *) nil_chk(party_))->id__]);
+  OrgJunitAssert_assertEqualsWithLong_withLong_(3, [((PDDatabaseHelper *) nil_chk(databaseHelper_)) countCurrentPartyWithInt:[((JavaLangLong *) nil_chk(((PDParty *) nil_chk(party_))->id__)) intValue]]);
 }
 
 - (void)allParties {
@@ -142,7 +148,7 @@ J2OBJC_IGNORE_DESIGNATED_END
 
 - (void)loadParty {
   PDParty *jjjjjjj = [((PDDatabaseHelper *) nil_chk(databaseHelper_)) createPartyWithNSString:@"jjjjjjj"];
-  PDParty *party = [((PDDatabaseHelper *) nil_chk(databaseHelper_)) loadPartyWithInt:((PDParty *) nil_chk(jjjjjjj))->id__];
+  PDParty *party = [((PDDatabaseHelper *) nil_chk(databaseHelper_)) loadPartyWithInt:[((JavaLangLong *) nil_chk(((PDParty *) nil_chk(jjjjjjj))->id__)) intValue]];
   OrgJunitAssert_assertEqualsWithId_withId_(((PDParty *) nil_chk(party))->name_, @"jjjjjjj");
   OrgJunitAssert_assertEqualsWithId_withId_(party->name_, jjjjjjj->name_);
 }

@@ -98,7 +98,7 @@ class PartyListViewController: UIViewController, UITableViewDelegate, UITableVie
         if (editingStyle == UITableViewCellEditingStyle.delete) {
             //[self.objects removeObjectAtIndex:indexPath.row];
             //[tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-            presenter.deleteParty(with: (parties.getWith(jint(indexPath.row)) as! PDParty).getId())
+            presenter.deleteParty(with: (parties.getWith(jint(indexPath.row)) as! PDParty).getId().intValue())
             tableView.isEditing = false
         }
         
