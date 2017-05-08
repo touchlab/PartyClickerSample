@@ -1,4 +1,6 @@
 package com.kgalligan.partyclicker.presenter;
+import android.support.annotation.NonNull;
+
 import com.google.j2objc.annotations.Weak;
 import com.kgalligan.partyclicker.data.DataProvider;
 import com.kgalligan.partyclicker.data.Party;
@@ -28,6 +30,7 @@ public class PartyListPresenter
     Observable.Transformer schedulerTransformer;
 
     @Weak
+    @NonNull
     private UiInterface uiInterface;
 
     public interface UiInterface
@@ -37,6 +40,11 @@ public class PartyListPresenter
         void showParty(PartyIntf party);
     }
 
+    public PartyListPresenter()
+    {
+        clearUiInterface();
+    }
+
     public void applyUiInterface(UiInterface uiInterface)
     {
         this.uiInterface = uiInterface;
@@ -44,7 +52,7 @@ public class PartyListPresenter
 
     public void clearUiInterface()
     {
-        uiInterface = null;
+        uiInterface = new EmptyUiInterface();
     }
 
     public void callRefreshPartyList()
@@ -114,5 +122,22 @@ public class PartyListPresenter
     public List<PersonIntf> allPeople(PartyIntf party)
     {
         return databaseHelper.allPeopleForParty(party);
+    }
+
+    static class EmptyUiInterface implements UiInterface
+    {
+        @Override
+        public void processing(boolean b)
+        {}
+
+        @Override
+        public void refreshPartyList(List<PartyIntf> partyList) {
+
+        }
+
+        @Override
+        public void showParty(PartyIntf party) {
+
+        }
     }
 }
