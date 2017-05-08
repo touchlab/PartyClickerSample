@@ -19,7 +19,7 @@ class PartyListViewController: UIViewController, UITableViewDelegate, UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         presenter = PPPartyListPresenter()
         PAppManager.getInstance().getDaggerComponent().inject(with: presenter)
         presenter.applyUiInterface(with: self)

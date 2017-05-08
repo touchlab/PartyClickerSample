@@ -80,8 +80,8 @@ __attribute__((unused)) static PPAppModule_$Lambda$1 *create_PPAppModule_$Lambda
 }
 
 - (id<PDDataProvider>)providesDataProviderWithAndroidAppApplication:(AndroidAppApplication *)application {
-  PDDaoMaster_DevOpenHelper *helper = create_PDDaoMaster_DevOpenHelper_initWithAndroidContentContext_withNSString_(application, @"partydb");
-  id<OrgGreenrobotGreendaoDatabaseDatabase> db = [helper getWritableDb];
+  PDDaoMaster_DevOpenHelper *helper = create_PDDaoMaster_DevOpenHelper_initWithAndroidContentContext_withNSString_(application, @"partydbencrypted");
+  id<OrgGreenrobotGreendaoDatabaseDatabase> db = [helper getEncryptedWritableDbWithNSString:@"secretparty"];
   PDDaoSession *daoSession = [create_PDDaoMaster_initWithOrgGreenrobotGreendaoDatabaseDatabase_(db) newSession];
   return create_PDDatabaseHelper_initWithPDDaoSession_(daoSession);
 }

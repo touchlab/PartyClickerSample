@@ -49,8 +49,8 @@ public class AppModule
     @Singleton
     DataProvider providesDataProvider(Application application)
     {
-        DaoMaster.DevOpenHelper helper = new DaoMaster.DevOpenHelper(application,"partydb");
-        Database                db     = helper.getWritableDb();
+        DaoMaster.DevOpenHelper helper = new DaoMaster.DevOpenHelper(application,"partydbencrypted");
+        Database                db     = helper.getEncryptedWritableDb("secretparty");
         DaoSession daoSession = new DaoMaster(db).newSession();
 
         return new DatabaseHelper(daoSession);

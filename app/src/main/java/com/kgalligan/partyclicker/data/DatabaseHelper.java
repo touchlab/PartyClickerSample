@@ -23,7 +23,7 @@ public class DatabaseHelper implements DataProvider
 
     public int countCurrentParty(int partyId)
     {
-        return (int)DatabaseUtils.longForQuery(((StandardDatabase)daoSession.getDatabase()).getSQLiteDatabase(), "select sum(val) from person where party_Id = ?", new String[]{Integer.toString(partyId)});
+        return 0;//(int)DatabaseUtils.longForQuery(((StandardDatabase)daoSession.getDatabase()).getSQLiteDatabase(), "select sum(val) from person where party_Id = ?", new String[]{Integer.toString(partyId)});
     }
 
     @Override
