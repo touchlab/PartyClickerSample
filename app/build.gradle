@@ -2,7 +2,6 @@ apply plugin: 'com.android.application'
 apply plugin: 'me.tatarka.retrolambda'
 apply plugin: 'co.touchlab.doppl.gradle'
 apply plugin: 'com.neenbedankt.android-apt'
-apply plugin: 'com.google.gms.google-services'
 apply plugin: 'org.greenrobot.greendao'
 
 android {
@@ -53,8 +52,6 @@ dependencies {
 
     compile 'org.greenrobot:greendao:3.2.2'
     doppl 'org.greenrobot:greendao:3.2.2.0:doppl'
-
-    compile 'com.google.firebase:firebase-crash:10.2.4'
 }
 
 dopplConfig {
