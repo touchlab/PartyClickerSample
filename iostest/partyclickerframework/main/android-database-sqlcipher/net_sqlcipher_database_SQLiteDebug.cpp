@@ -198,19 +198,22 @@ int register_android_database_SQLiteDebug(JNIEnv *env)
         return -1;
     }
 
-    gMemoryUsedField = env->GetFieldIDRetain(clazz, "memoryUsed", "I");
+    gMemoryUsedField = env->GetFieldID(clazz, "memoryUsed", "I");
+    gMemoryUsedField = (jfieldID)env->NewGlobalRef((jobject)gMemoryUsedField);
     if (gMemoryUsedField == NULL) {
         //LOGE("Can't find memoryUsed");
         return -1;
     }
 
-    gLargestMemAllocField = env->GetFieldIDRetain(clazz, "largestMemAlloc", "I");
+    gLargestMemAllocField = env->GetFieldID(clazz, "largestMemAlloc", "I");
+    gLargestMemAllocField = (jfieldID)env->NewGlobalRef((jobject)gLargestMemAllocField);
     if (gLargestMemAllocField == NULL) {
         //LOGE("Can't find largestMemAlloc");
         return -1;
     }
 
-    gPageCacheOverfloField = env->GetFieldIDRetain(clazz, "pageCacheOverflo", "I");
+    gPageCacheOverfloField = env->GetFieldID(clazz, "pageCacheOverflo", "I");
+    gPageCacheOverfloField = (jfieldID)env->NewGlobalRef((jobject)gPageCacheOverfloField);
     if (gPageCacheOverfloField == NULL) {
         //LOGE("Can't find pageCacheOverflo");
         return -1;

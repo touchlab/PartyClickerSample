@@ -1,29 +1,30 @@
 {
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "72A620EE15E924AF85410A3FF45E6906CDD2B91D",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
 
   },
   "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
-    "44D221F7591175A4A445187FEA95357B21A925E5" : 9223372036854775807,
+    "72A620EE15E924AF85410A3FF45E6906CDD2B91D" : 9223372036854775807,
     "55011AEBD444630C0E9DF47BD2E18FDBBDCC285D" : 9223372036854775807
   },
-  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "C3A81C82-D482-4EDB-A34B-FFC42C7C04B4",
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "B77E5394-7805-4D3B-9FFC-2B7AB0EE8A5F",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
-    "44D221F7591175A4A445187FEA95357B21A925E5" : "..\/devel\/j2objc",
-    "55011AEBD444630C0E9DF47BD2E18FDBBDCC285D" : "PartyClicker\/ios\/sqlcipher\/"
+    "72A620EE15E924AF85410A3FF45E6906CDD2B91D" : "PartyClickerSample\/",
+    "55011AEBD444630C0E9DF47BD2E18FDBBDCC285D" : "PartyClickerSample\/ios\/sqlcipher\/"
   },
   "DVTSourceControlWorkspaceBlueprintNameKey" : "ios",
   "DVTSourceControlWorkspaceBlueprintVersion" : 204,
   "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "ios\/ios.xcodeproj",
   "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
     {
-      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:google\/j2objc.git",
-      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
-      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "44D221F7591175A4A445187FEA95357B21A925E5"
-    },
-    {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/sqlcipher\/sqlcipher.git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "55011AEBD444630C0E9DF47BD2E18FDBBDCC285D"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/doppllib\/PartyClickerSample.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "72A620EE15E924AF85410A3FF45E6906CDD2B91D"
     }
   ]
 }

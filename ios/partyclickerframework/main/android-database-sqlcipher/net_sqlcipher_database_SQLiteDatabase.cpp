@@ -603,7 +603,8 @@ extern "C" JNIEXPORT void JNICALL Java_net_sqlcipher_database_SQLiteDatabase_dbo
       return -1;
     }
 
-    offset_db_handle = env->GetFieldIDRetain(clazz, "mNativeHandle", "J");
+    offset_db_handle = env->GetFieldID(clazz, "mNativeHandle", "J");
+    offset_db_handle = (jfieldID)env->NewGlobalRef((jobject)offset_db_handle);
     if (offset_db_handle == NULL) {
       LOGE("Can't find SQLiteDatabase.mNativeHandle\n");
       return -1;

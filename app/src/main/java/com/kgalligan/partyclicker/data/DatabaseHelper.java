@@ -1,8 +1,8 @@
 package com.kgalligan.partyclicker.data;
-import android.database.DatabaseUtils;
+
+import android.database.Cursor;
 
 import org.greenrobot.greendao.database.Database;
-import org.greenrobot.greendao.database.StandardDatabase;
 
 import java.util.Date;
 import java.util.List;
@@ -23,7 +23,10 @@ public class DatabaseHelper implements DataProvider
 
     public int countCurrentParty(int partyId)
     {
-        return 0;//(int)DatabaseUtils.longForQuery(((StandardDatabase)daoSession.getDatabase()).getSQLiteDatabase(), "select sum(val) from person where party_Id = ?", new String[]{Integer.toString(partyId)});
+
+        Cursor cursor = daoSession.getDatabase().rawQuery("select sum(val) from person where party_Id = ?", new String[]{Integer.toString(partyId)});
+        cursor.moveToFirst();
+        return cursor.getInt(cursor.getColumnIndex("sum(val)"));
     }
 
     @Override

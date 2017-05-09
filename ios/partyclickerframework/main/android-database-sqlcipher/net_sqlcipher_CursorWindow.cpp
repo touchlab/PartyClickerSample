@@ -740,7 +740,8 @@ return allocRow( env, object);
       LOGE("Can't find net/sqlcipher/CursorWindow");
       return -1;
     }
-    gWindowField = env->GetFieldIDRetain(clazz, "nWindow", "J");
+    gWindowField = env->GetFieldID(clazz, "nWindow", "J");
+    gWindowField = (jfieldID)env->NewGlobalRef((jobject)gWindowField);
     if (gWindowField == NULL) {
       LOGE("Error locating fields");
       return -1;
@@ -750,12 +751,14 @@ return allocRow( env, object);
       LOGE("Can't find android/database/CharArrayBuffer");
       return -1;
     }
-    gBufferField = env->GetFieldIDRetain(clazz, "data", "[C");
+    gBufferField = env->GetFieldID(clazz, "data", "[C");
+    gBufferField = (jfieldID)env->NewGlobalRef((jobject)gBufferField);
     if (gBufferField == NULL) {
       LOGE("Error locating fields data in CharArrayBuffer");
       return -1;
     }
-    gSizeCopiedField = env->GetFieldIDRetain(clazz, "sizeCopied", "I");
+    gSizeCopiedField = env->GetFieldID(clazz, "sizeCopied", "I");
+    gSizeCopiedField = (jfieldID)env->NewGlobalRef((jobject)gSizeCopiedField);
     if (gSizeCopiedField == NULL) {
       LOGE("Error locating fields sizeCopied in CharArrayBuffer");
       return -1;
