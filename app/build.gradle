@@ -2,7 +2,6 @@ apply plugin: 'com.android.application'
 apply plugin: 'me.tatarka.retrolambda'
 apply plugin: 'co.touchlab.doppl.gradle'
 apply plugin: 'com.neenbedankt.android-apt'
-apply plugin: 'com.google.gms.google-services'
 apply plugin: 'org.greenrobot.greendao'
 
 android {
@@ -53,9 +52,9 @@ dependencies {
 
     compile 'org.greenrobot:greendao:3.2.2'
     doppl 'org.greenrobot:greendao-encrypted:3.2.2.0:doppl'
-    doppl 'net.zetetic:android-database-sqlcipher:3.5.7.0:doppl'
 
-    compile 'com.google.firebase:firebase-crash:10.2.4'
+    compile 'net.zetetic:android-database-sqlcipher:3.5.7@aar'
+    doppl 'net.zetetic:android-database-sqlcipher:3.5.7.2:doppl'
 }
 
 dopplConfig {
