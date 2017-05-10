@@ -350,8 +350,10 @@ int register_android_database_SQLiteQuery(JNIEnv * env)
         return -1;
     }
 
-gStatementField = env->GetFieldIDRetain(clazz, "nStatement", "J");
-    gHandleField = env->GetFieldIDRetain(clazz, "nHandle", "J");
+gStatementField = env->GetFieldID(clazz, "nStatement", "J");
+gStatementField = (jfieldID)env->NewGlobalRef((jobject)gStatementField);
+    gHandleField = env->GetFieldID(clazz, "nHandle", "J");
+    gHandleField = (jfieldID)env->NewGlobalRef((jobject)gHandleField);
 
 
     if (gHandleField == NULL || gStatementField == NULL) {

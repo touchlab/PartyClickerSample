@@ -203,8 +203,10 @@ int register_android_database_SQLiteProgram(JNIEnv * env)
         return -1;
     }
 
-    gHandleField = env->GetFieldIDRetain(clazz, "nHandle", "J");
-    gStatementField = env->GetFieldIDRetain(clazz, "nStatement", "J");
+    gHandleField = env->GetFieldID(clazz, "nHandle", "J");
+    gHandleField = (jfieldID)env->NewGlobalRef((jobject)gHandleField);
+    gStatementField = env->GetFieldID(clazz, "nStatement", "J");
+    gStatementField = (jfieldID)env->NewGlobalRef((jobject)gStatementField);
 
     if (gHandleField == NULL || gStatementField == NULL) {
         LOGE("Error locating fields");
