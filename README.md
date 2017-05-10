@@ -55,7 +55,9 @@ From the terminal navigate to the `ios` folder. Checkout the SQLCipher project c
 git clone https://github.com/sqlcipher/sqlcipher.git
 ```
 
-in order to have the SQLCipher project downloaded.
+*Yes, to be clear* **Clone sqlcipher in the ios folder inside the Party Clicker project**
+
+
 
 ## Running in Xcode
 
