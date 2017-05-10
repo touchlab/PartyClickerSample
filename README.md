@@ -47,7 +47,7 @@ Then run `./gradlew dopplDeploy` to deploy to Objective-C. For now, this deploys
 
 ## Experimental SQLCipher usage
 
-*__Warning: This is experimental, please see SQLCipher instructions for further information if you run into any problems.__*
+*__Warning: This is experimental, please see [SQLCipher instructions](https://www.zetetic.net/sqlcipher/ios-tutorial/) for further information if you run into any problems.__*
 
 From the terminal navigate to the `ios` folder. Checkout the SQLCipher project code using Git: `git clone https://github.com/sqlcipher/sqlcipher.git` in order to have the SQLCipher project downloaded.
 
