@@ -50,6 +50,7 @@ public class AppModule
     DataProvider providesDataProvider(Application application)
     {
         DaoMaster.DevOpenHelper helper = new DaoMaster.DevOpenHelper(application,"partydbencrypted");
+        //No, you shouldn't hard code your secret, but it's a sample app
         Database                db     = helper.getEncryptedWritableDb("secretparty");
         DaoSession daoSession = new DaoMaster(db).newSession();
 

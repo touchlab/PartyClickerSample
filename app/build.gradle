@@ -54,7 +54,7 @@ dependencies {
     doppl 'org.greenrobot:greendao-encrypted:3.2.2.0:doppl'
 
     compile 'net.zetetic:android-database-sqlcipher:3.5.7@aar'
-    doppl 'net.zetetic:android-database-sqlcipher:3.5.7.2:doppl'
+    doppl 'net.zetetic:android-database-sqlcipher:3.5.7.3:doppl'
 }
 
 dopplConfig {

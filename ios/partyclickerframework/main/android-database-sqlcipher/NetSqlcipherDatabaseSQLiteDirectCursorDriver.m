@@ -15,7 +15,7 @@
  @public
   NSString *mEditTable_;
   NetSqlcipherDatabaseSQLiteDatabase *mDatabase_;
-  id<NetSqlcipherCursor> mCursor_;
+  __unsafe_unretained id<NetSqlcipherCursor> mCursor_;
   NSString *mSql_;
   NetSqlcipherDatabaseSQLiteQuery *mQuery_;
 }
@@ -24,7 +24,6 @@
 
 J2OBJC_FIELD_SETTER(NetSqlcipherDatabaseSQLiteDirectCursorDriver, mEditTable_, NSString *)
 J2OBJC_FIELD_SETTER(NetSqlcipherDatabaseSQLiteDirectCursorDriver, mDatabase_, NetSqlcipherDatabaseSQLiteDatabase *)
-J2OBJC_FIELD_SETTER(NetSqlcipherDatabaseSQLiteDirectCursorDriver, mCursor_, id<NetSqlcipherCursor>)
 J2OBJC_FIELD_SETTER(NetSqlcipherDatabaseSQLiteDirectCursorDriver, mSql_, NSString *)
 J2OBJC_FIELD_SETTER(NetSqlcipherDatabaseSQLiteDirectCursorDriver, mQuery_, NetSqlcipherDatabaseSQLiteQuery *)
 
@@ -43,10 +42,10 @@ J2OBJC_FIELD_SETTER(NetSqlcipherDatabaseSQLiteDirectCursorDriver, mQuery_, NetSq
   @try {
     [query bindArgumentsWithNSObjectArray:args];
     if (factory == nil) {
-      JreStrongAssignAndConsume(&mCursor_, new_NetSqlcipherDatabaseSQLiteCursor_initWithNetSqlcipherDatabaseSQLiteDatabase_withNetSqlcipherDatabaseSQLiteCursorDriver_withNSString_withNetSqlcipherDatabaseSQLiteQuery_(mDatabase_, self, mEditTable_, query));
+      mCursor_ = create_NetSqlcipherDatabaseSQLiteCursor_initWithNetSqlcipherDatabaseSQLiteDatabase_withNetSqlcipherDatabaseSQLiteCursorDriver_withNSString_withNetSqlcipherDatabaseSQLiteQuery_(mDatabase_, self, mEditTable_, query);
     }
     else {
-      JreStrongAssign(&mCursor_, [factory newCursorWithNetSqlcipherDatabaseSQLiteDatabase:mDatabase_ withNetSqlcipherDatabaseSQLiteCursorDriver:self withNSString:mEditTable_ withNetSqlcipherDatabaseSQLiteQuery:query]);
+      mCursor_ = [factory newCursorWithNetSqlcipherDatabaseSQLiteDatabase:mDatabase_ withNetSqlcipherDatabaseSQLiteCursorDriver:self withNSString:mEditTable_ withNetSqlcipherDatabaseSQLiteQuery:query];
     }
     JreStrongAssign(&mQuery_, query);
     query = nil;
@@ -66,10 +65,10 @@ J2OBJC_FIELD_SETTER(NetSqlcipherDatabaseSQLiteDirectCursorDriver, mQuery_, NetSq
       [query bindStringWithInt:i + 1 withNSString:IOSObjectArray_Get(nil_chk(selectionArgs), i)];
     }
     if (factory == nil) {
-      JreStrongAssignAndConsume(&mCursor_, new_NetSqlcipherDatabaseSQLiteCursor_initWithNetSqlcipherDatabaseSQLiteDatabase_withNetSqlcipherDatabaseSQLiteCursorDriver_withNSString_withNetSqlcipherDatabaseSQLiteQuery_(mDatabase_, self, mEditTable_, query));
+      mCursor_ = create_NetSqlcipherDatabaseSQLiteCursor_initWithNetSqlcipherDatabaseSQLiteDatabase_withNetSqlcipherDatabaseSQLiteCursorDriver_withNSString_withNetSqlcipherDatabaseSQLiteQuery_(mDatabase_, self, mEditTable_, query);
     }
     else {
-      JreStrongAssign(&mCursor_, [factory newCursorWithNetSqlcipherDatabaseSQLiteDatabase:mDatabase_ withNetSqlcipherDatabaseSQLiteCursorDriver:self withNSString:mEditTable_ withNetSqlcipherDatabaseSQLiteQuery:query]);
+      mCursor_ = [factory newCursorWithNetSqlcipherDatabaseSQLiteDatabase:mDatabase_ withNetSqlcipherDatabaseSQLiteCursorDriver:self withNSString:mEditTable_ withNetSqlcipherDatabaseSQLiteQuery:query];
     }
     JreStrongAssign(&mQuery_, query);
     query = nil;
@@ -81,7 +80,7 @@ J2OBJC_FIELD_SETTER(NetSqlcipherDatabaseSQLiteDirectCursorDriver, mQuery_, NetSq
 }
 
 - (void)cursorClosed {
-  JreStrongAssign(&mCursor_, nil);
+  mCursor_ = nil;
 }
 
 - (void)setBindArgumentsWithNSStringArray:(IOSObjectArray *)bindArgs {
@@ -101,10 +100,14 @@ J2OBJC_FIELD_SETTER(NetSqlcipherDatabaseSQLiteDirectCursorDriver, mQuery_, NetSq
   return JreStrcat("$$", @"SQLiteDirectCursorDriver: ", mSql_);
 }
 
+- (void)__javaClone:(NetSqlcipherDatabaseSQLiteDirectCursorDriver *)original {
+  [super __javaClone:original];
+  [mCursor_ release];
+}
+
 - (void)dealloc {
   RELEASE_(mEditTable_);
   RELEASE_(mDatabase_);
-  RELEASE_(mCursor_);
   RELEASE_(mSql_);
   RELEASE_(mQuery_);
   [super dealloc];
