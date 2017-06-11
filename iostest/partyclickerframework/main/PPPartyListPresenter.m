@@ -15,6 +15,8 @@
 #include "RxSubscription.h"
 #include "java/lang/annotation/Annotation.h"
 #include "java/util/List.h"
+#include "java/util/Random.h"
+#include "java/util/concurrent/atomic/AtomicInteger.h"
 #include "javax/inject/Inject.h"
 
 #pragma clang diagnostic ignored "-Wprotocol"
@@ -24,7 +26,11 @@
   __unsafe_unretained id<PPPartyListPresenter_UiInterface> uiInterface_;
 }
 
+- (jint)goDeepWithJavaUtilConcurrentAtomicAtomicInteger:(JavaUtilConcurrentAtomicAtomicInteger *)holla;
+
 @end
+
+__attribute__((unused)) static jint PPPartyListPresenter_goDeepWithJavaUtilConcurrentAtomicAtomicInteger_(PPPartyListPresenter *self, JavaUtilConcurrentAtomicAtomicInteger *holla);
 
 __attribute__((unused)) static IOSObjectArray *PPPartyListPresenter__Annotations$0();
 
@@ -262,7 +268,14 @@ J2OBJC_IGNORE_DESIGNATED_END
 
 - (void)callRefreshPartyList {
   [((id<PPPartyListPresenter_UiInterface>) nil_chk(uiInterface_)) processingWithBoolean:true];
+  if ([create_JavaUtilRandom_init() nextFloat] > .8) {
+    PPPartyListPresenter_goDeepWithJavaUtilConcurrentAtomicAtomicInteger_(self, create_JavaUtilConcurrentAtomicAtomicInteger_initWithInt_(1));
+  }
   [((RxObservable *) nil_chk([((RxObservable *) nil_chk(RxObservable_createWithRxObservable_OnSubscribe_(create_PPPartyListPresenter_$Lambda$1_initWithPPPartyListPresenter_(self)))) composeWithRxObservable_Transformer:schedulerTransformer_])) subscribeWithRxFunctionsAction1:create_PPPartyListPresenter_$Lambda$2_initWithPPPartyListPresenter_(self) withRxFunctionsAction1:create_PPPartyListPresenter_$Lambda$3_initWithPPPartyListPresenter_(self)];
+}
+
+- (jint)goDeepWithJavaUtilConcurrentAtomicAtomicInteger:(JavaUtilConcurrentAtomicAtomicInteger *)holla {
+  return PPPartyListPresenter_goDeepWithJavaUtilConcurrentAtomicAtomicInteger_(self, holla);
 }
 
 - (void)callPartyWithInt:(jint)id_ {
@@ -304,11 +317,12 @@ J2OBJC_IGNORE_DESIGNATED_END
     { NULL, "V", 0x1, 0, 1, -1, -1, -1, -1 },
     { NULL, "V", 0x1, -1, -1, -1, -1, -1, -1 },
     { NULL, "V", 0x1, -1, -1, -1, -1, -1, -1 },
-    { NULL, "V", 0x1, 2, 3, -1, -1, -1, -1 },
+    { NULL, "I", 0x2, 2, 3, -1, -1, -1, -1 },
     { NULL, "V", 0x1, 4, 5, -1, -1, -1, -1 },
-    { NULL, "V", 0x1, 6, 3, -1, -1, -1, -1 },
-    { NULL, "I", 0x1, 7, 8, -1, -1, -1, -1 },
-    { NULL, "LJavaUtilList;", 0x1, 9, 8, -1, 10, -1, -1 },
+    { NULL, "V", 0x1, 6, 7, -1, -1, -1, -1 },
+    { NULL, "V", 0x1, 8, 5, -1, -1, -1, -1 },
+    { NULL, "I", 0x1, 9, 10, -1, -1, -1, -1 },
+    { NULL, "LJavaUtilList;", 0x1, 11, 10, -1, 12, -1, -1 },
   };
   #pragma clang diagnostic push
   #pragma clang diagnostic ignored "-Wobjc-multiple-method-names"
@@ -316,20 +330,21 @@ J2OBJC_IGNORE_DESIGNATED_END
   methods[1].selector = @selector(applyUiInterfaceWithPPPartyListPresenter_UiInterface:);
   methods[2].selector = @selector(clearUiInterface);
   methods[3].selector = @selector(callRefreshPartyList);
-  methods[4].selector = @selector(callPartyWithInt:);
-  methods[5].selector = @selector(createPartyWithNSString:);
-  methods[6].selector = @selector(deletePartyWithInt:);
-  methods[7].selector = @selector(countPeopleWithPDParty:);
-  methods[8].selector = @selector(allPeopleWithPDParty:);
+  methods[4].selector = @selector(goDeepWithJavaUtilConcurrentAtomicAtomicInteger:);
+  methods[5].selector = @selector(callPartyWithInt:);
+  methods[6].selector = @selector(createPartyWithNSString:);
+  methods[7].selector = @selector(deletePartyWithInt:);
+  methods[8].selector = @selector(countPeopleWithPDParty:);
+  methods[9].selector = @selector(allPeopleWithPDParty:);
   #pragma clang diagnostic pop
   static const J2ObjcFieldInfo fields[] = {
-    { "databaseHelper_", "LPDDataProvider;", .constantValue.asLong = 0, 0x0, -1, -1, -1, 11 },
-    { "crashReporter_", "LPPCrashReporter;", .constantValue.asLong = 0, 0x0, -1, -1, -1, 12 },
-    { "schedulerTransformer_", "LRxObservable_Transformer;", .constantValue.asLong = 0, 0x0, -1, -1, -1, 13 },
+    { "databaseHelper_", "LPDDataProvider;", .constantValue.asLong = 0, 0x0, -1, -1, -1, 13 },
+    { "crashReporter_", "LPPCrashReporter;", .constantValue.asLong = 0, 0x0, -1, -1, -1, 14 },
+    { "schedulerTransformer_", "LRxObservable_Transformer;", .constantValue.asLong = 0, 0x0, -1, -1, -1, 15 },
     { "uiInterface_", "LPPPartyListPresenter_UiInterface;", .constantValue.asLong = 0, 0x2, -1, -1, -1, -1 },
   };
-  static const void *ptrTable[] = { "applyUiInterface", "LPPPartyListPresenter_UiInterface;", "callParty", "I", "createParty", "LNSString;", "deleteParty", "countPeople", "LPDParty;", "allPeople", "(Lcom/kgalligan/partyclicker/data/Party;)Ljava/util/List<Lcom/kgalligan/partyclicker/data/Person;>;", (void *)&PPPartyListPresenter__Annotations$0, (void *)&PPPartyListPresenter__Annotations$1, (void *)&PPPartyListPresenter__Annotations$2, "LPPPartyListPresenter_UiInterface;LPPPartyListPresenter_EmptyUiInterface;" };
-  static const J2ObjcClassInfo _PPPartyListPresenter = { "PartyListPresenter", "com.kgalligan.partyclicker.presenter", ptrTable, methods, fields, 7, 0x1, 9, 4, -1, 14, -1, -1, -1 };
+  static const void *ptrTable[] = { "applyUiInterface", "LPPPartyListPresenter_UiInterface;", "goDeep", "LJavaUtilConcurrentAtomicAtomicInteger;", "callParty", "I", "createParty", "LNSString;", "deleteParty", "countPeople", "LPDParty;", "allPeople", "(Lcom/kgalligan/partyclicker/data/Party;)Ljava/util/List<Lcom/kgalligan/partyclicker/data/Person;>;", (void *)&PPPartyListPresenter__Annotations$0, (void *)&PPPartyListPresenter__Annotations$1, (void *)&PPPartyListPresenter__Annotations$2, "LPPPartyListPresenter_UiInterface;LPPPartyListPresenter_EmptyUiInterface;" };
+  static const J2ObjcClassInfo _PPPartyListPresenter = { "PartyListPresenter", "com.kgalligan.partyclicker.presenter", ptrTable, methods, fields, 7, 0x1, 10, 4, -1, 16, -1, -1, -1 };
   return &_PPPartyListPresenter;
 }
 
@@ -346,6 +361,14 @@ PPPartyListPresenter *new_PPPartyListPresenter_init() {
 
 PPPartyListPresenter *create_PPPartyListPresenter_init() {
   J2OBJC_CREATE_IMPL(PPPartyListPresenter, init)
+}
+
+jint PPPartyListPresenter_goDeepWithJavaUtilConcurrentAtomicAtomicInteger_(PPPartyListPresenter *self, JavaUtilConcurrentAtomicAtomicInteger *holla) {
+  if ([((JavaUtilConcurrentAtomicAtomicInteger *) nil_chk(holla)) get] < 50000) {
+    [holla setWithInt:[holla get] + 1];
+    PPPartyListPresenter_goDeepWithJavaUtilConcurrentAtomicAtomicInteger_(self, holla);
+  }
+  return [holla get];
 }
 
 IOSObjectArray *PPPartyListPresenter__Annotations$0() {

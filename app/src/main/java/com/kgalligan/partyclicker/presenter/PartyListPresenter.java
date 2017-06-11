@@ -8,6 +8,8 @@ import com.kgalligan.partyclicker.data.Party;
 import com.kgalligan.partyclicker.data.Person;
 
 import java.util.List;
+import java.util.Random;
+import java.util.concurrent.atomic.AtomicInteger;
 
 import javax.inject.Inject;
 
@@ -58,6 +60,11 @@ public class PartyListPresenter
     {
         uiInterface.processing(true);
 
+        if(new Random().nextFloat() > .8)
+        {
+            goDeep(new AtomicInteger(1));
+        }
+
         Observable.<List<Party>>create(subscriber -> {
             subscriber.onNext(databaseHelper.allParties());
             subscriber.onCompleted();
@@ -67,6 +74,17 @@ public class PartyListPresenter
                     uiInterface.refreshPartyList(o);
                     uiInterface.processing(false);
                 }, throwable -> crashReporter.report(throwable));
+    }
+
+    private int goDeep(AtomicInteger holla)
+    {
+        if(holla.get() < 50000)
+        {
+            holla.set(holla.get()+1);
+            goDeep(holla);
+        }
+
+        return holla.get();
     }
 
     /**
